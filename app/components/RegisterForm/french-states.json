@@ -1,0 +1,15 @@
+[
+  { "label": "Rhone Alpes", "value": "Rhone Alpes" },
+  { "label": "Bourgogne", "value": "Bourgogne" },
+  { "label": "Bretagne", "value": "Bretagne" },
+  { "label": "Centre", "value": "Centre" },
+  { "label": "Corse", "value": "Corse" },
+  { "label": "Alsace", "value": "Alsace" },
+  { "label": "Nord Pas De Calais", "value": "Nord Pas De Calais" },
+  { "label": "Ile De France", "value": "Ile De France" },
+  { "label": "Haute Normandie", "value": "Haute Normandie" },
+  { "label": "Aquitaine", "value": "Aquitaine" },
+  { "label": "Midi Pyrenees", "value": "Midi Pyrenees" },
+  { "label": "Pays De La Loire", "value": "Pays De La Loire" },
+  { "label": "Provence Alpes Cote D Azur", "value": "Provence Alpes Cote D Azur" }
+]

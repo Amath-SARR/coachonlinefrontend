@@ -1,0 +1,283 @@
+{
+  "fakeAccountsIds": [],
+  "fakeAccountsEmails": ["contact@bibvincennes.fr"],
+  "ranking": [
+    {
+      "category": "",
+      "coachId": 23,
+      "isMe": false,
+      "joinDate": "2021-04-05T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Olga Ciesco",
+      "rankPosition": 1,
+      "totalMinutes": 5227.13
+    },
+    {
+      "category": "",
+      "coachId": 122,
+      "isMe": false,
+      "joinDate": "2021-07-07T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Olivier Madelrieux",
+      "rankPosition": 2,
+      "totalMinutes": 4342.54
+    },
+    {
+      "category": "",
+      "coachId": 6,
+      "isMe": true,
+      "joinDate": "2021-05-22T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "",
+      "rankPosition": 3,
+      "totalMinutes": 4177.11
+    },
+    {
+      "category": "",
+      "coachId": 24,
+      "isMe": false,
+      "joinDate": "2021-05-04T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Cyril Darmon",
+      "rankPosition": 4,
+      "totalMinutes": 4023.5
+    },
+    {
+      "category": "",
+      "coachId": 8,
+      "isMe": false,
+      "joinDate": "2021-03-28T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Gaëlle Pelloille",
+      "rankPosition": 5,
+      "totalMinutes": 3588.42
+    },
+    {
+      "category": "",
+      "coachId": 226,
+      "isMe": false,
+      "joinDate": "2021-09-21T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Sylvère Caron",
+      "rankPosition": 6,
+      "totalMinutes": 3470.54
+    },
+    {
+      "category": "",
+      "coachId": 54,
+      "isMe": false,
+      "joinDate": "2021-05-05T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Jérémie De Meyer",
+      "rankPosition": 7,
+      "totalMinutes": 2306.98
+    },
+    {
+      "category": "",
+      "coachId": 167,
+      "isMe": false,
+      "joinDate": "2021-08-11T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Denery Fabrice Angello",
+      "rankPosition": 8,
+      "totalMinutes": 1498.03
+    },
+    {
+      "category": "",
+      "coachId": 115,
+      "isMe": false,
+      "joinDate": "2021-06-29T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Thivan Muonghane",
+      "rankPosition": 9,
+      "totalMinutes": 876.32
+    },
+    {
+      "category": "",
+      "coachId": 69,
+      "isMe": false,
+      "joinDate": "2021-05-19T00:00:00",
+      "month": "2021-12-01T00:00:00",
+      "name": "Hélène Tysman",
+      "rankPosition": 10,
+      "totalMinutes": 567.32
+    }
+  ],
+  "monthBalance": {
+    "currency": "eur",
+    "month": "2021-12-01T00:00:00",
+    "totalBalanceCurrentMonth": 493.22,
+    "totalBalancePreviousMonth": 388.1,
+    "totalBalanceToWithdrawCurrentMonth": 388.1,
+    "totalBalanceToWithdrawPreviousMonth": 354.2
+  },
+  "monthMinutes": {
+    "month": "2021-12-01T00:00:00",
+    "totalWatchedMinutesCurrentMonth": 2337.67,
+    "totalWatchedMinutesPreviousMonth": 1839.44
+  },
+  "monthStatistics": {
+    "currency": "eur",
+    "dayBalances": [
+      {
+        "day": "2021-12-31T00:00:00",
+        "dayBalance": 12.28,
+        "totalWatchedMinutes": 58.22
+      },
+      {
+        "day": "2021-12-30T00:00:00",
+        "dayBalance": 21.36,
+        "totalWatchedMinutes": 101.22
+      },
+      {
+        "day": "2021-12-29T00:00:00",
+        "dayBalance": 6.49,
+        "totalWatchedMinutes": 30.78
+      },
+      {
+        "day": "2021-12-28T00:00:00",
+        "dayBalance": 6.81,
+        "totalWatchedMinutes": 32.27
+      },
+      {
+        "day": "2021-12-27T00:00:00",
+        "dayBalance": 6.11,
+        "totalWatchedMinutes": 28.98
+      },
+      {
+        "day": "2021-12-26T00:00:00",
+        "dayBalance": 4.67,
+        "totalWatchedMinutes": 22.15
+      },
+      {
+        "day": "2021-12-25T00:00:00",
+        "dayBalance": 2.77,
+        "totalWatchedMinutes": 13.12
+      },
+      {
+        "day": "2021-12-24T00:00:00",
+        "dayBalance": 16.93,
+        "totalWatchedMinutes": 80.22
+      },
+      {
+        "day": "2021-12-23T00:00:00",
+        "dayBalance": 13.14,
+        "totalWatchedMinutes": 62.3
+      },
+      {
+        "day": "2021-12-22T00:00:00",
+        "dayBalance": 26.2,
+        "totalWatchedMinutes": 124.2
+      },
+      {
+        "day": "2021-12-21T00:00:00",
+        "dayBalance": 35.51,
+        "totalWatchedMinutes": 168.3
+      },
+      {
+        "day": "2021-12-20T00:00:00",
+        "dayBalance": 42.45,
+        "totalWatchedMinutes": 201.2
+      },
+      {
+        "day": "2021-12-19T00:00:00",
+        "dayBalance": 4.26,
+        "totalWatchedMinutes": 20.2
+      },
+      {
+        "day": "2021-12-18T00:00:00",
+        "dayBalance": 3.64,
+        "totalWatchedMinutes": 17.23
+      },
+      {
+        "day": "2021-12-17T00:00:00",
+        "dayBalance": 2.15,
+        "totalWatchedMinutes": 10.2
+      },
+      {
+        "day": "2021-12-16T00:00:00",
+        "dayBalance": 7.22,
+        "totalWatchedMinutes": 34.2
+      },
+      {
+        "day": "2021-12-15T00:00:00",
+        "dayBalance": 7.36,
+        "totalWatchedMinutes": 34.9
+      },
+      {
+        "day": "2021-12-14T00:00:00",
+        "dayBalance": 2.57,
+        "totalWatchedMinutes": 12.2
+      },
+      {
+        "day": "2021-12-13T00:00:00",
+        "dayBalance": 41.8,
+        "totalWatchedMinutes": 198.1
+      },
+      {
+        "day": "2021-12-12T00:00:00",
+        "dayBalance": 33.8,
+        "totalWatchedMinutes": 160.2
+      },
+      {
+        "day": "2021-12-11T00:00:00",
+        "dayBalance": 28.53,
+        "totalWatchedMinutes": 135.23
+      },
+      {
+        "day": "2021-12-10T00:00:00",
+        "dayBalance": 14.75,
+        "totalWatchedMinutes": 69.9
+      },
+      {
+        "day": "2021-12-09T00:00:00",
+        "dayBalance": 16.54,
+        "totalWatchedMinutes": 78.4
+      },
+      {
+        "day": "2021-12-08T00:00:00",
+        "dayBalance": 18.97,
+        "totalWatchedMinutes": 89.9
+      },
+      {
+        "day": "2021-12-07T00:00:00",
+        "dayBalance": 16.92,
+        "totalWatchedMinutes": 80.2
+      },
+      {
+        "day": "2021-12-06T00:00:00",
+        "dayBalance": 13.57,
+
+        "totalWatchedMinutes": 64.3
+      },
+      {
+        "day": "2021-12-05T00:00:00",
+        "dayBalance": 28.31,
+        "totalWatchedMinutes": 134.2
+      },
+      {
+        "day": "2021-12-04T00:00:00",
+        "dayBalance": 4.31,
+        "totalWatchedMinutes": 20.43
+      },
+      {
+        "day": "2021-12-03T00:00:00",
+        "dayBalance": 19.06,
+        "totalWatchedMinutes": 90.32
+      },
+      {
+        "day": "2021-12-02T00:00:00",
+        "dayBalance": 18.42,
+        "totalWatchedMinutes": 77.3
+      },
+      {
+        "day": "2021-12-01T00:00:00",
+        "dayBalance": 16.31,
+        "totalWatchedMinutes": 87.3
+      }
+    ],
+    "month": "2021-12-01T00:00:00",
+    "totalBalance": 493.22,
+    "totalWatchedMinutes": 2337.67
+  }
+}

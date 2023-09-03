@@ -1,0 +1,21 @@
+export const emptySubscription = {
+  amountPerMonth: 0,
+  billingOption: 0,
+  billingOptionStr: 'FREE',
+  currency: 'eur',
+  description: 'Skip the subscription choice',
+  id: 21372137,
+  isActive: true,
+  name: 'No Subscription',
+  price: {
+    amount: 0,
+    billingPlanId: 21372137,
+    currency: 'eur',
+    period: 1,
+    periodType: 'month',
+    reccuring: true,
+    stripePriceId: null,
+  },
+  stripePriceId: 'price_1IWP5OBR24jaUNjGNmC5ycBx',
+  stripeProductId: 'prod_J8gSqU09gLxbuf',
+};

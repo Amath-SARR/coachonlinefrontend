@@ -1,0 +1,25 @@
+
+
+@media screen and (max-width: 500px) {
+  .category-list .slider-wrapper.axis-horizontal{
+    margin-right: 8px;
+    width: 300px
+  }
+}
+
+  @media screen and (max-width: 920px) {
+    .category-list .carousel.carousel-div {
+    width: 300px
+  }
+}
+
+.category-list.carousel.carousel-div {
+  width: 300px; 
+}
+
+.category-list.slider-wrapper.axis-horizontal{
+  max-width: 300px;
+}
+.category-list.carousel-root {
+  width: 900px; 
+ }

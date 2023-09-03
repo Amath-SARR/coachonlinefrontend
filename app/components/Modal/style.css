@@ -1,0 +1,37 @@
+.ReactModal__Overlay.transition{
+  opacity: 0;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open.transition{
+  opacity: 1;
+  padding: 2px;
+}
+
+.ReactModal__Overlay--before-close.transition{
+  opacity: 0;
+}
+
+.ReactModal__Overlay.transition-position{
+  opacity: 0;
+  bottom: 100vh;
+  transition: opacity 500ms ease-in-out;
+}
+
+.ReactModal__Overlay--after-open.transition-position{
+  opacity: 1;
+  bottom: 0;
+}
+
+.ReactModal__Overlay--before-close.transition-position{
+  opacity: 0;
+  bottom: 100vh;
+}
+
+.ReactModal__Content.ReactModal__Content--after-open {
+  background: white;
+  padding: 2px;
+}
+.ResponsiveModal {
+  
+}

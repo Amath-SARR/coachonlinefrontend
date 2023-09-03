@@ -1,0 +1,11 @@
+
+  
+  .horizontal-list .carousel .slide{
+   
+  } 
+
+  @media screen and (max-width: 450px) {
+    .horizontal-list .carousel .slide{
+      margin-right: 8px;
+    } 
+  }

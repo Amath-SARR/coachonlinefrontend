@@ -1,0 +1,766 @@
+{
+  "fakeAccountsIds": [6, 26],
+  "fakeAccountsEmails": ["bohdan+library@itsharkz.com", "contact@bibvincennes.fr"],
+  "statisticsChart": {
+    "registered": [
+      {
+        "id": 1,
+        "name": "Agriculteurs exploitants",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 4, "female": 1, "sum": 5 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 3, "female": 6, "sum": 9 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 6, "female": 1, "sum": 7 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 3, "sum": 3 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 6, "female": 5, "sum": 11 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 3, "female": 4, "sum": 7 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 1, "sum": 1 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Artisans, commerçants, chefs d'entreprise",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 7, "female": 2, "sum": 9 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 5, "female": 4, "sum": 9 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 6, "female": 6, "sum": 12 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 8, "female": 2, "sum": 10 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 3, "sum": 3 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Cadres et professions intellectuelles supérieurese",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 6, "female": 0, "sum": 6 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 2, "sum": 2 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 2, "sum": 2 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Employés non qualifiése",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 3, "female": 4, "sum": 7 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 0, "female": 4, "sum": 4 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 8, "female": 0, "sum": 8 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 12, "female": 4, "sum": 16 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 2, "sum": 2 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "Employés qualifiése",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 6,
+        "name": "Non déterminée",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 4, "female": 0, "sum": 4 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 3, "female": 7, "sum": 10 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 3, "female": 0, "sum": 3 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 7, "female": 7, "sum": 14 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 1, "female": 2, "sum": 3 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 3, "female": 1, "sum": 4 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 7,
+        "name": "Ouvriers non qualifiés",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 3, "female": 0, "sum": 3 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 1, "sum": 1 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 1, "female": 1, "sum": 2 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 8,
+        "name": "Ouvriers qualifiés",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 4, "female": 2, "sum": 6 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 1, "sum": 1 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 7, "female": 0, "sum": 7 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 21, "sum": 21 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 2, "female": 2, "sum": 4 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 6, "female": 7, "sum": 13 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 1, "female": 0, "sum": 1 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 2, "sum": 2 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 2, "female": 1, "sum": 3 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 1, "sum": 1 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      },
+      {
+        "id": 9,
+        "name": "Professions intermédiaires",
+        "ages": [
+          { "ageGroup": "0-4", "startAge": 0, "endAge": 4, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "5-9", "startAge": 5, "endAge": 9, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "10-14", "startAge": 10, "endAge": 14, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "15-19", "startAge": 15, "endAge": 19, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "20-24", "startAge": 20, "endAge": 24, "male": 5, "female": 1, "sum": 6 },
+          { "ageGroup": "25-29", "startAge": 25, "endAge": 29, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "30-34", "startAge": 30, "endAge": 34, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "35-39", "startAge": 35, "endAge": 39, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "40-44", "startAge": 40, "endAge": 44, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "45-49", "startAge": 45, "endAge": 49, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "50-54", "startAge": 50, "endAge": 54, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "55-59", "startAge": 55, "endAge": 59, "male": 2, "female": 0, "sum": 2 },
+          { "ageGroup": "60-64", "startAge": 60, "endAge": 64, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "65-69", "startAge": 65, "endAge": 69, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "70-74", "startAge": 70, "endAge": 74, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "75-79", "startAge": 75, "endAge": 79, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "80-84", "startAge": 80, "endAge": 84, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "85-89", "startAge": 85, "endAge": 89, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "90-94", "startAge": 90, "endAge": 94, "male": 0, "female": 0, "sum": 0 },
+          { "ageGroup": "95-99", "startAge": 95, "endAge": 99, "male": 0, "female": 0, "sum": 0 }
+        ]
+      }
+    ]
+  },
+  "statistics": {
+    "totalRegisteredUsers": 261,
+    "currentlyConnected": 0,
+    "totalConnections": 0,
+    "connectionsTotalTime": 0.0,
+    "connectrionsAverageTime": 0.0,
+    "byProfession": [
+      {
+        "professionId": 1,
+        "professionName": "Agriculteurs exploitants",
+        "totalRegisteredUsers": 47,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 2,
+        "professionName": "Artisans, commerçants, chefs d'entreprise",
+        "totalRegisteredUsers": 43,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 3,
+        "professionName": "Cadres et professions intellectuelles supérieurese",
+        "totalRegisteredUsers": 10,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 4,
+        "professionName": "Employés non qualifiése",
+        "totalRegisteredUsers": 39,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 5,
+        "professionName": "Employés qualifiése",
+        "totalRegisteredUsers": 0,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 6,
+        "professionName": "Non déterminée",
+        "totalRegisteredUsers": 44,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 7,
+        "professionName": "Ouvriers non qualifiés",
+        "totalRegisteredUsers": 8,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 8,
+        "professionName": "Ouvriers qualifiés",
+        "totalRegisteredUsers": 62,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "professionId": 9,
+        "professionName": "Professions intermédiaires",
+        "totalRegisteredUsers": 8,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      }
+    ],
+    "byYearOfBirth": [
+      {
+        "fromAge": 0,
+        "toAge": 17,
+        "totalRegisteredUsers": 5,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "fromAge": 18,
+        "toAge": 29,
+        "totalRegisteredUsers": 76,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "fromAge": 30,
+        "toAge": 49,
+        "totalRegisteredUsers": 92,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "fromAge": 50,
+        "toAge": 69,
+        "totalRegisteredUsers": 84,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "fromAge": 70,
+        "toAge": 100,
+        "totalRegisteredUsers": 8,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      }
+    ],
+    "byGender": [
+      {
+        "gender": "Female",
+        "totalRegisteredUsers": 0,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      },
+      {
+        "gender": "Male",
+        "totalRegisteredUsers": 0,
+        "totalConnections": 0,
+        "connectionsTotalTime": 0.0,
+        "connectrionsAverageTime": 0.0
+      }
+    ]
+  },
+  "connectionStatistics": {
+    "PROFESSION": {
+      "currentlyConnected": 0,
+      "totalRegisteredUsers": 8,
+      "totalConnections": 18,
+      "connectionsTotalTime": 1304.0,
+      "connectrionsAverageTime": 72.44,
+      "key": "PROFESSION",
+      "data": [
+        {
+          "id": 1,
+          "name": "Agriculteurs exploitants",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 47,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 2,
+          "name": "Artisans, commerçants, chefs d'entreprise",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 43,
+          "totalConnections": 17,
+          "connectionsTotalTime": 1303.61,
+          "connectrionsAverageTime": 83.44
+        },
+        {
+          "id": 3,
+          "name": "Cadres et professions intellectuelles supérieurese",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 10,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 4,
+          "name": "Employés non qualifiése",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 39,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 5,
+          "name": "Employés qualifiése",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 0,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 6,
+          "name": "Non déterminée",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 44,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 7,
+          "name": "Ouvriers non qualifiés",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 8,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 8,
+          "name": "Ouvriers qualifiés",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 62,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 9,
+          "name": "Professions intermédiaires",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 8,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        }
+      ]
+    },
+    "AGE": {
+      "currentlyConnected": 0,
+      "totalRegisteredUsers": 8,
+      "totalConnections": 18,
+      "connectionsTotalTime": 1304.0,
+      "connectrionsAverageTime": 72.44,
+      "key": "AGE",
+      "data": [
+        {
+          "id": 1,
+          "name": "0-17",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 5,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 2,
+          "name": "18-29",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 76,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 3,
+          "name": "30-49",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 92,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 4,
+          "name": "50-69",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 84,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 5,
+          "name": "70-100",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 8,
+          "totalConnections": 17,
+          "connectionsTotalTime": 1303.61,
+          "connectrionsAverageTime": 83.44
+        }
+      ]
+    },
+    "GENDER": {
+      "currentlyConnected": 0,
+      "totalRegisteredUsers": 8,
+      "totalConnections": 18,
+      "connectionsTotalTime": 1304.0,
+      "connectrionsAverageTime": 72.44,
+      "key": "GENDER",
+      "data": [
+        {
+          "id": 1,
+          "name": "Female",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 131,
+          "totalConnections": 208,
+          "connectionsTotalTime": 2.1,
+          "connectrionsAverageTime": 2.1
+        },
+        {
+          "id": 2,
+          "name": "Male",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 100,
+          "totalConnections": 203,
+          "connectionsTotalTime": 1301.9,
+          "connectrionsAverageTime": 81.73
+        },
+        {
+          "id": 3,
+          "name": "Unknown",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 30,
+          "totalConnections": 345,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        }
+      ]
+    },
+    "CITY": {
+      "currentlyConnected": 0,
+      "totalRegisteredUsers": 8,
+      "totalConnections": 18,
+      "connectionsTotalTime": 1304.0,
+      "connectrionsAverageTime": 72.44,
+      "key": "CITY",
+      "data": [
+        {
+          "id": 1,
+          "name": "Paris",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 88,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 2,
+          "name": "Marseille",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 40,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 3,
+          "name": "Lyon",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 34,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 4,
+          "name": "Toulouse",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 31,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 5,
+          "name": "Nantes",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 4,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 6,
+          "name": "Dijon",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 8,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        },
+        {
+          "id": 2137,
+          "name": "Unknown",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 30,
+          "totalConnections": 0,
+          "connectionsTotalTime": 0.0,
+          "connectrionsAverageTime": 0.0
+        }
+      ]
+    },
+    "REGION": {
+      "currentlyConnected": 0,
+      "totalRegisteredUsers": 8,
+      "totalConnections": 18,
+      "connectionsTotalTime": 1304.0,
+      "connectrionsAverageTime": 72.44,
+      "key": "REGION",
+      "data": [
+        {
+          "id": 2,
+          "name": "Bourgogne",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 64,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 1,
+          "name": "Rhone Alpes",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 20,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 3,
+          "name": "Bretagne",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 20,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 4,
+          "name": "Centre",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 43,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 5,
+          "name": "Corse",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 75,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 7,
+          "name": "Alsace",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 9,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 8,
+          "name": "Nord Pas De Calais",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 13,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 9,
+          "name": "Ile De France",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 27,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 10,
+          "name": "Haute Normandie",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 45,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 11,
+          "name": "Aquitaine",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 0,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 12,
+          "name": "Midi Pyrenees",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 1,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 13,
+          "name": "Pays De La Loire",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 23,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        },
+        {
+          "id": 14,
+          "name": "Provence Alpes Cote D Azur",
+          "currentlyConnected": 0,
+          "totalRegisteredUsers": 4,
+          "totalConnections": 1,
+          "connectionsTotalTime": 0.39,
+          "connectrionsAverageTime": 0.39
+        }
+      ]
+    }
+  }
+}

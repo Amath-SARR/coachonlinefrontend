@@ -1,0 +1,5 @@
+.ck-content {
+  min-height: 170px;
+  max-height: 200px;
+  overflow: auto;
+}
