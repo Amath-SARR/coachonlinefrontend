@@ -15,14 +15,14 @@ import ChevronRightIcon from '../../images/icons/arrow-point-to-right.png';
 import useWindowSize from '../../hooks/useWindowSize';
 import AspectRatioContainer from '../AspectRatioContainer';
 import { fullName } from '../../utils/formatters';
-import './style.css';
+import './styl.css';
 
 const PlayIconViolet = require('../../images/icons/play--violet.svg');
 
 const Wrapper = styled.div`
-  width: 85%;
+  width: 95%;
   margin: auto;
-  margin-top: 50px;
+  margin-top: 0px;
   margin-bottom: 100px;
   .carousel-root {
     background-color: ${colors.backgroundBlackBlue};
@@ -80,206 +80,127 @@ export const Icon = styled(Image)`
   height: 100%;
   object-fit: contain;
 `;
-const SingleItemWrapper = styled(AspectRatioContainer)`
-  width: calc(100% - 200px);
-  max-width: 1460px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  position: relative;
-  border-radius: 32px;
-  overflow: hidden;
-  margin: 0 auto;
-  background-image: url(${(props) => props.img});
-  background-position-y: 10%;
-  background-position-x: 50%;
-  background-size: cover;
-  background-color: ${colors.backgroundBlackBlue};
-  @media screen and (max-width: 600px) {
-    width: 100%;
-    border-radius: 16px;
-  }
-`;
-const PlayButton = styled.div`
-  width: 100px;
-  height: 100px;
-  cursor: pointer;
-  transition: opacity 0.2s ease-in-out;
-  opacity: 0;
-`;
-const DarkOverlay = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  cursor: pointer;
-  transition: all 0.2s ease-in-out;
-  background: radial-gradient(closest-side, #003a6090 0%, ${colors.backgroundBlackBlue} 100%);
-  opacity: 0.5;
-  &:hover {
-    opacity: 0.9;
-    background: radial-gradient(#003a6090 0%, ${colors.backgroundBlackBlue} 70%);
-    z-index: 1;
-    ${PlayButton} {
-      opacity: 1;
-    }
-  }
-`;
+
 const PlayIcon = styled(Image)`
   width: 100%;
   height: auto;
 `;
-const InfoWrapper = styled.div`
-  padding: 40px 80px;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
-  z-index: 1;
-  @media screen and (max-width: 900px) {
-    padding: 40px 35px;
-  }
-  &:hover {
-    ${DarkOverlay} {
-      opacity: 0.9;
-      background: radial-gradient(#003a6090 0%, ${colors.backgroundBlackBlue} 70%);
-      z-index: 1;
-    }
 
-    ${PlayButton} {
-      opacity: 1;
-    }
-  }
-`;
-const Title = styled.p`
-  font-size: 16px;
-  font-weight: bold;
-  text-align: left;
-  color: ${colors.lilac};
-  margin-bottom: 15px;
-  //text-overflow: ellipsis;
-  //display: -webkit-box;
-  //-webkit-line-clamp: 3; /* number of lines to show */
-  //-webkit-box-orient: vertical;
-  //overflow: hidden;
-  //-webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  //mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  //height: 70px;
-  @media screen and (max-width: 900px) {
-    height: 35px;
-    //-webkit-line-clamp: 2; /* number of lines to show */
-    width: 100%;
-  }
-  @media screen and (max-width: 700px) {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 5px;
-  }
-`;
-const CourseName = styled(Title)`
+const CourseName = styled.div`
+  color: var(--black-grey, #191919);
+  font-size: 30px;
+  font-weight: 100;
+  margin-left: -40px;
   text-transform: uppercase;
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  height: 70px;
-  @media screen and (max-width: 920px) {
-    font-size: 14px;
-    height: 30px;
-  }
-`;
-const CoachName = styled(Title)`
-  font-size: 2em;
-  height: 70px;
-  text-transform: unset;
-  font-weight: 700;
-  @media screen and (max-width: 920px) {
-    font-size: 18px;
-    height: 30px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 
-const Indicator = styled.div`
-  width: 30px;
-  border-bottom: 3px solid ${(props) => (props.selected ? colors.lilac : colors.borderDark)};
-  margin: 0 2px;
-  cursor: pointer;
+const CoachName = styled.div`
+  color: var(--black-grey, #191919);
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 94.023%;
 `;
 
-const Description = styled(Title)`
-  font-size: 20px !important;
-  font-weight: normal;
-  text-align: left;
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
-  height: 120px;
-  @media screen and (max-width: 920px) {
-    display: none;
-    height: 30px;
-    //-webkit-line-clamp: 2; /* number of lines to show */
-    width: 100%;
-  }
+const CardRight = styled.div`
+  width: 700px;
+  height: 500px;
+  margin-left: -350px;
+  background: url(${(props) => props.img});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: center;
+  background-position-y: center;
+  background-position: bottom, right;
+  border-radius: 0px 14px 14px 0px;
+  `;
+
+  const Button = styled.button`
+    display: flex;
+    padding: 10px 32px;
+    align-items: flex-end;
+    cursor: pointer;
+    gap: 16px;
+    border-radius: 14px;
+    border: 1px solid var(--rose, #E21680);
+    background: var(--rose, #E21680);
+    margin-top: 35px;
 `;
 
 function HomepageCarousel({ courses, onCourseClick }) {
-  const CarouselItem = ({ course }) => (
-    <SingleItemWrapper key={course.id} heightRatio={0.52} img={BASE_URL + course.photoUrl}>
-      <InfoWrapper onClick={() => onCourseClick(course)}>
-        <CoachName>{fullName(course.coach)}</CoachName>
-        <CourseName className="line-clamp">{course.name}</CourseName>
-        {/* <Description
-          className="line-clamp"
-          dangerouslySetInnerHTML={{ __html: course.description }}
-        /> */}
-        <Category style={{ backgroundColor: 'transparent' }}>{course.category?.name}</Category>
-      </InfoWrapper>
-      <DarkOverlay>
-        <PlayButton onClick={() => onCourseClick(course)}>
-          <PlayIcon src={PlayIconViolet} />
-        </PlayButton>
-      </DarkOverlay>
-    </SingleItemWrapper>
+  const CarouselItem = ({ course, index }) => (
+     <div key={course.id} >
+      <div className="full-card">
+        <div className="card-left">
+          <div className='head'>
+            <span>{[index+1]+'/'+[courses?.length]}</span>
+            <span className='category'>{course.category?.name}</span>
+          </div>
+          <div className='decription'>
+            <CoachName>{fullName(course.coach)}</CoachName>
+            <CourseName>{course.name}</CourseName>
+            <Button onClick={() => onCourseClick(course)}>En savoir plus</Button>
+          </div>
+          {/* <div className='foot'>
+            <div className="pagination">
+              {courses?.map((course,index) =>
+              <span className='a' onClick={() => onCourseClick(course)}>{index+1}</span>)}
+            </div>
+          </div> */}
+        </div>
+        <CardRight img={BASE_URL + course.photoUrl}/>
+      </div>
+    </div>
   );
 
-  const renderCourses = () => courses?.map((course) => <CarouselItem course={course} />);
+  const renderCourses = () => courses?.map((course, index) => <CarouselItem course={course} index={index} />);
 
   return (
     <Wrapper>
       <Carousel
         autoPlay
         infiniteLoop
-        centerMode
         transitionTime={1000}
-        centerSlidePercentage={100}
         showStatus={false}
         showThumbs={false}
-        onSwipeEnd={(ev) => console.log(ev)}
-        interval={10000}
-        renderIndicator={(clickHandler, selected) => (
-          <Indicator selected={selected} onClick={clickHandler} />
-        )}
-        renderArrowPrev={(clickHandler, hasPrev) =>
-          hasPrev && (
-            <ArrowLeftWrapper style={{ position: 'absolute ' }}>
-              <ArrowLeft onClick={clickHandler}>
-                <Icon src={ChevronRightIcon} />
-              </ArrowLeft>
-            </ArrowLeftWrapper>
-          )
-        }
-        renderArrowNext={(clickHandler, hasNext) =>
-          hasNext && (
-            <ArrowRightWrapper style={{ position: 'absolute ' }}>
-              <ArrowRight onClick={clickHandler}>
-                <Icon src={ChevronRightIcon} />
-              </ArrowRight>
-            </ArrowRightWrapper>
-          )
-        }
+        showArrows={false}
+        interval={2000}
+        renderIndicator={(onClickHandler, isSelected, index, label) => {
+          const defStyle = { marginLeft: 0, color: "black", cursor: "pointer",
+          border: "1px solid var(--dark-grey-50, #C5C5C9)", borderRadius: "5px",
+          display: "flex",
+          width: "30px",
+          height: "20px",
+          padding: "1px 20px",
+          flexDirection: "column",
+          alignItems: "center",
+        };
+          const style = isSelected
+            ? { ...defStyle, backgroundColor: "#E21680" }
+            : { ...defStyle };
+          return (
+            <span
+              style={style}
+              onClick={onClickHandler}
+              onKeyDown={onClickHandler}
+              value={index}
+              key={index}
+              role="button"
+              tabIndex={0}
+              aria-label={`${label} ${index + 1}`}
+            >
+              {index+1}
+            </span>
+          );
+        }}
       >
-        {useMemo(renderCourses, [courses?.length])}
+      {useMemo(renderCourses, [courses?.length])}
       </Carousel>
     </Wrapper>
   );

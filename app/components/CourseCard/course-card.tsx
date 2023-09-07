@@ -108,8 +108,23 @@ const CategoryContainer = styled.div`
   //z-index: 1;
 `;
 
+const Index = styled(Title)`
+  text-transform: uppercase;
+  height: 200px;
+  width: 200px;
+  margin-top: -40px;
+  margin-left: -2px;
+  font-size: 3em;
+  font-weight: 700;
+  color: #fff;
+  @media screen and (max-width: 920px) {
+    font-size: 14px;
+    height: 30px;
+  }
+  `;
+
 function CourseCard(props: CourseCardProps) {
-  const { course, onLikeToggle, canLike, liked: isLiked, onItemClick, auth } = props || {};
+  const { course, onLikeToggle, canLike, liked: isLiked, onItemClick, auth, index } = props || {};
   const [liked, setLiked] = useState(false);
   const userLoggedIn = !!auth?.authToken;
 
@@ -127,6 +142,10 @@ function CourseCard(props: CourseCardProps) {
     else return course?.courseName;
   };
 
+  const getIndex = () => {
+    return index;
+  };
+
   const getCoursePhotoUrl = () => {
     if (course?.photoUrl) return course?.photoUrl;
     else return course?.coursePhotoUrl;
@@ -140,7 +159,7 @@ function CourseCard(props: CourseCardProps) {
     <>
       <Container>
         <CoverImage style={{ maxWidth: '100%' }} src={`${BASE_URL}${getCoursePhotoUrl()}`} />
-        {/* 
+        {/*
           <CategoryContainer>
             <Category style={{ backgroundColor: colors.lilac, color: 'white', zIndex: 1 }}>
               {category}
@@ -148,8 +167,8 @@ function CourseCard(props: CourseCardProps) {
           </CategoryContainer> */}
 
         <InfoWrapper onClick={onItemClick}>
+          <Index>#{getIndex() + 1}</Index>
           <Title>{getCourseName()}</Title>
-
           <LikeWrapper>
             <CoachName>{fullName(course?.coach)}</CoachName>
             <IconWrapper

@@ -23,9 +23,10 @@ import { emptySubscription } from '../../containers/Subscription/SubscriptionCho
 
 const Wrapper = styled.div`
   display: flex;
-  margin-bottom: 40px;
+  flex-direction: row;
+  margin-bottom: 20px;
+  margin-left: 30px;
   margin-top: 20px;
-  justify-content: space-around;
   width: 100%;
   flex-wrap: wrap;
   position: relative;
@@ -55,7 +56,7 @@ function SubscriptionsSelector(props: SubscriptionsSelectorProps) {
   const onSubscriptionSelect = (item: Subscription) => {
     setSubscription(item);
     onSelect(item);
-    const timer = setTimeout(() => { 
+    const timer = setTimeout(() => {
       scrollTo();
     }, 800);
   };

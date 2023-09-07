@@ -28,6 +28,7 @@ import {
 import HorizontalSectionList from '../../components/HorizontalSectionList';
 import { readFromStorage, writeToStorage } from '../../utils/storage';
 import HomepageCarousel from '../../components/HomepageCarousel';
+import HomePageCategory from '../../components/HomePageCategory';
 import messages from './messages';
 import CoachesSectionList from '../../components/CoachesSectionList/Loadable';
 import PlatformStatistics from '../../components/PlatformStatistics';
@@ -55,10 +56,10 @@ import { colors } from '../../utils/colors';
 import { Text } from '../../global-styles';
 
 const Title = styled(Text)`
-  font-size: 35px;
+  font-size: 15px;
   margin-bottom: 10px;
   margin-top: 100px;
-  margin-left: 20px;
+  //margin-left: 20px;
   margin-right: 20px;
   text-align: center;
   @media screen and (max-width: 600px) {
@@ -182,10 +183,21 @@ function HomePage({
         <HomepageCarousel
           courses={readFromStorage('carouselCourses')}
           onCourseClick={(course) => goToCourse(course)}
-        />
+         />
       )
     );
   };
+
+  // const homePageCategory = () => {
+  //   if (!auth.authToken) {
+  //     return null;
+  //   }
+  //   return (
+  //     homePage.layoutState === 'default' && (
+  //       <HomePageCategory/>
+  //     )
+  //   );
+  // };
 
   const Top10Courses = () => {
     const top10 = homePage?.suggestedCourses?.slice(0, 10);
@@ -289,7 +301,9 @@ function HomePage({
         history={history}
       >
         <Carousel />
+        {auth.authToken && <HomePageCategory />}
         <PlatformStatistics />
+        {!auth.authToken && <HomePageCategory />}
         <Top10Courses />
         {/* <CategoryCard /> */}
         {/* <EventCard /> */}

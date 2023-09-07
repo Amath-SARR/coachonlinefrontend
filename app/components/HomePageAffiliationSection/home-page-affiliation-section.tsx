@@ -25,13 +25,22 @@ import useQuery from '../../hooks/useQuery';
 import { UserRole } from '../../containers/Auth/reducer.types';
 import Video from '../../images/video/CoachOnline-Presentation.mp4';
 import CardsHomePage from '../CardsHomePage/cards-home-page';
-
+import './style.css';
+const ImgAceuil = require('../../images/images/imgAcueil.png');
+const Union = require('../../images/images/union.png');
 
 const Wrapper = styled.div`
-  @media screen and (max-width: 920px) {
-    margin-top: 90px;
-  }
+  width: 85%;
+  margin-left: 80px;
+  margin: auto;
 `;
+
+const Wrapper1 = styled.div`
+  width: 550px;
+  height: 100px;
+  margin-top: 50px;
+`;
+
 const SubscriptionsWrapper = styled.div`
   width: 100%;
   max-width: 1260px;
@@ -81,49 +90,50 @@ const TextWrapper = styled.div`
   width: 700px;
   // padding: 20px;
   // background: ${colors.lilac};
-  
+
   @media screen and (max-width: 920px) {
     width: 300px;
     margin-top: 60px;
   }
 `;
-const VideoWrapper = styled.div`
-  margin: 60px;
-  box-shadow: 214px 87px 0px 23px ${colors.lilac}, 189px -136px 0px 0px ${colors.lilac};
-  @media screen and (max-width: 920px) {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 60px;
-  }
-`;
+
 const Videoplayer = styled.video`
-  width: 700px;
-  @media screen and (max-width: 500px) {
-    width: 325px;
+  width: 90%;
+  border: 2px solid ${colors.lilac};
+  border-radius: 10px;
+  @media screen and (max-width: 920px) {
+    width: 320px;
   }
 `;
-const Title = styled(Text)`
-  font-size: 45px;
-  font-weight: 500;
-  text-align: center;
-  @media screen and (max-width: 920px) {
-    font-size: 35px;
-    margin-bottom: 2px;
-  }
-  @media screen and (max-width: 500px) {
-    font-size: 25px;
+const VideoWrapper = styled.div`
+  margin-left: 100px;
+  margin-top: 50px;
+  @media screen and (max-width: 520px) {
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
   }
 `;
 
-const Title2 = styled(Text)`
-  font-size: 55px;
-  font-weight: 600;
-  text-align: center;
-  @media screen and (max-width: 920px) {
-    font-size: 40px;
-    margin-bottom: 2px;
-  }
+const Title = styled(Text)`
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 20px;
   @media screen and (max-width: 500px) {
-    //font-size: 25px;
+    font-size: 20px;
+  }
+
+`;
+
+const Title2 = styled(Text)`
+  color: var(--rose, #E21680);
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 const Welcome = styled.div`
@@ -134,12 +144,14 @@ const Welcome = styled.div`
   }
 `;
 const Subtitle = styled(Text)`
-  font-size: 35px;
+  height: 100px;
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
   margin-bottom: 20px;
-  text-align: center;
-  @media screen and (max-width: 920px) {
-    font-size: 15px;
-  }
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
 `;
 const RegisterButton = styled(Button)`
   width: 200px;
@@ -166,6 +178,31 @@ const Separator = styled.div`
     border-bottom: 1px solid white;
   }
 `;
+
+const Button1 = styled.button`
+    display: flex;
+    padding: 10px 32px;
+    align-items: flex-end;
+    cursor: pointer;
+    border-radius: 14px;
+    border: 1px solid var(--rose, #E21680);
+    background: var(--rose, #E21680);
+    margin-top: 60px;
+`;
+
+const CardRight = styled.div`
+  width: 700px;
+  height: 500px;
+  margin-left: -300px;
+  background: url(${ImgAceuil});
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position-x: center;
+  background-position-y: center;
+  background-position: bottom, right;
+  border-radius: 0px 14px 14px 0px;
+  `;
 
 const Links = styled.a`
   text-decoration: none;
@@ -213,58 +250,38 @@ function HomePageAffiliationSection(props: HomePageAffiliationSectionProps) {
     : !isCoach;
 
   return (
-    <Wrapper>
-      {/* <AffiliationBanner>
-        <BannerOverlay />
-      </AffiliationBanner> */}
-      <WelcomeTextWrapper>
-        <TextWrapper>
-          <Welcome>
-            <Title>Bienvenue sur </Title>
-            <Title2>Coachs Online</Title2>
-          </Welcome>
-          <Subtitle>
-            {isCoach
-              ? 'Créez un compte de coach dédié et commencez à gagner un revenu passif en 2 minutes !'
-              : 'Tous les cours de vos coachs préférés en illimité'}
-          </Subtitle>
-          <Buttons>
-            <Links href="https://www.coachs-online.net/offres-d-abonnements/" target="_blank">
-              <RegisterButton
+    <>
+      <Wrapper>
+        <div className="full-card">
+          <div className="card-left">
+            <div className='head'>
+              <Title>Bienvenue sur </Title>
+              <Title2>Coachs Online</Title2>
+            </div>
+            <div className='decription'>
+              <Subtitle>
+                {isCoach
+                  ? <p>Créez un compte de coach dédié <br /> et commencez à gagner <br /> un revenu passif en 2 minutes !</p>
+                  : <p>Tous les cours <br /> de vos coachs <br /> préférés en <br /> illimité</p>}
+              </Subtitle>
+              <Button1>
+                <Links href="https://www.coachs-online.net/offres-d-abonnements/" target="_blank">
+                  {/* <RegisterButton
                 // onClick={() => scrollTo()}
-                color={isCoach ? 'pink' : 'green'}
-                style={{ color: colors.white }}
-              >
-                En savoir plus
-              </RegisterButton>
-            </Links>
-            {/* <Links href="https://www.coachs-online.net/offre-d-accompagnements/" target="_blank">
-              <RegisterButton style={{ backgroundColor: 'transparent', color: colors.mainPink }}>
-                Devenir Coach
-              </RegisterButton>
-            </Links> */}
-          </Buttons>
-        </TextWrapper>
+                // color={isCoach ? 'pink' : 'green'}
+              ></RegisterButton>*/}
+                  <p style={{ color: colors.white }}>En savoir plus</p>
+                </Links>
+              </Button1>
+            </div>
+          </div>
+          <CardRight className='card-right' />
+        </div>
         <VideoWrapper>
           <Videoplayer controls autostart autoPlay muted loop src={Video} type="video/mp4" />
         </VideoWrapper>
-      </WelcomeTextWrapper>
-      {/* {subscriptionChoiceShown && (
-        <SubscriptionsWrapper id={'homepage_subs'} ref={subsRef}>
-          <SubscriptionsSelector showFreePlan onSelect={onSubscriptionSelect} />
-        </SubscriptionsWrapper>
-      )} */}
-      <CardsHomePage />
-      {/* <FormWrapper id={'homepage_form-ref'} ref={formsRef}>
-        <div style={{ flex: 1, maxWidth: 400, margin: 'auto' }}>
-          <Subtitle>{isCoach ? 'Inscrivez-vous' : 'Abonnez vous'}</Subtitle>
-          <RegisterForm accountType={registerRole} submitLabel={'Inscription'} />
-        </div>
-      </FormWrapper> */}
-      {/* {subscriptionChoiceShown && (
-        <div ref={iframeRef}>{!!iframeSrc && <IFrame src={iframeSrc} />}</div>
-      )} */}
-    </Wrapper>
+      </Wrapper >
+    </>
   );
 }
 

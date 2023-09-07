@@ -37,10 +37,8 @@ const InfoTag = styled.div`
   opacity: ${(props) => (props.isSelected ? 1 : props.otherIsSelected ? 0.4 : 1)};
 `;
 const Wrapper = styled.div`
-  background: ${(props) =>
-    props.special
-      ? 'linear-gradient(135deg, #2C4CE4 0%, #121939 100%)'
-      : 'linear-gradient(135deg, #7574FC 0%, #3A3988 100%)'};
+
+  background: var(--blue, #7474FC);
   box-shadow: none;
   border-radius: 8px;
   position: relative;
@@ -49,10 +47,11 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  height: 435px;
+  height: 415px;
   padding: 10px 15px 30px 15px;
   width: 100%;
-  max-width: 290px;
+  max-width: 250px;
+  margin-left: 15px;
   margin-bottom: 10px;
   transition: all 0.2s ease-in-out;
   cursor: ${(props) => (props.clickable ? 'pointer' : 'unset')};
