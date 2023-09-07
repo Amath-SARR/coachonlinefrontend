@@ -6,11 +6,9 @@
 
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 import HeadingLogo from '../HeadingLogo';
 import OfficeNavigator from '../OfficeNavigator';
 import { colors } from '../../utils/colors';
-import messages from '../../containers/HomePage/messages';
 import facebookIco from '../../images/icons/facebook.svg';
 import instagramIco from '../../images/icons/instagram.svg';
 import linkedinIco from '../../images/icons/linkedin.svg';
@@ -240,7 +238,7 @@ export const PageLoader = styled(ScreenLoader)`
 `;
 function PageContainer({
   title,
-  colorScheme,
+  //colorScheme,
   children,
   withPanel,
   style = {},
