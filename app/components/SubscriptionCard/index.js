@@ -26,15 +26,15 @@ const ChoosePlanButton = styled(Button)`
 `;
 const InfoTag = styled.div`
   position: absolute;
-  height: 50px;
-  padding: 17px 37px;
-  width: 200px;
-  top: 10px;
-  left: -50px;
-  font-weight: bold;
-  background-color: ${colors.mainGold};
-  transform: rotate(-45deg);
-  opacity: ${(props) => (props.isSelected ? 1 : props.otherIsSelected ? 0.4 : 1)};
+  padding: 8px 21px;
+  height: 30px;
+  width: 150px;
+  margin-top: 0px;
+  border-radius: 10px;
+  background: var(--yellow, #EAC435);
+  backdrop-filter: blur(2px);
+  display: flex;
+  top: -3px;
 `;
 const Wrapper = styled.div`
 
@@ -53,6 +53,7 @@ const Wrapper = styled.div`
   max-width: 250px;
   margin-left: 15px;
   margin-bottom: 10px;
+  margin-top: 20px;
   transition: all 0.2s ease-in-out;
   cursor: ${(props) => (props.clickable ? 'pointer' : 'unset')};
   ${(props) =>
@@ -74,7 +75,6 @@ const SubscriptionInfo = styled.div`
   align-items: center;
   height: 300px;
   width: 100%;
-  opacity: ${(props) => (props.isSelected ? 1 : props.otherIsSelected ? 0.4 : 1)};
 `;
 const Title = styled.div`
   font-size: 19px;
@@ -104,7 +104,6 @@ const PricePeriod = styled.span`
 `;
 const Footer = styled(FlexCenteredColumn)`
   width: 100%;
-  opacity: ${(props) => (props.isSelected ? 1 : props.otherIsSelected ? 0.4 : 1)};
 `;
 
 const CrossedPrice = styled(Price)`
@@ -125,6 +124,7 @@ const DiscountWrapper = styled.div`
   border-radius: 10px;
   margin-bottom: 15px;
 `;
+const HR = styled.hr`width:550px; margin-left:-20px;`
 
 const freeText = (
   <>
@@ -196,6 +196,7 @@ function SubscriptionCard({ item, onSubscriptionSelect, selectedCard }) {
           )}
         </FlexRow>
         <Title>{itemsName()}</Title>
+        <HR/>
         <PriceWrapper>
           {hasPromotionalPrice && (
             <CrossedPrice>{localizeCurrency(item.amountPerMonth)}</CrossedPrice>
@@ -214,7 +215,7 @@ function SubscriptionCard({ item, onSubscriptionSelect, selectedCard }) {
       </SubscriptionInfo>
       <Footer otherIsSelected={!!selectedCard?.id} isSelected={isSelected}>
         {!!onSubscriptionSelect && (
-          <ChoosePlanButton color="blue" onClick={() => selectSubscription(item)}>
+          <ChoosePlanButton color="#fff" onClick={() => selectSubscription(item)}>
             <span style={{ textAlign: 'center' }}>Choisir l’abonnement</span>
           </ChoosePlanButton>
         )}

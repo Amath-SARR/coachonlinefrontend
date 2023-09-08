@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   border: 1px solid ${colors.lilac};
-  width: 400px;
+  width: 300px;
   border-right: none;
   border-top-right-radius: 8px;
   border-bottom-right-radius: 8px;
@@ -30,7 +30,7 @@ const Input = styled.input`
   outline: none;
   border: none;
   box-shadow: none;
-  background: transparent;
+  background: #fff;
   margin: 0;
   color: ${colors.lilac};
   min-width: 50px;
@@ -44,6 +44,7 @@ const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-left:-20px;
   //opacity: 0.6;
   background-color: ${colors.lilac};
   border-top-right-radius: 8px;
@@ -81,7 +82,7 @@ function SearchInput({ onChange, onSearch, onClear, style }) {
 
   return (
     <Wrapper>
-      <Input ref={inputRef} value={inputValue} onChange={onInputChange} onKeyPress={onKeyPress} />
+      <Input ref={inputRef} value={inputValue} onChange={onInputChange} onKeyPress={onKeyPress} placeholder='Rechercher...' />
       {/* <IconWrapper
         style={{ visibility: !inputValue ? 'hidden' : 'visible' }}
         onClick={onInputClear}

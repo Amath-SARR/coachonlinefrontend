@@ -54,16 +54,25 @@ import FaqAccordion from '../../components/FaqAccordion/faq-accordion';
 import SubscriptionChoice from '../../components/SubscriptionChoice/subscription-choice';
 import { colors } from '../../utils/colors';
 import { Text } from '../../global-styles';
+import CardsHomePage from '../../components/CardsHomePage/cards-home-page';
 
 const Title = styled(Text)`
+
   font-size: 15px;
-  margin-bottom: 10px;
-  margin-top: 100px;
-  //margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
-  @media screen and (max-width: 600px) {
-    font-size: 22px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+const Title1 = styled.p`
+  margin-top: 50px;
+  color: var(--rose, #E21680);
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 
@@ -282,7 +291,7 @@ function HomePage({
     });
     return itemsToRender;
   };
-  console.log(homePage.courses);
+  //console.log(homePage.courses);
   return (
     <div>
       <Helmet>
@@ -303,15 +312,18 @@ function HomePage({
         <Carousel />
         {auth.authToken && <HomePageCategory />}
         <PlatformStatistics />
+        <CardsHomePage/>
         {!auth.authToken && <HomePageCategory />}
         <Top10Courses />
-        {/* <CategoryCard /> */}
+
+        {/*Nom <CategoryCard /> */}
         {/* <EventCard /> */}
         {/* <TopCourses /> */}
+
         <TrendingCourses />
         <LastAddedCourses />
         {!auth.authToken && <StudentsCta />}
-        {/* {!auth.authToken && <CoachsCTA />} */}
+        {/*Non {!auth.authToken && <CoachsCTA />} */}
 
         {/* <SubscriptionsSelector /> */}
         {/* {!auth.authToken && (
@@ -319,6 +331,7 @@ function HomePage({
             src={!!affiliationToken ? wixLinks.homepageAffiliation.url : wixLinks.homepage.url}
           />
         )} */}
+
         {renderContinueLearningSection()}
         {renderCategories()}
 
@@ -329,11 +342,13 @@ function HomePage({
             title={<FormattedMessage {...messages.coaches} />}
           />
         )} */}
+        <Title1>Découvrez nos offres d'abonnement</Title1>
         {!auth.authToken && (
           <Title id={'homepage_form-ref'} ref={formsRef}>
-            Rejoignez Coachs Online !{' '}
+             Rejoignez Coachs Online !{' '}
           </Title>
         )}
+        <hr />
         <SubscriptionContainer auth={auth} subscription={subscription} />
 
         <FaqAccordion />

@@ -87,6 +87,7 @@ const HeadingWrapper = styled.div`
   margin: auto;
   min-height: 96px;
   display: flex;
+  background: #F8F7FB;
   //align-items: center;
   justify-content: space-between;
   text-decoration: none;
@@ -100,7 +101,7 @@ const HeadingWrapper = styled.div`
   }
 `;
 const Logo = styled.img`
-  height: 40px;
+  height: 25px;
   display: block;
   margin-bottom: 20px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
@@ -109,7 +110,7 @@ const Logo = styled.img`
   }
 `;
 const LeftButtons = styled.div`
-  width: 100%;
+  width: 90%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -123,7 +124,9 @@ const SearchBar = styled.div`
   display: flex;
   justify-content: start;
   position: sticky;
-  margin-left: 50px;
+  margin-left: 150px;
+  background: #fff;
+  width: 50px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     justify-content: center;
     margin-left: -20px;
@@ -154,11 +157,11 @@ const InnerLeftMobile = styled.div`
   }
 `;
 const LogInButton = styled(Button)`
-  font-size: 13px;
+  font-size: 11px;
   word-break: keep-all;
   //padding: 5px 30px;
-  margin-left: 10px;
-  width: 120px;
+  margin-left: 8px;
+  width: 90px;
   ${(props) => props.style};
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     width: 105px;
@@ -197,6 +200,7 @@ const LogosWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-left:5px;
   position: relative;
   margin-top: 10px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
@@ -224,7 +228,7 @@ const MenuWrapper = styled.div`
   }
 `;
 const ButtonLabel = styled.span`
-  line-height: 16px;
+  line-height: 8px;
 `;
 
 const CloseButton = styled.div`
@@ -243,10 +247,11 @@ const Link = styled.u`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  //margin-left: 50px;
   // //margin-left: 300px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     // //flex-direction: column;
-    // margin-left: -50px;
+    margin-left: -50px;
     // margin-right: 40px;
     // margin-bottom: -10px;
   }
@@ -439,7 +444,7 @@ function HeadingLogo({
             setModalVisible(falses);
           }}
         >
-          <ButtonLabel style={{ color: 'white' }}>Essai Gratuit</ButtonLabel>
+          <ButtonLabel style={{ color: 'white', marginBottom: '1px' }}>Essai Gratuit</ButtonLabel>
         </LogInButton>
         <LogInButton color={colors.mainPink} onClick={() => onRegisterButtonClick()}>
           <ButtonLabel style={{ color: colors.white }}>S'abonner</ButtonLabel>
@@ -543,6 +548,7 @@ function HeadingLogo({
               style={{
                 borderTopRightRadius: 0,
                 borderBottomRightRadius: 0,
+                background: '#fff',
               }}
               onSearch={(val) => onSearchChange(val)}
               onClear={() => onSearchChange('')}
