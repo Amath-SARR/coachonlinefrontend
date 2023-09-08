@@ -6,18 +6,15 @@
 
 import React, { memo } from 'react';
 import styled from 'styled-components';
-import { FormattedMessage } from 'react-intl';
 import HeadingLogo from '../HeadingLogo';
 import OfficeNavigator from '../OfficeNavigator';
 import { colors } from '../../utils/colors';
-import messages from '../../containers/HomePage/messages';
 import facebookIco from '../../images/icons/facebook.svg';
 import instagramIco from '../../images/icons/instagram.svg';
 import linkedinIco from '../../images/icons/linkedin.svg';
 import ScreenLoader from '../ScreenLoader';
 import { Link } from 'react-router-dom';
 import { ContractsTypes } from '../../store/contracts/contracts.types';
-
 
 const Wrapper = styled.div`
   background-color: white;
@@ -87,14 +84,39 @@ const WindowContainer = styled.div`
     padding: 20px 10px;
   }
 `;
-const ChildrenWrapper = styled.div`
-  
-`;
+const ChildrenWrapper = styled.div``;
 const Title = styled.p`
   color: ${(props) => (props.isDark ? colors.textDark : colors.black)};
   font-size: 24px;
   font-weight: bold;
   margin-bottom: 40px;
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+`;
+const Text = styled.p`
+  color: ${(props) => (props.isDark ? colors.textDark : colors.black)};
+  /* Coachs H4 */
+  font-family: Montserrat;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+  @media screen and (max-width: 1024px) {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+`;
+const SousText = styled.p`
+  color: ${(props) => (props.isDark ? colors.textDark : colors.black)};
+
+  /* Coachs - Sous-titre */
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   @media screen and (max-width: 1024px) {
     font-size: 18px;
     margin-bottom: 20px;
@@ -120,20 +142,41 @@ const Section = styled.div`
     margin: 0px;
   }
 `;
+const SectionContact = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  @media screen and (max-width: 920px) {
+    margin: 0px;
+  }
+`;
 const SectionLink = styled(Link)`
   text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 10px;
+
   color: ${(props) => (props.isDark ? colors.white : colors.black)};
+
+  /* Coachs - Sous-titre */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   @media screen and (max-width: 920px) {
     font-size: 10px;
   }
 `;
 const ContactLink = styled.a`
   text-decoration: none;
-  font-size: 14px;
-  margin-bottom: 10px;
+
   color: ${(props) => (props.isDark ? colors.white : colors.black)};
+
+  /* Coachs - Sous-titre */
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
   @media screen and (max-width: 920px) {
     font-size: 10px;
   }
@@ -150,16 +193,26 @@ const SectionTitle = styled.p`
 `;
 const IconsWrapper = styled.div`
   display: flex;
+  width: 352px;
+  align-items: flex-end;
+  gap: 24px;
   @media screen and (max-width: 920px) {
     flex-direction: column;
   }
 `;
 const IconLink = styled.a`
-  text-decoration: none;
+  /* text-decoration: none;
   width: 20px;
   height: 20px;
   cursor: pointer;
-  margin: 10px;
+  margin: 10px;*/
+
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
   @media screen and (max-width: 920px) {
     &:nth-child(1) {
       margin: 0 10px 10px 10px;
@@ -167,9 +220,15 @@ const IconLink = styled.a`
   }
 `;
 const Icon = styled.img`
-  width: 100%;
+  /* width: 100%;
   height: auto;
-  filter: ${(props) => (props.isDark ? '' : 'invert()')};
+  filter: ${(props) => (props.isDark ? '' : 'invert()')};*/
+  display: flex;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
 `;
 export const PageLoader = styled(ScreenLoader)`
   position: fixed;
@@ -179,7 +238,7 @@ export const PageLoader = styled(ScreenLoader)`
 `;
 function PageContainer({
   title,
-  colorScheme,
+  //colorScheme,
   children,
   withPanel,
   style = {},
@@ -209,40 +268,48 @@ function PageContainer({
       <Footer withPannel={withPanel}>
         <Section>
           <SectionTitle>
-            <FormattedMessage {...messages.contactUs} />
+            <Text>Contactez-nous</Text>
           </SectionTitle>
-          <ContactLink href="https://www.coachs-online.com/" target="_blank">
-            Agence
-          </ContactLink>
-          <ContactLink href="mailto:contact@coachs-online.com" target="_blank">
-            Vous êtes adhérent
-          </ContactLink>
-          <ContactLink href="mailto:coachs@coachs-online.com" target="_blank">
-            Vous êtes coach
-          </ContactLink>
+          <SectionContact>
+            <ContactLink href="https://www.coachs-online.com/" target="_blank">
+              Agence
+            </ContactLink>
+            <ContactLink href="mailto:contact@coachs-online.com" target="_blank">
+              Vous êtes adhérent
+            </ContactLink>
+            <ContactLink href="mailto:coachs@coachs-online.com" target="_blank">
+              Vous êtes coach
+            </ContactLink>
+          </SectionContact>
         </Section>
         <Section>
           <SectionTitle>
-            <FormattedMessage {...messages.information} />
+            <Text>L’information</Text>
           </SectionTitle>
-          <SectionLink to={`/articles/contracts/${ContractsTypes.PrivacyPolicy}`} target="_blank">
-            Politique de confidentialité
-          </SectionLink>
-          <SectionLink
-            to={`/articles/contracts/${ContractsTypes.TermsAndConditions}`}
-            target="_blank"
-          >
-            Termes et conditions.
-          </SectionLink>
-          <ContactLink
-            href="https://www.coachs-online.net/offre-d-accompagnements/"
-            target="_blank"
-          >
-            Devenir Coachs
-          </ContactLink>
-          {/* <SectionLink to={`/articles/faq`}>FAQ</SectionLink> */}
+          <SectionContact>
+            <SectionLink to={`/articles/contracts/${ContractsTypes.PrivacyPolicy}`} target="_blank">
+              Politique de confidentialité
+            </SectionLink>
+            <SectionLink
+              to={`/articles/contracts/${ContractsTypes.TermsAndConditions}`}
+              target="_blank"
+            >
+              Termes et conditions.
+            </SectionLink>
+            <ContactLink
+              href="https://www.coachs-online.net/offre-d-accompagnements/"
+              target="_blank"
+            >
+              Devenir Coachs
+            </ContactLink>
+            {/* <SectionLink to={`/articles/faq`}>FAQ</SectionLink> */}
+          </SectionContact>
         </Section>
         <Section>
+          <SectionTitle>
+            <Text>Suivez-nous</Text>
+            <SousText>sur les réseaux sociaux</SousText>
+          </SectionTitle>
           <IconsWrapper>
             <IconLink href="https://www.instagram.com/coachsonlineofficiel/" target="_blank">
               <Icon src={instagramIco} />

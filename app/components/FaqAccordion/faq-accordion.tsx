@@ -12,8 +12,8 @@ import { DispatchType } from '../../types';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
-import ChevronDown from '../../images/icons/chevron_down_blue.png';
-import ChevronUp from '../../images/icons/chevron_up_blue.png';
+import ChevronDown from '../../images/icons/iconMoin.png';
+import ChevronUp from '../../images/icons/iconPlus.png';
 import makeSelectFaq from '../../store/faq/faq.selectors';
 import { getCategories, getTopicByCategory } from '../../store/faq/faq.slice';
 import { Topic } from '../../store/faq/faq.types';
@@ -24,31 +24,52 @@ const Wrapper = styled.div`
   //background-position: center; 
 `;
 const AccordionSection = styled.div`
-  display: flex;
+ /* display: flex;
   padding: 40px;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: abosulte; // position: relative;
   // height: 100vh;
-  background: #f8f7fb;
+  background: #f8f7fb;*/
+  display: flex;
+width: 1468px;
+padding: 24px 16px 48px 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 32px;
+border-radius: 8px;
+border: 1px solid var(--dark-grey-50, #C5C5C9);
+background: var(--white, #FFF);
+`;
+const Accordion = styled.div`
+border-bottom: 1px solid rgba(0, 0, 0, 0.30);
 `;
 
 const Container = styled.div`
-  position: relative; // position: absolute;
+ /* position: relative; // position: absolute;
   //top: 30%;
   box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
   width: 1000px;
   @media screen and (max-width: 1014px) {
     max-width: 600px;
-  }
+  }*/
+display: flex;
+width: 1450px;
+padding: 24px 16px 48px 16px;
+flex-direction: column;
+align-items: flex-start;
+gap: 32px;
+border-radius: 8px;
+border: 1px solid var(--dark-grey-50, #C5C5C9);
+background: var(--white, #FFF);
   @media screen and (max-width: 500px) {
     max-width: 300px;
   }
 `;
 
 const Wrap = styled.div`
-  background: #fff;
+ /* background: #fff;
   color: ${colors.lilac};
   display: flex;
   justify-content: space-between;
@@ -59,16 +80,29 @@ const Wrap = styled.div`
   h1 {
     padding: 2rem;
     font-size: 25px;
-  }
-  span {
-    margin-right: 20px;
-  }
+  }*/
+  display: flex;
+padding: 16px;
+justify-content:space-between;
+border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+align-items: center;
+align-self: stretch;
+background: var(--white, #FFF);
+height: 70px;
+span{
+  margin-right:20px;
+  position: absolute;
+      right:200px;
+}
   @media screen and (max-width: 500px) {
     h1 {
       font-size: 18px;
+      
     }
   }
 `;
+
+
 
 const Dropdown = styled.div`
   background: #f8f7fb;
@@ -82,11 +116,19 @@ const Dropdown = styled.div`
 `;
 
 const Name = styled.p`
-  font-size: 25px;
+ /* font-size: 25px;
   font-weight: 600;
   text-align: start;
   margin: 20px;
-  font-size: 22px;
+  font-size: 22px;*/
+
+ /* Coachs H5 */
+  color: #000;
+font-family: Montserrat;
+font-size: 22px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   @media screen and (max-width: 920px) {
     font-size: 18px;
   }
@@ -102,13 +144,42 @@ const DropdownTopic = styled.div`
   border-bottom: 1px solid ${colors.lilac};
 `;
 const Title = styled.p`
-  font-size: 40px;
-  font-weight: 700;
-  color: ${colors.lilac};
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 80px;
+color: var(--black-grey, #191919);
+
+/* Coachs H2 */
+font-family: Montserrat;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 94%; /* 37.6px */
+text-transform: uppercase;
+  @media screen and (max-width: 920px) {
+    font-size: 20px;
+    padding: 20px;
+  }
+`;
+const Description = styled.p`
+color: #000;
+/* Texte général */
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+  @media screen and (max-width: 920px) {
+    font-size: 20px;
+    padding: 20px;
+  }
+`;
+const Question = styled.p`
+color: #000;
+
+/* Coachs H5 */
+font-family: Montserrat;
+font-size: 21px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   @media screen and (max-width: 920px) {
     font-size: 20px;
     padding: 20px;
@@ -136,6 +207,7 @@ export interface CategoriesProps extends Omit<CategoryProps, 'category'> {
 function FaqAccordion(props: FaqAccordionProps) {
   const [clicked, setClicked] = useState(false);
   const { faq, getCategories, getTopicByCategory } = props || {};
+
   const [currentTopics, setCurrentTopics] = useState<Topic[] | null>([]);
 
   useEffect(() => {
@@ -175,45 +247,47 @@ function FaqAccordion(props: FaqAccordionProps) {
   return (
     <Wrapper>
       <Title>Questions fréquentes</Title>
-      <AccordionSection>
-        <Container>
-          {faq?.categories.map((item, index) => (
-            <>
-              <div>
-                <Wrap onClick={() => toggle(index, item.categoryId)} key={index}>
-                  <h1>{item.categoryName}</h1>
-                  <span>
-                    {clicked === index ? (
-                      <Chevron src={ChevronUp} />
-                    ) : (
-                      <Chevron src={ChevronDown} />
-                    )}
-                  </span>
-                </Wrap>
-              </div>
-              {clicked === index ? (
-                <Dropdown>
-                  <div>
-                    {item.topics?.map((topic, index) => (
-                      <>
-                        <DropdownTopic key={index}>
-                          <Name>{topic.topicName}</Name>
-                          <br />
-                          <TopicBody
-                            dangerouslySetInnerHTML={{
-                              __html: currentTopics[index]?.topicBody?.toString(),
-                            }}
-                          />
-                        </DropdownTopic>
-                      </>
-                    ))}
-                  </div>
-                </Dropdown>
-              ) : null}
-            </>
-          ))}
-        </Container>
-      </AccordionSection>
+      <Description>Si vous ne trouvez pas la réponse dans la rubrique Questions fréquentes, merci de nous adresser votre message via email.</Description>
+      <Container>
+
+        {faq?.categories.map((item, index) => (
+          <>
+            <div>
+              <Wrap onClick={() => toggle(index, item.categoryId)} key={index}>
+
+                <h1>{item.categoryName}</h1>
+                <span>
+                  {clicked === index ? (
+                    <Chevron src={ChevronDown} />
+                  ) : (
+                    <Chevron src={ChevronUp} />
+                  )}
+                </span>
+              </Wrap>
+            </div>
+            {clicked === index ? (
+              <Dropdown>
+                <div>
+                  {item.topics?.map((topic, index) => (
+                    <>
+                      <DropdownTopic key={index}>
+                        <Name>{topic.topicName}</Name>
+                        <br />
+                        <TopicBody
+                          dangerouslySetInnerHTML={{
+                            __html: currentTopics[index]?.topicBody?.toString(),
+                          }}
+                        />
+                      </DropdownTopic>
+                    </>
+                  ))}
+                </div>
+              </Dropdown>
+            ) : null}
+          </>
+        ))}
+
+      </Container>
     </Wrapper>
   );
 }
