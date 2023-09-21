@@ -20,7 +20,8 @@ import {
 } from '../HomepageCarousel';
 import './style.css';
 
-const ChevronRightIcon = require('../../images/icons/arrow-point-to-right.png');
+const ChevronRightIcon = require('../../images/icons/arrowRight.svg');
+const ChevronLeftIcon = require('../../images/icons/arrowLeft.svg');
 const ChevronDownIcon = require('../../images/icons/chevron-down.svg');
 const SINGLE_ITEM_WIDTH = 354;
 
@@ -148,7 +149,7 @@ function HorizontalSectionList({
   withIndexes = false,
   keys = { name: 'courseName', id: 'courseId', image: 'coursePhotoUrl' },
   category,
-  auth
+  auth,
 }) {
   const { width } = useWindowSize();
   const wrapperRef = useRef();
@@ -167,6 +168,7 @@ function HorizontalSectionList({
         index={i}
         category={category}
         canLike={!!auth?.authToken}
+        isTodays={title}
       />
     ));
 
@@ -204,25 +206,28 @@ function HorizontalSectionList({
             )}
             {!!onTitleClick && <Chevron src={ChevronDownIcon} />}
           </SectionTitleWrapper>
+        </Wrapper>
+        <Subtitle>
+          Découvrez notre séléction de cours
+          <hr />
+        </Subtitle>
+
+        <Mobile>
           <ArrowContainer>
             {shouldShowPrevArrow() && (
-              <ArrowLeftWrapper>
-                <ArrowLeft onClick={() => setCurrentIndex(currentIndex - 2)}>
-                  <Icon src={ChevronRightIcon} />
-                </ArrowLeft>
+              <ArrowLeftWrapper
+                style={{
+                  position: 'absolute ',
+                  marginTop: 90,
+                  left: -20,
+                  transform: 'rotate(180deg)',
+                }}
+              >
+                <Icon src={ChevronRightIcon} onClick={() => setCurrentIndex(currentIndex - 2)} />
               </ArrowLeftWrapper>
             )}
-            {shouldShowNextArrow() && (
-              <ArrowRightWrapper>
-                <ArrowRight onClick={() => setCurrentIndex(currentIndex + 2)}>
-                  <Icon src={ChevronRightIcon} />
-                </ArrowRight>
-              </ArrowRightWrapper>
-            )}
           </ArrowContainer>
-        </Wrapper>
-        <Subtitle>Découvrez notre séléction de cours </Subtitle>
-        <Mobile>
+
           <Carousel
             className="horizontal-list"
             swipeable={width <= 900}
@@ -253,6 +258,13 @@ function HorizontalSectionList({
           >
             {renderItems(items)}
           </Carousel>
+          <ArrowContainer>
+            {shouldShowNextArrow() && (
+              <ArrowRightWrapper style={{ position: 'absolute ', right: -35, marginTop: 90 }}>
+                <Icon src={ChevronRightIcon} onClick={() => setCurrentIndex(currentIndex + 2)} />
+              </ArrowRightWrapper>
+            )}
+          </ArrowContainer>
         </Mobile>
       </SectionWrapper>
     );

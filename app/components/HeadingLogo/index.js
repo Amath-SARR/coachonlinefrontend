@@ -6,7 +6,7 @@
 
 import React, { useState, useEffect, memo } from 'react';
 import styled from 'styled-components';
-import Select from 'react-select';
+// import Select from 'react-select';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
@@ -87,7 +87,7 @@ const HeadingWrapper = styled.div`
   margin: auto;
   min-height: 96px;
   display: flex;
-  background: #F8F7FB;
+  background: #f8f7fb;
   //align-items: center;
   justify-content: space-between;
   text-decoration: none;
@@ -200,7 +200,7 @@ const LogosWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-left:5px;
+  margin-left: 5px;
   position: relative;
   margin-top: 10px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
@@ -406,7 +406,7 @@ function HeadingLogo({
 
     if (isLoggedIn) {
       return (
-        <FlexCenteredColumn>
+        <FlexCenteredColumn style={{ marginRight: '10px' }}>
           <FlexRow
             onClick={() => history.push(profileRoute(auth.userInfo?.userRole))}
             style={{ alignItems: 'center', cursor: 'pointer' }}
@@ -440,7 +440,7 @@ function HeadingLogo({
             history.replace('/subscription/subscriptionChoiceFree', {
               background: location,
             });
-            console.log(location);
+            //console.log(location);
             setModalVisible(falses);
           }}
         >
@@ -544,6 +544,16 @@ function HeadingLogo({
               initCategory={selectedCategorySearch}
               onSelect={onCategorySearch}
             />
+            <div>
+              <datalist id="suggestions">
+                <option>First option</option>
+                <option>Second Option</option>
+                <option>tree Option</option>
+                <option>option</option>
+                <option>hello</option>
+              </datalist>
+              <input autoComplete="on" list="suggestions" />
+            </div>
             <SearchInput
               style={{
                 borderTopRightRadius: 0,
@@ -551,7 +561,7 @@ function HeadingLogo({
                 background: '#fff',
               }}
               onSearch={(val) => onSearchChange(val)}
-              onClear={() => onSearchChange('')}
+              //onClear={() => onSearchChange('')}
             />
           </SearchBar>
           <InnerLeft>{resolveRightSideMenu()}</InnerLeft>

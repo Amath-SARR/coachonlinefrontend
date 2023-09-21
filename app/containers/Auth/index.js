@@ -21,18 +21,24 @@ import LoginPage from './LoginPage/Loadable';
 import RegisterPage from './RegisterPage/Loadable';
 import ConfirmEmailPage from './ConfirmEmailPage/Loadable';
 import ForgotPassword from './ForgotPassword/Loadable';
-import LibraryRegisterPage from './LibraryRegisterPage/Loadable';
+// import LibraryRegisterPage from './LibraryRegisterPage/Loadable';
 import { PageLoader } from '../../components/PageContainer';
 import makeSelectHomePage from '../HomePage/selectors';
+// import { Carousel } from 'react-responsive-carousel';
 
 export const InnerWrapper = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: auto;
-  width: 100%;
-  max-width: 300px;
+  flex-direction: row;
+  //align-items: center;
+  //margin: auto;
+  //margin-left:-800px;
+  width: 90%;
+  max-width: 400px;
   padding: 10px 0 50px 0;
+  @media screen and (max-width: 920px) {
+    margin-top: 130px;
+    width: 90%;
+  }
 `;
 export const WideButton = styled(Button)`
   padding: 10px 30px;
@@ -42,8 +48,14 @@ export const WideButton = styled(Button)`
 `;
 export const ActionButton = styled(InputSubmit)`
   width: 100%;
-  margin-bottom: 20px;
-  color: ${colors.mainGreen};
+  flex: 1;
+  font-size: 14px;
+  padding: 12px 20px;
+  margin: 8px;
+  box-sizing: border-box;
+  // border: 1px solid var(--dark-grey-50, #C5C5C9);
+  // border-radius: 24px;
+  // background-color: #FF0080 ;
 `;
 
 export const authModalStyles = (width) => ({
@@ -54,14 +66,14 @@ export const authModalStyles = (width) => ({
     inset: width < 693 ? '50% 50% auto 50%' : '50% 50% auto 50%',
     transform: width < 693 ? 'translate(-50%, -50%)' : 'translate(-50%, -50%)',
     background: 'white',
-    border: `2px solid ${colors.mainPink}`,
-    borderRadius: 24,
+    //border: `2px solid ${colors.mainPink}`,
+    //borderRadius: 24,
     width: '100%',
-    maxWidth: 675,
+    maxWidth: 930,
   },
   headerTitle: {
     // fontSize: '43px',
-    fontWeight: 800,
+    fontWeight: 500,
   },
 });
 

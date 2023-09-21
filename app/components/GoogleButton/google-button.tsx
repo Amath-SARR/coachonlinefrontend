@@ -13,14 +13,17 @@ import GoogleImg from '../../images/icons/google.svg';
 import { API_URL, APPLICATION_URL } from '../../config/env';
 import { GoogleActionType } from '../../containers/Auth/reducer.types';
 
-const Wrapper = styled.div``;
+
+  const Wrapper = styled.div`
+  margin-left:20px; width: 270px;border-raduis:24px;`;
 const ButtonBody = styled(FlexRow)`
   align-items: center;
+  width: 70px;
 `;
-const Label = styled(Text)``;
+const Label = styled(Text)`margin-right: 18px;`;
 const IconWrapper = styled.div`
   width: 17px;
-  margin-right: 10px;
+  margin-left: 10px;
 `;
 const Icon = styled.img`
   width: 100%;
@@ -50,7 +53,7 @@ function GoogleButton(props: GoogleButtonProps) {
       case GoogleActionType.register:
         return "S'inscrire sur Google";
       case GoogleActionType.login:
-        return 'Connectez-vous avec Google';
+        return 'Continuer avec Google';
     }
   };
 
@@ -62,7 +65,7 @@ function GoogleButton(props: GoogleButtonProps) {
         as={Link}
         onClick={onClick}
         href={externalLink}
-        color={'green'}
+        color={'grey'}
         outline
         disabled={disabled}
       >

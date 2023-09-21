@@ -1,5 +1,10 @@
 import { defineMessages } from 'react-intl';
 import React from 'react';
+export const LogoForm = require('../../app/images/images/logo1.png');
+export const Yoga = require('../../app/images/images/yoga.png');
+export const Union = require('../../app/images/images/union.png');
+export const Obama = require('../../app/images/images/obama.png');
+export const Ia = require('../../app/images/images/ia.png');
 
 export const scope = 'app.components.Language';
 
@@ -128,7 +133,7 @@ export default defineMessages({
   },
   logInto: {
     id: `${scope}.logInto`,
-    defaultMessage: 'Log into your account',
+    defaultMessage: 'Log your',
   },
   forgotPassword: {
     id: `${scope}.forgotPassword`,

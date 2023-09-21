@@ -32,6 +32,6 @@
   background: white;
   padding: 2px;
 }
-.ResponsiveModal {
-  
+.display-form {
+  flex-direction: row;
 }

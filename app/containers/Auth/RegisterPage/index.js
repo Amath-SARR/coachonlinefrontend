@@ -10,7 +10,7 @@ import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
 import { createStructuredSelector } from 'reselect';
 import { FormattedMessage } from 'react-intl';
-import { useLocation, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import makeSelectAuth from '../selectors';
 import {
   createAccountAction,
@@ -18,7 +18,7 @@ import {
   getAffiliateHostAction,
   loginGoogleAction,
 } from '../actions';
-import messages from '../../../components/messages';
+// import messages, { LogoForm, Union, Yoga } from '../../../components/messages';
 import { InnerWrapper } from '../index';
 import { ModalHeaderDescription, ModalHeaderTitle } from '../../../components/Modal';
 import makeSelectLibraries from '../../Libraries/selectors';
@@ -30,6 +30,33 @@ import {
 import RegisterForm from '../../../components/RegisterForm/register-form';
 import { writeToStorage } from '../../../utils/storage';
 import useQuery from '../../../hooks/useQuery';
+// import { Carousel } from 'react-responsive-carousel';
+
+// const ContainerRegister = styled.div`
+//   position: relative;
+//   text-align: center;
+//   text-transform: uppercase;
+//   color: white;
+//   //margin-left: 10px;
+// `;
+
+/* Centered text */
+// const CenteredRegister = styled.div`
+//   position: absolute;
+//   top: 50%;
+//   left: 50%;
+//   transform: translate(-50%, -50%);
+//   background: linear-gradient(180deg, #40e0d0 0%, #ff8c00 47.4%, #ff0080 100%);
+//   background-clip: text;
+//   text-transform: uppercase;
+//   font-size: 40px;
+//   text-align: justify;
+//   font-style: normal;
+//   font-family: sans-serif;
+//   font-weight: 800;
+//   -webkit-background-clip: text;
+//   -webkit-text-fill-color: transparent;
+// `;
 
 export function RegisterPage({}) {
   const { accountType } = useParams();
@@ -61,13 +88,40 @@ export function RegisterPage({}) {
 
   return (
     <InnerWrapper>
-      <ModalHeaderTitle>
-        <FormattedMessage {...messages.registrationTitle} />
-      </ModalHeaderTitle>
-      <ModalHeaderDescription>
-        <FormattedMessage {...messages.registerNewAccount} />
-      </ModalHeaderDescription>{' '}
-      <RegisterForm submitLabel={submitLabel()} accountType={accountType} />
+      {/* <div style={{ width: "850px" }} >
+          <Carousel autoPlay
+            infiniteLoop
+            transitionTime={1000}
+            showStatus={false}
+            showThumbs={false}
+            showArrows={false}
+            interval={5000}>
+            <ContainerRegister>
+              <img src={Yoga} alt="" style={{ width: 500, height: 500 }} />
+              <CenteredRegister>Yoga Iyengar de tous les jours</CenteredRegister>
+            </ContainerRegister>
+            <ContainerRegister>
+              <img src={Union} alt="" style={{ width: 500, height: 500 }} />
+            </ContainerRegister>
+            <Container>
+            <img src={Oratoir} alt="" style={{ width: 500, height: 500 }} />
+            <Centered>Parler comme Obama</Centered>
+          </Container>
+          <Container>
+            <img src={Ia} alt="" style={{ width: 500, height: 500 }} />
+            <Centered>IA, le métier d'avenir</Centered>
+          </Container>
+          </Carousel>
+        </div > */}
+      <div>
+        <ModalHeaderTitle>
+          <img src={LogoForm} alt="" />
+        </ModalHeaderTitle>
+        <ModalHeaderDescription>
+          <FormattedMessage {...messages.registerNewAccount} />
+        </ModalHeaderDescription>{' '}
+        <RegisterForm submitLabel={submitLabel()} accountType={accountType} />
+      </div>
     </InnerWrapper>
   );
 }

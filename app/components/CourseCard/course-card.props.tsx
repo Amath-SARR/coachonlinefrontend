@@ -12,4 +12,5 @@ export default interface CourseCardProps {
   withIndex: boolean;
   thumbnailWrapperStyle: any;
   auth: any;
+  isTodays: any;
 }

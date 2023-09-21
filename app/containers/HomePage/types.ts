@@ -77,4 +77,6 @@ export interface Course {
   photoUrl: string | null;
   rejectionsHistory: string[];
   state: number;
+  courseName: string;
+  coursePhotoUrl: any;
 }
