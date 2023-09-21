@@ -74,6 +74,7 @@
     "@microsoft/signalr": "^5.0.5",
     "@mui/icons-material": "^5.14.9",
     "@mui/material": "^5.14.9",
+    "@mui/styles": "^5.14.10",
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/react": "^6.9.0",
     "@sentry/tracing": "^6.9.0",

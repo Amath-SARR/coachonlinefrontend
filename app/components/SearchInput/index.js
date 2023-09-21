@@ -18,13 +18,6 @@ import makeSelectDashboard from '../../containers/Dashboard/selectors';
 import { createStructuredSelector } from 'reselect';
 import { getCategoriesAction } from '../../containers/Dashboard/actions';
 import './style.css';
-//import { Autocomplete } from '@mui/material';
-import TextField from '@mui/material/TextField';
-import Stack from '@mui/material/Stack';
-import Autocomplete from '@mui/material/Autocomplete';
-import { forEach } from 'lodash';
-import InputBase from '@mui/material/InputBase';
-import SearchIcon from '@mui/icons-material/Search';
 
 const Listbox = styled.ul`
   margin: 0,
@@ -64,8 +57,8 @@ const Input = styled.input`
   background: #fff;
   margin: 0;
   color: ${colors.lilac};
-  min-width: 50px;
-  height: 20px;
+  min-width: 200px;
+  height: 40px;
   font-size: 16px;
 `;
 const IconWrapper = styled.div`
@@ -87,48 +80,6 @@ const IconWrapper = styled.div`
 //   padding: 0 !important;
 //   color: whiteimport CategoriesManager from './../CategoriesManager/index';
 // `;
-
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  '&:hover': {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(1),
-    width: 'auto',
-  },
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: '100%',
-  position: 'absolute',
-  pointerEvents: 'none',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  '& .MuiInputBase-input': {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      width: '12ch',
-      '&:focus': {
-        width: '20ch',
-      },
-    },
-  },
-}));
 
 function SearchInput({ onChange, onSearch, style, dashboard, getCategories }) {
   const inputRef = useRef();
@@ -157,94 +108,22 @@ function SearchInput({ onChange, onSearch, style, dashboard, getCategories }) {
     getCategories();
   }, []);
 
-  const { getInputProps, getRootProps, getListboxProps, getOptionProps, groupedOptions } =
-    useAutocomplete({
-      options: liste(dashboard), //.map((option) => option),
-      getOptionLabel: (option) => option[index],
-    });
-  // var listSousCategories ,
-
-  const defprops = {
-    //liste(dashboard)
-    //options: liste(dashboard).map((option) => option.name),
-    //getOptionLabel: (options) => options.name
-    options: liste(dashboard), //.map((option,index) => option[index]),
-    getOptionLabel: (option) => option,
-  };
-  // const getdata = (data) => {
-  //     console.log(data);
-  // }
   return (
-    <Wrapper>
-      {/* <Input
-        onClick={autoComplete}
-        ref={inputRef}
-        value={inputValue}
-        onChange={onInputChange}
-        onKeyPress={onKeyPress}
-        placeholder="Rechercher..."
-      /> */}
-      {/* <IconWrapper
-        style={{ visibility: !inputValue ? 'hidden' : 'visible' }}
-        onClick={onInputClear}
-      >
-        <Icon src={CancelImg} />
-      </IconWrapper> ref: inputRef ,
-        value: getInputProps, */}
-
-      {/* <div>
-        <div {...getRootProps()}>
-          <Input {...getInputProps()} placeholder="Rechercher..." onKeyPress={onKeyPress} />
-        </div>
-        {groupedOptions.length > 0 ? (
-          <Listbox {...getListboxProps()}>
-            {groupedOptions.map((option, index) => (
-              <li>{option}</li>
-            ))}
-          </Listbox>
-        ) : null}
-      </div>
-      {console.log(liste(dashboard))} */}
-      {/* <Autocomplete
-          //{...defprops}
-          style={{width: '300px'}}
-          renderInput={(params) => (
-            <TextField {...params} label="Rechercher..." variant="standard"></TextField>
-          )}
-          onChange={(event, value) => getdata(value)}
-      /> */}
-      {/* <IconWrapper onClick={onSearchPress}>
-        <Icon />
-      </IconWrapper> */}
-      <div>
-
-        <Search>
-          <SearchIconWrapper>
-            <SearchIcon />
-          </SearchIconWrapper>
-          <datalist id="suggestions">
-            <option>First option</option>
-            <option>Second Option</option>
-            <option>tree Option</option>
-            <option>option</option>
-            <option>hello</option>
-          </datalist>
-          <StyledInputBase
-            autoComplete="on" list="suggestions"
-            ref={inputRef}
-            value={inputValue}
-            onChange={onInputChange}
-            onKeyPress={onKeyPress}
-            placeholder="Rechercher..."
-            inputProps={{ 'aria-label': 'search' }}
-          />
-        </Search>
-        {/* <input autoComplete="on" list="suggestions" /> */}
-        <Input
-
-        />
-      </div>
-    </Wrapper>
+    <div>
+    <datalist id="suggestions">
+      {listeSousCategories(dashboard).map((category) =>
+       category.map((category)=><option>{category.name}</option>))}
+    </datalist>
+    <input
+      autoComplete="on" list="suggestions"
+      ref={inputRef}
+      value={inputValue}
+      onChange={onInputChange}
+      onKeyPress={onKeyPress}
+      placeholder="Rechercher..."
+      style={{ minWidth: 200, height: 40 }}
+    />
+  </div>
   );
 }
 
@@ -260,23 +139,23 @@ const mapStateToProps = createStructuredSelector({
   dashboard: makeSelectDashboard(),
 });
 
-// function getSousCategories() {
-//   return (
-//     //listSousCategorie: () =>
-//     dashboard?.categories.map((category,index) => listSousCategories = category?.childCategories);
-//     //console.log(listSousCategories);
-//   )
-// }
-
-function liste(dashboard) {
-  const listSousCategories = dashboard?.categories.map((category, index) => category.children);
-  const listes = [];
-  let i = 0;
-  for (; i < listSousCategories.length; i++) {
-    listes[i] = listSousCategories[i].map((category, index) => category.name);
-  }
-  return listes;
+function listeCategories(dashboard) {
+  return dashboard?.categories.map((category, index) => category);
 }
+
+function listeSousCategories(dashboard) {
+  return listeCategories(dashboard)?.map((category, index) => category.children);
+}
+
+// function listeSousCategories(dashboard) {
+//   const listSousCategories = dashboard?.categories.map((category, index) => category.children);
+//   const listes = [];
+//   let i = 0;
+//   for (; i < listSousCategories.length; i++) {
+//     listes[i] = listSousCategories[i].map((category, index) => category.name);
+//   }
+//   return listes;
+// }
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
 

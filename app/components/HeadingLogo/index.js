@@ -248,7 +248,7 @@ const Link = styled.u`
 const ButtonsWrapper = styled.div`
   display: flex;
   //margin-left: 50px;
-  // //margin-left: 300px;
+  // margin-left: 300px;
   @media screen and (max-width: ${MOBILE_WIDTH}px) {
     // //flex-direction: column;
     margin-left: -50px;
@@ -540,20 +540,6 @@ function HeadingLogo({
         </LogosWrapper>
         <LeftButtons>
           <SearchBar>
-            <CategoryDropdownSearch
-              initCategory={selectedCategorySearch}
-              onSelect={onCategorySearch}
-            />
-            <div>
-              <datalist id="suggestions">
-                <option>First option</option>
-                <option>Second Option</option>
-                <option>tree Option</option>
-                <option>option</option>
-                <option>hello</option>
-              </datalist>
-              <input autoComplete="on" list="suggestions" />
-            </div>
             <SearchInput
               style={{
                 borderTopRightRadius: 0,
@@ -562,6 +548,10 @@ function HeadingLogo({
               }}
               onSearch={(val) => onSearchChange(val)}
               //onClear={() => onSearchChange('')}
+            />
+            <CategoryDropdownSearch
+              initCategory={selectedCategorySearch}
+              onSelect={onCategorySearch}
             />
           </SearchBar>
           <InnerLeft>{resolveRightSideMenu()}</InnerLeft>
