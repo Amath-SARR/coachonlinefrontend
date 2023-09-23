@@ -16,7 +16,7 @@ const CloseIcon = require('../../images/icons/close_blue.png');
 
 export const ModalTitle = styled.p`
   font-size: 32px;
-  font-weight: 800;
+  font-weight: 400;
   text-align: center;
   color: ${colors.lilac};
   @media screen and (max-width: 680px) {
@@ -35,12 +35,12 @@ export const ModalSubtitle = styled.p`
 `;
 
 export const ModalInnerWrapper = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  //display: flex;
+  //flex-direction: column;
+  //align-items: center;
   margin: auto;
   width: 100%;
-  max-width: 1225px;
+  //max-width: 1225px;
   padding: 10px 0 10px 0;
   background-color: ${colors.white};
 `;
@@ -76,13 +76,15 @@ export const ModalHeaderTitle = styled.h2`
 const InnerWrapper = styled.div`
   overflow: auto;
   margin: auto;
+  max-width: 100%;
   background-color: ${colors.white};
+  //flex-direction: row;
   @media screen and (max-width: 700px) {
     overflow: auto;
     max-width: 300px;
   }
 `;
-const NotScrollableArea = styled.div``;
+// const NotScrollableArea = styled.div``;
 
 export const ModalHeaderDescription = styled.p`
   font-size: 16px;
@@ -93,25 +95,28 @@ export const ModalHeaderDescription = styled.p`
 `;
 
 const Body = styled.div`
-  max-height: 70vh;
-  height: 100%;
+  max-height: 80vh;
+  //height: 100%;
+  flex-direction: row;
+  max-width: 100%;
   overflow: visible;
+  margin-left: -200px;
   // padding: 20px 0;
   background-color: ${colors.white};
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 100%) {
     max-height: 90vh;
   }
   /* width */
   ::-webkit-scrollbar {
-    width: 10px;
-    background-color: ${colors.white};
+    width: 50px;
+    background-color: ${colors.mainGreen};
   }
 
   /* Track */
   ::-webkit-scrollbar-track {
     //background: ${colors.backgroundDarkBlue};
     opacity: 0.4;
-    background-color: ${colors.white};
+    background-color: ${colors.mainGreen};
   }
 
   /* Handle */
@@ -163,24 +168,24 @@ function Modal({
     },
     content: {
       top: '50%',
-      left: '50%',
+      //left: '50%',
       right: 'auto',
       bottom: 'auto',
-      marginRight: '-50%',
+      //marginRight: '-50%',
       inset: '50% auto auto 50%',
       transform: 'translate(-50%, -50%)',
-      minWidth: '200px',
-      maxWidth: '25vmax',
+      minWidth: '400px',
+      maxWidth: '80vmax',
       // height: '80vh',
       position: 'absolute',
-      border: '2px solid #E5137D',
+      //border: '1px solid #E5137D',
       background: '#fff',
       backgroundColor: 'white',
-      overflow: 'hidden',
+      //overflow: 'hidden',
       WebkitOverflowScrolling: 'touch',
       borderRadius: '4px',
-      outline: 'none',
-      //padding: '20px',
+      //outline: 'none',
+      padding: '20px',
       ...(props?.content || {}),
     },
   });
@@ -240,7 +245,7 @@ function Modal({
           </Header>
         )}
         <InnerWrapper>
-          {!!fixedContent && <NotScrollableArea>{fixedContent}</NotScrollableArea>}
+          {/* {!!fixedContent && <NotScrollableArea>{fixedContent}</NotScrollableArea>} */}
           <Body
             onScroll={onBodyScroll}
             style={{ backgroundColor: 'white' }} //styles.modalBody

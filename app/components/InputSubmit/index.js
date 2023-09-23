@@ -5,20 +5,20 @@
  */
 
 import React from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import Loader from 'react-loader-spinner';
 import styled from 'styled-components';
-import Button from '../Button';
-import { colors } from '../../utils/colors';
-import { readFromStorage } from '../../utils/storage';
+// import Button from '../Button';
+// import { colors } from '../../utils/colors';
+// import { readFromStorage } from '../../utils/storage';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
 import { createStructuredSelector } from 'reselect';
-import makeSelectAuth from '../../containers/Auth/selectors';
-import makeSelectDashboard from '../../containers/Dashboard/selectors';
-import makeSelectSubscription from '../../containers/Subscription/selectors';
-import makeSelectB2B from '../../containers/B2B/selectors';
-import makeSelectLibraries from '../../containers/Libraries/selectors';
+// import makeSelectAuth from '../../containers/Auth/selectors';
+// import makeSelectDashboard from '../../containers/Dashboard/selectors';
+// import makeSelectSubscription from '../../containers/Subscription/selectors';
+// import makeSelectB2B from '../../containers/B2B/selectors';
+// import makeSelectLibraries from '../../containers/Libraries/selectors';
 import makeSelectHomePage from '../../containers/HomePage/selectors';
 
 const Wrapper = styled.div`
@@ -61,10 +61,12 @@ function InputSubmit({
   style = {},
   homePage,
   disabled,
+  placeholder,
   value,
   outline,
   color,
-  background = colors.mainGreen,
+  background,
+  borderRaduis,
 }) {
   const loading = isLoading || (disableOnFetch && homePage.isLoading);
 
@@ -82,7 +84,9 @@ function InputSubmit({
         background={background}
         outline={outline}
         value={value}
+        placeholder={placeholder}
         disabled={disabled || loading}
+        borderRaduis={borderRaduis}
       />
     </Wrapper>
   );

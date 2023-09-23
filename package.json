@@ -1,16 +1,16 @@
 {
   "name": "coachs-online",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "description": "",
   "repository": {
     "type": "git",
-    "url": "git://github.com/react-boilerplate/react-boilerplate.git"
+    "url": "https://github.com/Amath-SARR/coachonlinefrontend-master.git"
   },
   "engines": {
     "npm": ">=5",
     "node": ">=8.15.1"
   },
-  "author": "Max Stoiber",
+  "author": "Amath-SARR",
   "license": "MIT",
   "scripts": {
     "analyze:clean": "rimraf stats.json",
@@ -68,8 +68,13 @@
     "@ckeditor/ckeditor5-alignment": "^30.0.0",
     "@ckeditor/ckeditor5-build-inline": "^30.0.0",
     "@ckeditor/ckeditor5-react": "^3.0.2",
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
     "@hookform/resolvers": "^1.2.0",
     "@microsoft/signalr": "^5.0.5",
+    "@mui/icons-material": "^5.14.9",
+    "@mui/material": "^5.14.9",
+    "@mui/styles": "^5.14.10",
     "@reduxjs/toolkit": "^1.6.2",
     "@sentry/react": "^6.9.0",
     "@sentry/tracing": "^6.9.0",
@@ -95,11 +100,11 @@
     "minimist": "1.2.0",
     "polished": "^4.1.3",
     "prop-types": "15.7.2",
-    "react": "16.8.6",
+    "react": "18.2.0",
     "react-beautiful-dnd": "^13.0.0",
     "react-countdown": "^2.3.1",
     "react-cropper": "^2.1.8",
-    "react-dom": "16.8.6",
+    "react-dom": "18.2.0",
     "react-helmet": "6.0.0-beta",
     "react-hook-form": "^6.13.1",
     "react-intl": "2.8.0",

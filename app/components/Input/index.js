@@ -4,15 +4,15 @@
  *
  */
 
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { FormattedMessage } from 'react-intl';
 // import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import ReactTooltip from 'react-tooltip';
+// import ReactTooltip from 'react-tooltip';
 import EyeIcon from '../../images/icons/eye.svg';
 import CrossedEyeIcon from '../../images/icons/eye-crossed.svg';
 import { colors } from '../../utils/colors';
-import Image from '../Image';
+// import Image from '../Image';
 import Label from '../Label';
 
 const Wrapper = styled.div`
@@ -36,27 +36,31 @@ const LabelStyled = styled.label`
 `;
 const StyledInput = styled.input`
   width: 100%;
-  border: 1px solid ${colors.lilac};
+  //border: 1px solid ${colors.lilac};
   background-color: white;
   color: ${(props) => (props.isDark ? colors.white : colors.black)};
   opacity: ${({ readOnly }) => (readOnly ? 0.7 : 1)};
-  padding: 17px 20px;
-  padding-right: 35px;
-  border-radius: 10px;
+  //padding: 17px 20px;
+  //padding-right: 35px;
+  //border-radius: 5px;
   outline: none;
 `;
 const TextInput = styled.input`
   width: 100%;
   flex: 1;
   font-size: 14px;
+  padding: 12px 20px;
+  margin: 8px;
+  box-sizing: border-box;
+  border: 1px solid var(--dark-grey-50, #c5c5c9);
+  border-radius: 24px;
   background-color: ${colors.white};
-  border: 1px solid ${colors.lilac};
+  //border: 1px solid ${colors.lilac};
   color: ${colors.lilac};
   cursor: ${(props) => (props.readOnly ? 'default' : 'text')};
-  border-radius: 5px;
   padding: 10px 10px;
   outline: none;
-  border: none;
+  //border: none;
   &:-webkit-autofill,
   &:-webkit-autofill:hover,
   &:-webkit-autofill:focus {
@@ -70,7 +74,7 @@ const TextInput = styled.input`
   }
 `;
 //${(props) =>
-  //props.isDark ? colors.secondaryBackgroundDark : colors.secondaryBackgroundLight};
+//props.isDark ? colors.secondaryBackgroundDark : colors.secondaryBackgroundLight};
 const SecuredIconDiv = styled.div`
   width: 20px;
   height: 20px;
@@ -93,8 +97,9 @@ const Error = styled.p`
 
 function Input({
   inputProps,
-  inputStyle,
+  // inputStyle,
   labelName,
+  placeholder,
   label,
   error,
   errors,
@@ -126,16 +131,17 @@ function Input({
             paddingLeft: alignment === 'row' ? 0 : 10,
             wordBreak: 'break-word',
             flex: 0.4,
-            minWidth: 100,
+            minWidth: 50,
             ...labelStyle,
           }}
         />
       )}
-      <div style={{ position: 'relative', width: '100%', border: `1px solid ${colors.lilac}`, borderRadius: '5px' }}>
+      <div style={{ position: 'relative', width: '100%' }}>
         <TextInput
           type={!isSecured ? 'text' : type}
           readOnly={inputProps.readOnly}
           style={inputProps.style}
+          placeholder={placeholder}
           {...inputProps}
         />
         {secured && (
@@ -148,7 +154,7 @@ function Input({
   ) : (
     <Wrapper style={{ ...style, flexDirection: alignment }}>
       {!!labelName && (
-        <LabelStyled >
+        <LabelStyled>
           <FormattedMessage {...labelName} />
         </LabelStyled>
       )}

@@ -7,7 +7,7 @@
 
 import React, { memo, useEffect, useState } from 'react';
 import styled from 'styled-components';
-import { ChevronDown } from '@styled-icons/entypo/ChevronDown';
+// import { ChevronDown } from '@styled-icons/entypo/ChevronDown';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
@@ -24,6 +24,8 @@ import { Category } from '../CategorySelector';
 import { getCategoriesAction } from '../../containers/Dashboard/actions';
 import { FlexRow } from '../../global-styles';
 import Button from '../Button';
+const ChevronDown = require('../../images/icons/chevron-down--white.png');
+
 
 // import makeSelectAuth from '../../containers/Auth/selectors';
 
@@ -32,22 +34,23 @@ const Wrapper = styled.div`
   align-items: center;
   justify-content: space-between;
   border: 1px solid ${colors.lilac};
-  border-right: none;
-  border-top-left-radius: 8px;
-  border-bottom-left-radius: 8px;
-  min-width: 150px;
+  // border-right: none;
+  // border-top-left-radius: 8px;
+  // border-bottom-left-radius: 8px;
+  min-width: 100px;
   padding: 0 10px;
-  height: 34px;
+  background: rgb(8, 8, 120);
+  height: 40px;
   @media screen and (max-width: 400px) {
     width: 130px;
   }
 `;
-const Chevron = styled(ChevronDown)`
-  width: 15px;
-  height: 15px;
-  margin-left: 10px;
+const Chevron = styled.img`
+  width: 10px;
+  height: 10px;
+  // margin-left: -5px;
   transition: all 0.5s ease-in-out;
-  color: ${colors.lilac};
+  //color: whit;
 `;
 const IconWrapper = styled.div`
   width: 16px;
@@ -60,7 +63,7 @@ const Icon = styled(Image)`
   padding: 0 !important;
 `;
 const Text = styled.p`
-  color: ${colors.lilac};
+  color: #fff;
   font-size: 0.8em;
   word-break: keep-all;
   font-weight: 600;
@@ -93,6 +96,32 @@ export const modalStyles = (width) => ({
     borderRadius: 24,
     width: 675,
     maxWidth: '100%',
+  },
+  headerTitle: {
+    // fontSize: '43px',
+    fontWeight: 800,
+  },
+});
+
+const modalStylesCategories = (width) => ({
+  overlay: {
+    backgroundColor: `${colors.backgroundDarkBlue}E6`,
+    zIndex: 5,
+  },
+  content: {
+    // inset: width < 693 ? '50% auto auto 40%' : '50% auto auto 50%',
+    // transform: width < 693 ? 'translate(-40%, -50%)' : 'translate(-50%, -50%)',
+    //background: 'white',
+    border: `1px solid ${colors.lilac}`,
+    borderRadius: 24,
+    display: 'flex',
+    width: 1400,
+    padding: '28px 66px 60px 66px',
+    flexDirection: 'column',
+    alignItems: 'flexEnd',
+    gap: 8,
+    background: 'var(--carte, #F4F4F6)',
+    maxWidth: '80%',
   },
   headerTitle: {
     // fontSize: '43px',
@@ -154,11 +183,11 @@ function CategoryDropdownSearch({
 
   return (
     <Wrapper onClick={() => toggleModal(true)}>
-      <IconWrapper>
+      {/* <IconWrapper>
         <Icon src={CategoriesIcon} />
-      </IconWrapper>
+      </IconWrapper> */}
       <Text>{category?.name || <FormattedMessage {...messages.categories} />}</Text>
-      <Chevron
+      <Chevron src={ChevronDown}
         style={{
           transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
         }}
@@ -167,13 +196,13 @@ function CategoryDropdownSearch({
         withHeader
         backButtonHidden
         overlayClassName="transition-position"
-        style={modalStyles(width)}
+        style={modalStylesCategories(width)}
         onClose={() => toggleModal(false)}
         isOpened={modalVisible}
         headerTitle={<FormattedMessage {...messages.categories} />}
       >
         <Categories
-          style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
+          style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10, marginLeft:200 } : {}}
         >
           {dashboard?.categories?.map((cat) => (
             <CategoryItem
@@ -184,8 +213,15 @@ function CategoryDropdownSearch({
               {cat.name}
             </CategoryItem>
           ))}
+          <Button
+            color="pink"
+            style={{ width: 'fit-content', margin: 'auto', marginTop:20 }}
+            onClick={initiateSearch}
+          >
+            Appliquer
+          </Button>
         </Categories>
-        {hasChildren && (
+        {/* {hasChildren && (
           <Text style={{ fontSize: '24px', padding: '20px 0' }}>
             <FormattedMessage {...messages.subCategory} />
           </Text>
@@ -209,7 +245,7 @@ function CategoryDropdownSearch({
           >
             Appliquer
           </Button>
-        )}
+        )} */}
       </Modal>
     </Wrapper>
   );

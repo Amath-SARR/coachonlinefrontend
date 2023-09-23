@@ -30,40 +30,48 @@ import { readFromStorage, writeToStorage } from '../../utils/storage';
 import HomepageCarousel from '../../components/HomepageCarousel';
 import HomePageCategory from '../../components/HomePageCategory';
 import messages from './messages';
-import CoachesSectionList from '../../components/CoachesSectionList/Loadable';
+// import CoachesSectionList from '../../components/CoachesSectionList/Loadable';
 import PlatformStatistics from '../../components/PlatformStatistics';
 import history, { replaceWithBackground } from '../../utils/history';
 import useQuery from '../../hooks/useQuery';
-import Banner from '../../components/Banner';
+// import Banner from '../../components/Banner';
 import styled from 'styled-components';
-import SubscriptionsSelector from '../../components/SubscriptionsSelector/subscriptions-selector';
+// import SubscriptionsSelector from '../../components/SubscriptionsSelector/subscriptions-selector';
 import { useLocation } from 'react-router-dom';
-import IFrame from '../../components/IFrame/i-frame';
+// import IFrame from '../../components/IFrame/i-frame';
 import HomePageAffiliationSection from '../../components/HomePageAffiliationSection/home-page-affiliation-section';
-import CourseCard from '../../components/CourseCard/course-card';
+// import CourseCard from '../../components/CourseCard/course-card';
 import makeSelectSubscription from '../Subscription/selectors';
 import { getUserBasicDataAction } from '../Auth/actions';
-import { wixLinks } from '../../components/HomePageAffiliationSection/links';
-import { AccessType } from '../Auth/reducer.types';
-import TopCourses from '../../components/TopCourses/top-courses';
-import CoachsCTA from '../../components/CoachsCTA/coachs-cta';
+// import { wixLinks } from '../../components/HomePageAffiliationSection/links';
+// import { AccessType } from '../Auth/reducer.types';
+// import TopCourses from '../../components/TopCourses/top-courses';
+// import CoachsCTA from '../../components/CoachsCTA/coachs-cta';
 import StudentsCta from '../../components/StudentsCTA/students-cta';
-import CategoryCard from '../../components/CategoryCard/category-card';
-import EventCard from '../../components/EventCard/event-card';
+// import CategoryCard from '../../components/CategoryCard/category-card';
+// import EventCard from '../../components/EventCard/event-card';
 import FaqAccordion from '../../components/FaqAccordion/faq-accordion';
 import SubscriptionChoice from '../../components/SubscriptionChoice/subscription-choice';
-import { colors } from '../../utils/colors';
+// import { colors } from '../../utils/colors';
 import { Text } from '../../global-styles';
+import CardsHomePage from '../../components/CardsHomePage/cards-home-page';
 
 const Title = styled(Text)`
   font-size: 15px;
-  margin-bottom: 10px;
-  margin-top: 100px;
-  //margin-left: 20px;
-  margin-right: 20px;
-  text-align: center;
-  @media screen and (max-width: 600px) {
-    font-size: 22px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+const Title1 = styled.p`
+  margin-top: 50px;
+  color: var(--rose, #e21680);
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 
@@ -183,7 +191,7 @@ function HomePage({
         <HomepageCarousel
           courses={readFromStorage('carouselCourses')}
           onCourseClick={(course) => goToCourse(course)}
-         />
+        />
       )
     );
   };
@@ -201,10 +209,9 @@ function HomePage({
 
   const Top10Courses = () => {
     const top10 = homePage?.suggestedCourses?.slice(0, 10);
-    console.log(homePage.suggestedCourses);
     return (
       <HorizontalSectionList
-        title={"Top Cours aujourd'hui"}
+        title={<Title1>Top Cours aujourd'hui</Title1>}
         // withIndexes
         items={top10}
         keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
@@ -215,7 +222,7 @@ function HomePage({
 
   const TrendingCourses = () => (
     <HorizontalSectionList
-      title={'Cours tendance'}
+      title={<Title1> Cours tendance </Title1>}
       items={homePage?.trendingCourses}
       keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
       onItemClick={(course) => goToCourse(course)}
@@ -225,7 +232,7 @@ function HomePage({
 
   const LastAddedCourses = () => (
     <HorizontalSectionList
-      title={'Nouveautés'}
+      title={<Title1> Nouveautés </Title1>}
       items={homePage.lastAddedCourses}
       keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
       onItemClick={(course) => goToCourse(course)}
@@ -282,7 +289,7 @@ function HomePage({
     });
     return itemsToRender;
   };
-  console.log(homePage.courses);
+  //console.log(homePage.courses);
   return (
     <div>
       <Helmet>
@@ -303,15 +310,18 @@ function HomePage({
         <Carousel />
         {auth.authToken && <HomePageCategory />}
         <PlatformStatistics />
+        <CardsHomePage />
         {!auth.authToken && <HomePageCategory />}
         <Top10Courses />
-        {/* <CategoryCard /> */}
+
+        {/*Nom <CategoryCard /> */}
         {/* <EventCard /> */}
         {/* <TopCourses /> */}
+
         <TrendingCourses />
         <LastAddedCourses />
         {!auth.authToken && <StudentsCta />}
-        {/* {!auth.authToken && <CoachsCTA />} */}
+        {/*Non {!auth.authToken && <CoachsCTA />} */}
 
         {/* <SubscriptionsSelector /> */}
         {/* {!auth.authToken && (
@@ -319,6 +329,7 @@ function HomePage({
             src={!!affiliationToken ? wixLinks.homepageAffiliation.url : wixLinks.homepage.url}
           />
         )} */}
+
         {renderContinueLearningSection()}
         {renderCategories()}
 
@@ -329,9 +340,10 @@ function HomePage({
             title={<FormattedMessage {...messages.coaches} />}
           />
         )} */}
+        <Title1>Découvrez nos offres d'abonnement</Title1>
         {!auth.authToken && (
           <Title id={'homepage_form-ref'} ref={formsRef}>
-            Rejoignez Coachs Online !{' '}
+            Rejoignez Coachs Online ! <hr />
           </Title>
         )}
         <SubscriptionContainer auth={auth} subscription={subscription} />

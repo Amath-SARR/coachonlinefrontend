@@ -33,68 +33,7 @@ const Wrapper = styled.div`
   width: 85%;
   margin-left: 80px;
   margin: auto;
-`;
-
-const Wrapper1 = styled.div`
-  width: 550px;
-  height: 100px;
-  margin-top: 50px;
-`;
-
-const SubscriptionsWrapper = styled.div`
-  width: 100%;
-  max-width: 1260px;
-  margin: 50px auto;
-`;
-const FormWrapper = styled.div`
-  //background: linear-gradient(135deg, #1b2134 0%, #121621 100%);
-  border: 1px solid ${colors.mainGreen};
-  border-radius: 24px;
-  width: 100%;
-  max-width: 875px;
-  margin: 50px auto;
-  position: relative;
-  display: flex;
-  padding: 30px;
-  @media screen and (max-width: 600px) {
-    max-width: 300px;
-    flex-direction: column;
-  }
-`;
-const AffiliationBanner = styled(Banner)``;
-const BannerOverlay = styled.div`
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(closest-side, ${colors.backgroundBlue}CC 0%, transparent 100%);
-  top: 0;
-  left: 0;
-`;
-const WelcomeTextWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
-  width: 100%;
-  margin-top: 60px;
-  margin-bottom: 50px;
-  margin-left: 20px;
-  position: relative;
-
-  @media screen and (max-width: 920px) {
-    flex-direction: column;
-    margin: auto;
-    justify-content: center;
-  }
-`;
-const TextWrapper = styled.div`
-  width: 700px;
-  // padding: 20px;
-  // background: ${colors.lilac};
-
-  @media screen and (max-width: 920px) {
-    width: 300px;
-    margin-top: 60px;
-  }
+  margin-top: 30px;
 `;
 
 const Videoplayer = styled.video`
@@ -136,13 +75,7 @@ const Title2 = styled(Text)`
     font-size: 20px;
   }
 `;
-const Welcome = styled.div`
-  margin-top: 40px;
-  margin-bottom: 20px;
-  @media screen and (max-width: 920px) {
-    margin-top: 20px;
-  }
-`;
+
 const Subtitle = styled(Text)`
   height: 100px;
   letter-spacing: 2px;
@@ -152,31 +85,6 @@ const Subtitle = styled(Text)`
   margin-bottom: 20px;
   @media screen and (max-width: 500px) {
     font-size: 20px;
-`;
-const RegisterButton = styled(Button)`
-  width: 200px;
-  margin-left: 6px;
-  font-size: 24px;
-  @media screen and (max-width: 920px) {
-    font-size: 20px;
-    width: fit-content;
-    font-weight: 400;
-  }
-`;
-
-const Buttons = styled.div`
-  display: flex;
-  justify-content: center;
-`;
-
-const Separator = styled.div`
-  margin: 0 30px;
-  border-left: 1px solid white;
-  @media screen and (max-width: 600px) {
-    margin: 30px 0;
-    border-left: none;
-    border-bottom: 1px solid white;
-  }
 `;
 
 const Button1 = styled.button`
@@ -190,19 +98,44 @@ const Button1 = styled.button`
     margin-top: 60px;
 `;
 
-const CardRight = styled.div`
-  width: 700px;
-  height: 500px;
-  margin-left: -300px;
+const ImageAccueil = styled.div`
   background: url(${ImgAceuil});
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center;
-  background-position-x: center;
-  background-position-y: center;
-  background-position: bottom, right;
+  width: 700px;
+  height: 450px;
+  margin-left:30px;
   border-radius: 0px 14px 14px 0px;
-  `;
+  @media screen and (max-width: 700px) {
+    width: 200px;
+    border-left: none;
+    justify-content: center;
+    border-bottom: 1px solid white;
+  }`;
+
+  const InfoWelcome = styled.div`
+    display: flex;
+    width: 400px;
+    padding: 32px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 57px;
+    flex-shrink: 0;
+    border-radius: 8px 0px 0px 8px;
+    backdrop-filter: blur(2px);`
+
+  const CardWrapper = styled.div`
+  margin-left: 50px;
+  margin-top: 50px;
+  border-radius: 8px;
+  border: 1px solid var(--dark-grey-50, #C5C5C9);
+  background: var(--white, #FFF);
+  display: flex;
+  @media screen and (max-width: 95%;) {
+    box-shadow: 8px 8px 8px 8px;
+    margin-bottom: 50px;
+  }
+`;
 
 const Links = styled.a`
   text-decoration: none;
@@ -252,8 +185,8 @@ function HomePageAffiliationSection(props: HomePageAffiliationSectionProps) {
   return (
     <>
       <Wrapper>
-        <div className="full-card">
-          <div className="card-left">
+        <CardWrapper>
+          <InfoWelcome>
             <div className='head'>
               <Title>Bienvenue sur </Title>
               <Title2>Coachs Online</Title2>
@@ -274,9 +207,9 @@ function HomePageAffiliationSection(props: HomePageAffiliationSectionProps) {
                 </Links>
               </Button1>
             </div>
-          </div>
-          <CardRight className='card-right' />
-        </div>
+          </InfoWelcome>
+          <ImageAccueil />
+        </CardWrapper>
         <VideoWrapper>
           <Videoplayer controls autostart autoPlay muted loop src={Video} type="video/mp4" />
         </VideoWrapper>

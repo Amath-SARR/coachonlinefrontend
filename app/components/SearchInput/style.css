@@ -1,0 +1,13 @@
+
+li.Mui-focused {
+  background-color: #4a8df6;
+  color: 'white';
+  cursor: 'pointer'
+}
+
+li:active {
+  background-color: #2977f5;
+  color: white;
+  cursor: 'pointer'
+
+}

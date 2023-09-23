@@ -14,19 +14,16 @@ import Button from '../Button';
 const Wrapper = styled.div`
   width: 100%;
   display: flex;
+  position:relative;
   //flex-direction: column;
   justify-content: center;
   background-color: #fff;
-  @media screen and (max-width: 900px) {
+  margin-top: 60px;
+  @media screen and (max-width: 100%) {
     height: 700px;
   }
 `;
-const Container = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  padding: 70px;
-`;
+
 const Title = styled.p`
   font-size: 30px;
   font-weight: 100;
@@ -80,7 +77,12 @@ const ButtonWrapper = styled.div`
 `;
 
 const CardLeft = styled.div`
-  margin-left: -50px;
+  margin-left: 15px;
+  @media screen and (max-width: 520px) {
+    box-shadow: 0px 0px 0px 0px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
 `;
 
 const CardRight = styled.div`
@@ -91,7 +93,6 @@ function StudentsCta(props) {
   return (
     <div>
       <Wrapper>
-        <Container>
           <CardLeft>
             <Title>Faites un pas de plus vers vos objectifs personnels et professionnels</Title>
             <Text>
@@ -122,7 +123,6 @@ function StudentsCta(props) {
               <Videoplayer controls autostart autoPlay muted loop src={Video} type="video/mp4" />
             </VideoWrapper>
           </CardRight>
-        </Container>
       </Wrapper>
     </div>
   );

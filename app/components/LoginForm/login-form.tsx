@@ -12,7 +12,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
 import Input from '../Input';
-import messages from '../messages';
+import messages, { Yoga } from '../messages';
 import Label from '../Label';
 import { ActionButton } from '../../containers/Auth';
 import history from '../../utils/history';
@@ -26,8 +26,9 @@ import GoogleButton from '../GoogleButton/google-button';
 import { GoogleActionType } from '../../containers/Auth/reducer.types';
 import useQuery from '../../hooks/useQuery';
 import { writeToStorage } from '../../utils/storage';
+import './style.css';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`margin-left:-80px; `;
 
 const registerSchema = yup.object().shape({
   email: yupValidators.email,
@@ -87,6 +88,7 @@ function LoginForm(props: LoginFormProps) {
           labelName={messages.Email}
           error={errors.email?.message}
           type="email"
+          placeholder='Email'
         />
         <Input
           redesigned
@@ -95,22 +97,32 @@ function LoginForm(props: LoginFormProps) {
           type="password"
           error={errors.password?.message}
           secured
+          placeholder='Password'
         />
-        <Label
+        <Label className="labelForgotPW"
           labelName={messages.forgotPassword}
           onClick={() => navigate('/auth/resetPassword')}
         />
-        <ActionButton disableOnFetch outline value="Connexion" />
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-up-right" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"/>
+        </svg>
+
+        <ActionButton color="with" background="#FF0080" value="SE CONNECTER" />
       </form>
+      <p style={{marginLeft:'150px'}}>ou</p>
       <div style={{ marginBottom: 15 }}>
         <GoogleButton onClick={saveFormToLocalStorage} actionType={GoogleActionType.login} />
       </div>
+      {/* <Label
+          labelName="S'inscrire"
+          onClick={() => navigate('/auth/register/student')}
+        /> */}
 
-      <Label label={'Avez-vous un compte b2b ?'} onClick={() => navigate('/b2b/log-in')} />
+      {/* <Label label={'Avez-vous un compte ?'} onClick={() => navigate('/auth/register/student') } />
       <Label
         label={'Avez-vous un compte à la bibliothèque ?'}
         onClick={() => navigate('/libraries/log-in')}
-      />
+      /> */}
     </Wrapper>
   );
 }
@@ -126,5 +138,6 @@ function mapDispatchToProps(dispatch: DispatchType) {
 const mapStateToProps = createStructuredSelector({});
 
 const withConnect = connect(mapStateToProps, mapDispatchToProps);
+
 
 export default compose(withConnect, memo)(LoginForm);

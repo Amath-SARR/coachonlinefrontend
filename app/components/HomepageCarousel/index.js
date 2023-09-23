@@ -11,6 +11,7 @@ import { BASE_URL } from '../../config/env';
 import { colors } from '../../utils/colors';
 import { Category } from '../CategorySelector';
 import Image from '../Image';
+import { Text } from '../../global-styles';
 import ChevronRightIcon from '../../images/icons/arrow-point-to-right.png';
 import useWindowSize from '../../hooks/useWindowSize';
 import AspectRatioContainer from '../AspectRatioContainer';
@@ -86,16 +87,27 @@ const PlayIcon = styled(Image)`
   height: auto;
 `;
 
-const CourseName = styled.div`
-  color: var(--black-grey, #191919);
+// const CourseName = styled.div`
+//   color: var(--black-grey, #191919);
+//   font-size: 30px;
+//   font-weight: 100;
+//   margin-left: -40px;
+//   text-transform: uppercase;
+//   margin-bottom: 20px;
+//   @media screen and (max-width: 500px) {
+//     font-size: 20px;
+//   }
+// `;
+
+const CourseName = styled(Text)`
+  height: 100px;
+  letter-spacing: 2px;
   font-size: 30px;
   font-weight: 100;
-  margin-left: -40px;
   text-transform: uppercase;
-  margin-bottom: 20px;
+  text-align: justify;
   @media screen and (max-width: 500px) {
     font-size: 20px;
-  }
 `;
 
 const CoachName = styled.div`
@@ -126,17 +138,38 @@ const CardRight = styled.div`
     padding: 10px 32px;
     align-items: flex-end;
     cursor: pointer;
-    gap: 16px;
     border-radius: 14px;
     border: 1px solid var(--rose, #E21680);
     background: var(--rose, #E21680);
-    margin-top: 35px;
+    margin-top: 130px;
+`;
+
+const FullWrapper = styled.div`
+  mmax-width: 95%;
+  height: 500px;
+  display: flex;
+  position: relative;
+  margin: auto;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 10px;
+  border-radius: 14px;
+  border: 1px solid var(--dark-grey-50, #C5C5C9);
+  background: var(--white, #FFF);
+  //margin-left: 100px;
+  margin-top: 30px;
+  border-radius: 14px 14px 14px 14px;
+
+  @media screen and (max-width: 95%) {
+    box-shadow: 0px 0px 0px 0px;
+
+  }
 `;
 
 function HomepageCarousel({ courses, onCourseClick }) {
   const CarouselItem = ({ course, index }) => (
      <div key={course.id} >
-      <div className="full-card">
+      <FullWrapper>
         <div className="card-left">
           <div className='head'>
             <span>{[index+1]+'/'+[courses?.length]}</span>
@@ -155,7 +188,7 @@ function HomepageCarousel({ courses, onCourseClick }) {
           </div> */}
         </div>
         <CardRight img={BASE_URL + course.photoUrl}/>
-      </div>
+      </FullWrapper>
     </div>
   );
 

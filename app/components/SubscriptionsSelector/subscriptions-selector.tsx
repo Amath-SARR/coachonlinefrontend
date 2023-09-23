@@ -32,12 +32,7 @@ const Wrapper = styled.div`
   position: relative;
 `;
 
-const Title = styled.p`
-  font-size: 40px;
-  text-align: center;
-  margin-top: 80px;
-  margin-bottom: 30px;
-`;
+
 
 function SubscriptionsSelector(props: SubscriptionsSelectorProps) {
   const query = useQuery();
@@ -113,7 +108,7 @@ function SubscriptionsSelector(props: SubscriptionsSelectorProps) {
   };
   return (
     <>
-      <Title>Découvrez nos offres d'abonnement</Title>
+
       <Wrapper>
         <Subscriptions />
       </Wrapper>
