@@ -46,6 +46,10 @@ const Accordion = styled.div`
 border-bottom: 1px solid rgba(0, 0, 0, 0.30);
 `;
 
+const TitleFaq = styled.div`
+   padding: 32px;
+`;
+
 const Container = styled.div`
  /* position: relative; // position: absolute;
   //top: 30%;
@@ -81,18 +85,16 @@ const Wrap = styled.div`
     padding: 2rem;
     font-size: 25px;
   }*/
-  display: flex;
+ display: flex;
 padding: 16px;
-justify-content:space-between;
-border-bottom: 1px solid rgba(0, 0, 0, 0.30);
+justify-content: space-between;
 align-items: center;
 align-self: stretch;
+border-bottom: 1px solid rgba(0, 0, 0, 0.30);
 background: var(--white, #FFF);
-height: 70px;
 span{
   margin-right:20px;
-  position: absolute;
-      right:200px;
+
 }
   @media screen and (max-width: 500px) {
     h1 {
@@ -186,6 +188,14 @@ line-height: normal;
   }
 `;
 const TopicBody = styled.div`
+  color: #000;
+
+/* Coachs H5 */
+font-family: Montserrat;
+font-size: 21px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
   @media screen and (max-width: 920px) {
     font-size: 15px;
   }
@@ -246,47 +256,52 @@ function FaqAccordion(props: FaqAccordionProps) {
   //  Need to improve the displaying aspect for the "topicBody"
   return (
     <Wrapper>
-      <Title>Questions fréquentes</Title>
-      <Description>Si vous ne trouvez pas la réponse dans la rubrique Questions fréquentes, merci de nous adresser votre message via email.</Description>
+      <TitleFaq>
+        <Title>Questions fréquentes</Title>
+        <Description>Si vous ne trouvez pas la réponse dans la rubrique Questions fréquentes, merci de nous adresser votre message via email.</Description>
+      </TitleFaq>
       <Container>
 
-        {faq?.categories.map((item, index) => (
+        {faq?.categories.map((item) => (
           <>
-            <div>
-              <Wrap onClick={() => toggle(index, item.categoryId)} key={index}>
 
-                <h1>{item.categoryName}</h1>
-                <span>
-                  {clicked === index ? (
-                    <Chevron src={ChevronDown} />
-                  ) : (
-                    <Chevron src={ChevronUp} />
-                  )}
-                </span>
-              </Wrap>
-            </div>
-            {clicked === index ? (
-              <Dropdown>
-                <div>
-                  {item.topics?.map((topic, index) => (
-                    <>
-                      <DropdownTopic key={index}>
-                        <Name>{topic.topicName}</Name>
-                        <br />
-                        <TopicBody
-                          dangerouslySetInnerHTML={{
-                            __html: currentTopics[index]?.topicBody?.toString(),
-                          }}
-                        />
-                      </DropdownTopic>
-                    </>
-                  ))}
-                </div>
-              </Dropdown>
-            ) : null}
+            {item.topics?.map((topic, index) => (
+              <>
+
+                <Wrap onClick={() => toggle(index, topic.topicId)} key={index}>
+                  <Name>{topic.topicName}</Name>
+                  <span>
+                    {clicked === index ? (
+                      <Chevron src={ChevronDown} />
+                    ) : (
+                      <Chevron src={ChevronUp} />
+                    )}
+                  </span>
+                </Wrap>
+
+                {clicked === index ? (
+                  <Dropdown>
+                    <div>
+                      {item.topics?.map((index) => (
+                        <>
+                          <DropdownTopic key={index}>
+                            <TopicBody
+                              dangerouslySetInnerHTML={{
+                                __html: currentTopics[index]?.topicBody?.toString(),
+                              }}
+                            />
+
+                          </DropdownTopic>
+                        </>
+                      ))}
+                    </div>
+                  </Dropdown>
+
+                ) : null}
+              </>
+            ))}
           </>
         ))}
-
       </Container>
     </Wrapper>
   );

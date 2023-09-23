@@ -173,8 +173,8 @@ function CourseCard(props: CourseCardProps) {
             <CoachName>{fullName(course?.coach)}</CoachName>
             <IconWrapper
               style={{ marginRight: 25 }}
-              //clickable={asAccessToLike()}
-              //onClick={() => canLike && toggleLike(!liked)}
+            //clickable={asAccessToLike()}
+            //onClick={() => canLike && toggleLike(!liked)}
             >
               <Icon
                 style={{ filter: 'none' }}

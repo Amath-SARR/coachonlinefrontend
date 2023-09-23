@@ -37,7 +37,7 @@ const Collapsable = styled.div`
   border: none;
 `;
 export const Category = styled.div`
-  font-size: 14px;
+  /* font-size: 14px;
   font-weight: 400;
   width: fit-content;
   color: ${colors.lilac};
@@ -51,7 +51,15 @@ export const Category = styled.div`
   &:hover {
     background-color: ${colors.lilac};
     color: ${colors.white};
-  }
+  }*/
+  display: flex;
+  padding: 8px 16px;
+  align-items: flex-start;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid var(--black-grey, #191919);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(2px);
 `;
 //${(props) => (props.isSelected ? colors.mainGold : colors.inputBlue)};
 function CategorySelector({ categories, labelTx, onChange = (category) => null, selected }) {

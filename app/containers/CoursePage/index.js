@@ -44,14 +44,24 @@ import CourseListItem from '../../components/CourseListItem';
 import Certif from '../../images/icons/quality1.png';
 import Modal from '../../components/Modal';
 import { modalStyles } from '../../components/CategoryDropdownSearch';
+import { BorderRadius } from 'styled-icons/boxicons-regular';
 
 const Wrapper = styled(FlexColumn)`
-  width: 100%;
+  /* width: 100%;
   padding: 50px;
   background-color: #F8F7FB;
   @media screen and (max-width: 920px) {
     margin-top: 130px;
-    padding: 8px;
+    padding: 8px;*/
+
+  display: inline-flex;
+  padding: 44px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 70px;
+  border-radius: 14px;
+  border: 1px solid var(--opacity, rgba(140, 140, 148, 0.5));
+  background: var(--white, #fff);
 `;
 const Column = styled(FlexColumn)``;
 const Row = styled(FlexRow)`
@@ -67,6 +77,35 @@ const RowToMobileColumn = styled(Row)`
     flex-direction: column;
   }
 `;
+const CommentTextParent = styled.text`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  flex: 1 0 0;
+`;
+const CommentText = styled.text`
+  color: var(--black-grey, #191919);
+  font-family: Montserrat;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 94.023%; /* 37.609px */
+  text-transform: uppercase;
+
+  @media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
+`;
+
+const CommentTextDesc = styled.text`
+  color: #000;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 94.023%; /* 15.044px */
+`;
 const PlayerRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -76,13 +115,19 @@ const PlayerRow = styled.div`
     flex-direction: column;
   }
 `;
+
 const PlayerWrapper = styled.div`
-  position: relative;
+  /*  position: relative;
   flex: 3;
   width: 100%;
   padding-right: 10px;
   border-radius: 10px;
-
+*/
+  width: 100%;
+  height: 600px;
+  flex-shrink: 0;
+  border-radius: 14px;
+  background: url(<path-to-image>), lightgray 50% / cover no-repeat, #d9d9d9;
   @media screen and (max-width: 920px) {
     flex: unset;
   }
@@ -103,19 +148,39 @@ const EpisodesColumn = styled.div`
     ::-webkit-scrollbar {
       width: 2px;
     }
-  } ;
+  }
+`;
+
+const AutreFormation = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 32px;
+`;
+const Row1 = styled.div`
+Frame 29
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 12px;
+flex: 1 0 0;
+width: 1468px;
+border-bottom: 1px solid rgba(140, 140, 148, 0.50);
+
+`;
+const Row2 = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
 `;
 
 const OverFlow = styled.div`
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  border-radius: 10px;
-  margin-left: 30px;
-  box-shadow: 0px 5px 14px rgba(8, 15, 52, 0.1);
-  background-color: white;
-  // padding: 8px;
-  // margin: 10px;
+  display: flex;
+  width: 350px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+
   @media screen and (max-width: 900px) {
     margin-left: 0px;
   }
@@ -136,10 +201,15 @@ const CourseInfoWrapper = styled(RowToMobileColumn)`
   flex: 1;
 `;
 const Title = styled(TextWhite)`
-  font-weight: 700;
-  font-size: 35px;
-  text-align: left;
-  margin-bottom: 10px;
+  align-self: stretch;
+  color: var(--rose, #e21680);
+
+  /* Coachs H1 */
+  font-family: Montserrat;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: 94.023%; /* 60.175px */
   text-transform: uppercase;
   @media screen and (max-width: 920px) {
     margin-top: 15px;
@@ -147,11 +217,29 @@ const Title = styled(TextWhite)`
   }
 `;
 const Title1 = styled(Title)`
-  display: none;
+  color: var(--rose, #e21680);
+
+  /* Coachs H2 */
+  font-family: Montserrat;
+  font-size: 40px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 94%; /* 37.6px */
+  text-transform: uppercase;
   @media screen and (max-width: 920px) {
     display: flex;
     font-size: 15px;
   }
+`;
+const SousTitle = styled.p`
+  color: #000;
+  width: 100%;
+  /* Texte général */
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 `;
 
 const Title2 = styled(Title)`
@@ -160,12 +248,56 @@ const Title2 = styled(Title)`
     display: none;
   }
 `;
+const BioWrapper = styled.div`
+  display: flex;
+  justify-content : center
+  max-width: 200px;
+  max-height: 100px;
+  min-height : 100px;
+  overflow: hidden;
+  border-radius : 15px;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  transition: max-height 0.5s ease-in-out;
+  &:hover {
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: auto;
+  }
+  @media screen and (max-width: 920px) {
+    justify-content : center;
+
+    margin-bottom: 20px;
+    }
+`;
+
 const CourseDescription = styled(TextWhite)`
+  flex: 1 0 0;
+  color: var(--black-grey, #191919);
+  min-width: 400px;
+  max-width: 500px;
+  max-height: 120px;
+  min-height: 120px;
+  overflow: hidden;
+  /* Texte général */
+  font-family: Montserrat;
   font-size: 16px;
-  overflow: auto;
-  //width: 100%;
-  @media screen and (max-width: 800px) {
-    width: 100%;
+  font-style: normal;
+  font-weight: 400;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  transition: max-height 0.5s ease-in-out;
+  &:hover {
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: auto;
+  }
+  @media screen and (max-width: 500px) {
+    justify-content: center;
+
+    margin-bottom: 20px;
   }
 `;
 const TabBody = styled.div`
@@ -186,12 +318,16 @@ const CommentWrapper = styled.div`
   margin-right: 40px;
 `;
 const CourseDetails = styled.div`
-  display: flex;
+  /*display: flex;
   justify-content: space-around;
   padding: 20px;
   margin-bottom: 30px;
   box-shadow: 0px 5px 14px rgba(8, 15, 52, 0.1);
-  border-radius: 10px;
+  border-radius: 10px;*/
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 20px;
   @media screen and (max-width: 900px) {
     flex-direction: column;
   }
@@ -235,9 +371,16 @@ const CourseSecondColumn = styled.div`
 `;
 
 const CourseSubtitle = styled(TextWhite)`
-  font-size: 18px;
-  font-weight: 600;
-  margin-right: 10px;
+  flex: 1 0 0;
+  align-self: stretch;
+  color: var(--black-grey, #191919);
+
+  /* Coachs H4 */
+  font-family: Montserrat;
+  font-size: 21px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
 `;
 const Certification = styled.div`
   display: flex;
@@ -268,15 +411,23 @@ const Legend = styled(TextWhite)`
   margin-left: 15px;
 `;
 const CertificationButton = styled.button`
-  width: 230px;
+  /*  width: 230px;
   padding: 10px;
   margin-left: 10px;
   border-radius: 10px;
   background-color: ${colors.lilac};
   border: none;
-  color: ${colors.white};
   font-weight: 300;
   margin-top: 20px;
+  */
+  display: flex;
+  padding: 10px 32px;
+  align-items: flex-end;
+  gap: 16px;
+  color: ${colors.white};
+  border-radius: 14px;
+  border: 1px solid var(--rose, #e21680);
+  background: var(--rose, #e21680);
   @media screen and (max-width: 900px) {
     width: 200px;
   }
@@ -288,12 +439,35 @@ const Container = styled.div`
     flex-direction: column;
   }
 `;
-
+const Cadre = styled.div`
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+`;
+const Cadre1 = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+`;
+const Cadre2 = styled.div`
+  display: flex;
+  width: 700px;
+  height: 150px;
+  padding: 16px;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 24px;
+  align-self: stretch;
+  border-radius: 14px;
+  border: 1px solid var(--dark-grey-50, #c5c5c9);
+  background: var(--white, #fff);
+`;
 const LinkQCM = styled.a`
   color: ${colors.lilac};
 `;
 const TABS = [
-  { label: 'Commentaires', id: 'comments' },
+  // { label: ' LAISSER UN COMMENTAIRE', id: 'comments' },
   // { label: 'Description du cours', id: 'course-description' },
 ];
 
@@ -457,88 +631,8 @@ export function CoursePage({
         }}
       >
         <Wrapper>
-          <CourseInfo
-            course={homePage.selectedCourse}
-            onLikeToggle={onLikeToggle}
-            liked={homePage.selectedCourse.isLikedByMe}
-            episodeData={episodeData}
-            canLike={!!auth.authToken}
-            auth={auth}
-          />
+          <Title>{homePage.selectedCourse?.name}</Title>
 
-          <CourseDetails>
-            <CourseFirstColumn>
-              <Title>{homePage.selectedCourse?.name}</Title>
-              {/* <Certification>
-                <CertificationLogo src={Certif} alt="logo"></CertificationLogo>
-                <Legend className="legend">Cette formation est certifiante</Legend>
-              </Certification> */}
-
-              {/* <Title style={{ fontWeight: 700 }}> À propos de ce cours </Title> */}
-              <CourseDescription
-                dangerouslySetInnerHTML={{
-                  __html: homePage?.selectedCourse?.description,
-                }}
-              />
-              <Container style={{ display: 'flex' }}>
-                {/* <CertificationButton onClick={() => setOpenedProgram(true)}>
-                  Programme de la Formation
-                </CertificationButton>
-                <Modal
-                  withHeader
-                  isOpened={openedProgram}
-                  onClose={() => setOpenedProgram(false)}
-                  style={modalStyles(width)}
-                >
-                  <div style={{ padding: '30px' }}>
-                    <p> Bientôt disponible</p>
-                  </div>
-                </Modal> */}
-                <CertificationButton onClick={() => setOpenedCertif(true)}>
-                  Passer la certification
-                </CertificationButton>
-                <Modal
-                  withHeader
-                  isOpened={openedCertif}
-                  onClose={() => setOpenedCertif(false)}
-                  style={modalStyles(width)}
-                >
-                  <div style={{ padding: '30px' }}>
-                    <TextWhite style={{ textAlign: 'center', fontSize: '25px', fontWeight: '600' }}>
-                      Passer la certification{' '}
-                    </TextWhite>
-                    <Legend style={{ fontSize: '13px', marginTop: '10px', marginBottom: '10px' }}>
-                      *La réussite d’au moins 80% de ce test permet l’obtention d’une attestation de
-                      formation mentionnant les objectifs, la nature et la durée de la formation,
-                      ainsi que les résultats de l’évaluation des acquis de la formation.
-                    </Legend>
-                    <TextWhite>Lien vers le test : </TextWhite>
-                    <LinkQCM>{homePage.selectedCourse?.certificationQCM}</LinkQCM>
-                  </div>
-                </Modal>
-              </Container>
-            </CourseFirstColumn>
-
-            <CourseSecondColumn>
-              <CourseCible>
-                <CourseSubtitle>Public Cible : </CourseSubtitle>
-                <p> {homePage.selectedCourse?.publicTargets}</p>
-              </CourseCible>
-              <CoursePrerequis>
-                {' '}
-                <CourseSubtitle>Prérequis nécessaires :</CourseSubtitle>
-                <p> {homePage.selectedCourse?.prerequisite}</p>
-              </CoursePrerequis>
-              <CourseObjectif>
-                <CourseSubtitle>Les objectifs de Formation : </CourseSubtitle>
-                <p
-                  dangerouslySetInnerHTML={{
-                    __html: homePage.selectedCourse?.objectives,
-                  }}
-                ></p>
-              </CourseObjectif>
-            </CourseSecondColumn>
-          </CourseDetails>
           <PlayerRow>
             <Column style={{ flex: 3 }}>
               <PlayerWrapper ref={playerWrapperRef}>
@@ -557,19 +651,8 @@ export function CoursePage({
               </PlayerWrapper>
             </Column>
             <Column style={{ flex: 1 }}>
-              <Title1 style={{ marginBottom: 8, paddingLeft: 10 }}>MODULES DE FORMATION</Title1>
               <OverFlow>
                 <EpisodesColumn>
-                  <Title2
-                    style={{
-                      margin: '10px 10px 10px 15px',
-                      textAlign: 'center',
-                      fontWeight: '600',
-                      fontSize: '19px',
-                    }}
-                  >
-                    MODULES DE FORMATION
-                  </Title2>
                   <ListOfEpisodes
                     style={{ maxHeight: playerRowHeight - 42 }}
                     episodes={homePage.selectedCourse?.episodes}
@@ -581,6 +664,82 @@ export function CoursePage({
             </Column>
           </PlayerRow>
 
+          <CourseDetails>
+            <Cadre>
+              <Cadre1>
+                <Cadre2>
+                  <CourseSubtitle>Description de formation</CourseSubtitle>
+
+                  <CourseDescription
+                    dangerouslySetInnerHTML={{
+                      __html: homePage?.selectedCourse?.description,
+                    }}
+                  />
+                </Cadre2>
+                <Cadre2>
+                  <CourseSubtitle>Public cible</CourseSubtitle>
+                  <p> {homePage.selectedCourse?.publicTargets} </p>
+                </Cadre2>
+              </Cadre1>
+              <Cadre1>
+                <Cadre2>
+                  <CourseSubtitle>Les objectifs de formation</CourseSubtitle>
+                  <p
+                    dangerouslySetInnerHTML={{
+                      __html: homePage.selectedCourse?.objectives,
+                    }}
+                  />
+                </Cadre2>
+                <Cadre2>
+                  <CourseSubtitle>Prérequis nécessaires</CourseSubtitle>
+                  <p> {homePage.selectedCourse?.prerequisite}</p>
+                </Cadre2>
+              </Cadre1>
+            </Cadre>
+            <CertificationButton onClick={() => setOpenedCertif(true)}>
+              Passer la certification
+            </CertificationButton>
+          </CourseDetails>
+
+          <CourseInfo
+            course={homePage.selectedCourse}
+            onLikeToggle={onLikeToggle}
+            liked={homePage.selectedCourse.isLikedByMe}
+            episodeData={episodeData}
+            canLike={!!auth.authToken}
+            auth={auth}
+          />
+
+          <AutreFormation>
+            <Row1>
+              <Title1>AUTRES FORMATIONS DE CE COACH</Title1>
+              <SousTitle>Découvrez notre sélection de cours</SousTitle>
+            </Row1>
+
+            <Row2>
+              {homePage.selectedCourse?.coach?.courses?.map((item, i) => (
+                <CourseListItem
+                  category={item.category?.name}
+                  key={item.id}
+                  item={item}
+                  onItemClick={() => goToCourse(item)}
+                  index={i}
+                  size={315}
+                  keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
+                />
+              ))}
+
+              <Title2
+                style={{
+                  margin: '10px 30px 10px 0px',
+                  textAlign: 'center',
+                  fontWeight: '600',
+                  fontSize: '19px',
+                }}
+              ></Title2>
+            </Row2>
+          </AutreFormation>
+
           <CourseInfoWrapper>
             <Column style={{ flex: 3, width: width > 920 ? 'unset' : '100%' }}>
               {/* <CourseInfo
@@ -591,6 +750,10 @@ export function CoursePage({
                 canLike={!!auth.authToken}
               /> */}
               <CommentWrapper>
+                <CommentTextParent>
+                  <CommentText> LAISSER UN COMMENTAIRE</CommentText>
+                  <CommentTextDesc>Partager votre opinion avec nous!</CommentTextDesc>
+                </CommentTextParent>
                 <Tabs
                   hideNextButton
                   useColorOverlays={false}
@@ -604,6 +767,10 @@ export function CoursePage({
                       // marginRight: '40px',
                       backgroundColor: colors.backgroundDarkBlue,
                       borderRadius: '15px',
+                      heigth: '80px',
+                      BorderRadius: '14px',
+                      border: '1px solid var(--dark-grey-50, #C5C5C9)',
+                      background: 'var(--carte, #ffffff)',
                     },
                     header: { width: '100%' },
                     tabStyle: {
@@ -621,37 +788,6 @@ export function CoursePage({
                   </TabBody>
                 </Tabs>
               </CommentWrapper>
-            </Column>
-            <Column style={{ flex: 1 }}>
-              <Title1 style={{ marginBottom: 8, paddingLeft: 10 }}>
-                AUTRES FORMATIONS DE CE COACH
-              </Title1>
-
-              <OverFlow>
-                <CoursesColumn>
-                  <Title2
-                    style={{
-                      margin: '10px 30px 10px 0px',
-                      textAlign: 'center',
-                      fontWeight: '600',
-                      fontSize: '19px',
-                    }}
-                  >
-                    AUTRES FORMATIONS DE CE COACH
-                  </Title2>
-                  {homePage.selectedCourse?.coach?.courses?.map((item, i) => (
-                    <CourseListItem
-                      category={item.category?.name}
-                      key={item.id}
-                      item={item}
-                      onItemClick={() => goToCourse(item)}
-                      index={i}
-                      size={315}
-                      keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
-                    />
-                  ))}
-                </CoursesColumn>
-              </OverFlow>
             </Column>
           </CourseInfoWrapper>
         </Wrapper>
