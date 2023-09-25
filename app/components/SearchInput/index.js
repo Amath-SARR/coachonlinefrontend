@@ -93,20 +93,22 @@ function SearchInput({ onChange, onSearch, style, dashboard, getCategories }) {
 
   return (
     <div>
-    <datalist id="suggestions">
-      {listeSousCategories(dashboard).map((category) =>
-       category.map((category)=><option>{category.name}</option>))}
-    </datalist>
-    <input
-      autoComplete="on" list="suggestions"
-      ref={inputRef}
-      value={inputValue}
-      onChange={onInputChange}
-      onKeyPress={onKeyPress}
-      placeholder="Rechercher..."
-      style={{ minWidth: 200, height: 30,borderRadius: '8px 0px 0px 8px'  }}
-    />
-  </div>
+      <datalist id="suggestions">
+        {listeSousCategories(dashboard).map((category) =>
+          category.map((category) => <option>{category.name}</option>),
+        )}
+      </datalist>
+      <input
+        autoComplete="on"
+        list="suggestions"
+        ref={inputRef}
+        value={inputValue}
+        onChange={onInputChange}
+        onKeyPress={onKeyPress}
+        placeholder="Rechercher..."
+        style={{ minWidth: 200, height: 30, borderRadius: '8px 0px 0px 8px' }}
+      />
+    </div>
   );
 }
 

@@ -11,11 +11,7 @@ import { colors } from '../../utils/colors';
 import CourseListItem from '../CourseListItem';
 import CourseCard from '../CourseCard/course-card';
 import useWindowSize from '../../hooks/useWindowSize';
-import {
-  ArrowLeftWrapper,
-  ArrowRightWrapper,
-  Icon,
-} from '../HomepageCarousel';
+import { ArrowLeftWrapper, ArrowRightWrapper, Icon } from '../HomepageCarousel';
 import './style.css';
 
 const ChevronRightIcon = require('../../images/icons/arrowRight.svg');

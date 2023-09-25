@@ -49,14 +49,14 @@ export const Category = styled.div`
   align-items: center;
   gap: 16px;
   border-radius: 10px;
-  border: 1px solid var(--dark-grey, #8C8C94);
-    margin: 0 5px 5px 0;
-    cursor: pointer;
-    //${(props) => props.style};
-    &:hover {
-      background-color: ${colors.lilac};
-      color: ${colors.white};
-    }
+  border: 1px solid var(--dark-grey, #8c8c94);
+  margin: 0 5px 5px 0;
+  cursor: pointer;
+  //${(props) => props.style};
+  &:hover {
+    background-color: ${colors.lilac};
+    color: ${colors.white};
+  }
 `;
 //${(props) => (props.isSelected ? colors.mainGold : colors.inputBlue)};
 function CategorySelector({ categories, labelTx, onChange = (category) => null, selected }) {

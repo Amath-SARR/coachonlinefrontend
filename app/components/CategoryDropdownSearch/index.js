@@ -27,8 +27,6 @@ import Button from '../Button';
 const ChevronDown = require('../../images/icons/chevron-down--white.png');
 const ChevronLeftIcon = require('../../images/icons/arrowLeft.svg');
 
-
-
 // import makeSelectAuth from '../../containers/Auth/selectors';
 // import { Category } from './../CategorySelector/index';
 
@@ -38,11 +36,11 @@ const Wrapper = styled.div`
   justify-content: space-between;
   border: 1px solid ${colors.lilac};
   // border-right: none;
-  border-radius: 0px 8px 8px 0px ;
+  border-radius: 0px 8px 8px 0px;
   // border-bottom-left-radius: 8px;
   min-width: 100px;
   padding: 0 10px;
-  background: #E21680;
+  background: #e21680;
   height: 30px;
   @media screen and (max-width: 400px) {
     width: 130px;
@@ -72,7 +70,7 @@ const CategoryItem = styled(Category)`
   font-size: 20px;
   font-weight: 300;
   margin: 0 10px 10px 0;
-  color: ${(props) => (props.isSelected ? 'white' : `${('#191919')}`)};
+  color: ${(props) => (props.isSelected ? 'white' : `${'#191919'}`)};
   background: ${(props) =>
     props.isSelected
       ? `linear-gradient(90deg, ${colors.lilac} 30%, ${colors.mainPink} 100%)`
@@ -93,7 +91,7 @@ const Title = styled.div`
 
 const SubTitle = styled.div`
   width: 1442px;
-  color: var(--rose, #E21680); //#000;
+  color: var(--rose, #e21680); //#000;
   /* Coachs - Sous-titre */
   font-family: Montserrat;
   font-size: 14px;
@@ -123,7 +121,7 @@ const ComeBack = styled.span`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-`
+`;
 
 export const modalStyles = (width) => ({
   overlay: {
@@ -219,95 +217,106 @@ function CategoryDropdownSearch({
     return onSelectProp(category);
   };
 
-  const toggleModal = (visible) => { setModalVisible(visible) };
+  const toggleModal = (visible) => {
+    setModalVisible(visible);
+  };
 
   const hasChildren = !!category?.children?.length;
 
-  const returnBack = (hasChildren) => {
-    return hasChildren=0;
-  }
+  const returnBack = (hasChildren) => (hasChildren = 0);
 
-return (
-  <Wrapper onClick={() => toggleModal(true)} >
-    {/* <IconWrapper>
+  return (
+    <Wrapper onClick={() => toggleModal(true)}>
+      {/* <IconWrapper>
         <Icon src={CategoriesIcon} />
       </IconWrapper> */}
-    <Text>{category?.name || <FormattedMessage {...messages.categories} />}</Text>
-    <Chevron src={ChevronDown}
-      style={{
-        transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
-      }}
-    />
-    <div id='myModal'>
-      <Modal
-        withHeader
-        backButtonHidden
-        overlayClassName="transition-position"
-        style={modalStylesCategories(width)}
-        onClose={() => toggleModal(false)}
-        onBackPress={() => null}
-        isOpened={modalVisible}
-      // headerTitle={<FormattedMessage {...messages.categories} />}
-      >
-        {!hasChildren && (
-          <Categories
-            style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
-          >
-            <Title>catégories</Title>
-            <SubTitle>Etape 1 : pour commencer, sélectionnez la catégorie de votre choix</SubTitle>
-            {dashboard?.categories?.map((cat) => (
-              <CategoryItem
-                key={cat.id}
-                isSelected={cat.id === category?.id}
-                onClick={() => onSelect(cat)}
-              >
-                {cat.name}
-              </CategoryItem>
-            ))}
-          </Categories>)}
-        {hasChildren && (
-          <Text style={{ fontSize: '24px', padding: '20px 0' }}>
-            <FormattedMessage {...messages.subCategory} />
-          </Text>
-        )}
-
-        {!!category && (
-          <>
-            <div style={{ marginLeft: 200, marginTop: -50 }}>
-              <Title>sous-catégories</Title>
-              <SubTitle>Etape 2:  Maintenant sélectionnez la sous-catégorie pour affiner votre recherche, sinon cliquez sur “Appliquer”</SubTitle>
-              <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
-                {category.name} x
-              </CategoryItem>
-            </div>
-            <Categories>
-              {category?.children?.map((cat) => (
+      <Text>{category?.name || <FormattedMessage {...messages.categories} />}</Text>
+      <Chevron
+        src={ChevronDown}
+        style={{
+          transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
+        }}
+      />
+      <div id="myModal">
+        <Modal
+          withHeader
+          backButtonHidden
+          overlayClassName="transition-position"
+          style={modalStylesCategories(width)}
+          onClose={() => toggleModal(false)}
+          onBackPress={() => null}
+          isOpened={modalVisible}
+          // headerTitle={<FormattedMessage {...messages.categories} />}
+        >
+          {!hasChildren && (
+            <Categories
+              style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
+            >
+              <Title>catégories</Title>
+              <SubTitle>
+                Etape 1 : pour commencer, sélectionnez la catégorie de votre choix
+              </SubTitle>
+              {dashboard?.categories?.map((cat) => (
                 <CategoryItem
                   key={cat.id}
-                  isSelected={childCategories?.findIndex((category) => category.id === cat.id) >= 0}
-                  onClick={() => toggleChildCategory(cat)}
+                  isSelected={cat.id === category?.id}
+                  onClick={() => onSelect(cat)}
                 >
                   {cat.name}
                 </CategoryItem>
               ))}
             </Categories>
-            <WrapperButton>
-              <span><img src={ChevronLeftIcon} onClick={() => returnBack(hasChildren)} /> <ComeBack>Revenir en arrière</ComeBack> </span>
-              <Button
-                color="pink"
-                style={{ width: 'fit-content', marginLeft: 30 }}
-                onClick={initiateSearch}
-              >
-                Appliquer
-              </Button>
-            </WrapperButton>
-          </>
-        )}
-      </Modal>
-    </div>
+          )}
+          {hasChildren && (
+            <Text style={{ fontSize: '24px', padding: '20px 0' }}>
+              <FormattedMessage {...messages.subCategory} />
+            </Text>
+          )}
 
-  </Wrapper>
-);
+          {!!category && (
+            <>
+              <div style={{ marginLeft: 200, marginTop: -50 }}>
+                <Title>sous-catégories</Title>
+                <SubTitle>
+                  Etape 2: Maintenant sélectionnez la sous-catégorie pour affiner votre recherche,
+                  sinon cliquez sur “Appliquer”
+                </SubTitle>
+                <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
+                  {category.name} x
+                </CategoryItem>
+              </div>
+              <Categories>
+                {category?.children?.map((cat) => (
+                  <CategoryItem
+                    key={cat.id}
+                    isSelected={
+                      childCategories?.findIndex((category) => category.id === cat.id) >= 0
+                    }
+                    onClick={() => toggleChildCategory(cat)}
+                  >
+                    {cat.name}
+                  </CategoryItem>
+                ))}
+              </Categories>
+              <WrapperButton>
+                <span>
+                  <img src={ChevronLeftIcon} onClick={() => returnBack(hasChildren)} />{' '}
+                  <ComeBack>Revenir en arrière</ComeBack>{' '}
+                </span>
+                <Button
+                  color="pink"
+                  style={{ width: 'fit-content', marginLeft: 30 }}
+                  onClick={initiateSearch}
+                >
+                  Appliquer
+                </Button>
+              </WrapperButton>
+            </>
+          )}
+        </Modal>
+      </div>
+    </Wrapper>
+  );
 }
 
 function mapDispatchToProps(dispatch) {
