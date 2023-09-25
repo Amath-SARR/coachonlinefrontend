@@ -19,25 +19,119 @@ import Button from '../Button';
 import { fullName } from '../../utils/formatters';
 import ProfilePicture from '../ProfilePicture';
 import history from '../../utils/history';
-
+import ViewRose from '../../images/icons/View.svg';
+import HeartRose from '../../images/icons/Heart.png';
+import Arrow from '../../images/icons/arrow.svg';
 const CoachPictureSize = 200;
 
 // margin-bottom: 20px;
 // align-items: center;
 // width: 100%;
 const Wrapper = styled.div`
-  font-size: 100%;
+display: flex;
+width: 1468px;
+padding: 24px 24px 24px 16px;
+flex-direction: column;
+align-items: flex-end;
+border-radius: 14px;
+border: 1px solid var(--opacity, rgba(140, 140, 148, 0.50));
+background: var(--carte, #F4F4F6);  
+
   @media screen and (max-width: 920px) {
     margin-bottom: 20px;
   }
+`;
+const Partie1 = styled.div`
+ display: flex;
+align-items: flex-start;
+gap: 56px;
+align-self: stretch;
+`;
+const PartieTextCoach = styled.div`
+display: flex;
+align-items: flex-start;
+gap: 16px;
+`;
+const PartieDesc = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 15px;
+flex: 1 0 0;
+`;
+const GrandRow = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 12px;
+align-self: stretch;
+`;
+const SousRow = styled.div`
+display: flex;
+padding-bottom: 0px;
+align-items: center;
+gap: 32px;
+align-self: stretch;
+`;
+const PartieCoach = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 16px;
+`;
+const TextCoach = styled.p`
+transform: rotate(-90deg);
+color: var(--black-grey, #191919);
+
+position :relative;
+top: 70px;
+left: 50px;
+
+font-family: Montserrat;
+font-size: 40px;
+font-style: normal;
+font-weight: 400;
+line-height: 94%; 37.6px 
+
 `;
 const Column = styled(FlexColumn)`
   flex: 1;
 `;
 const Title = styled.p`
-  font-size: 28px;
-  font-weight: 700;
-  margin-right: 15px;
+ color: var(--black-grey, #191919);
+
+/* Coachs H4 */
+font-family: Montserrat;
+font-size: 21px;
+font-style: normal;
+font-weight: 500;
+line-height: normal;
+
+`;
+const BiographieTitle = styled.p`
+
+align-self: stretch;
+color: #E21680;
+
+/* Texte général */
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+ `;
+const Contact = styled.p`
+width: 1220px;
+color: var(--black-grey, #191919);
+
+/* Texte général */
+font-family: Montserrat;
+font-size: 16px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
 `;
 export const LikeWrapper = styled.div`
   display: flex;
@@ -94,7 +188,40 @@ const ProfilWrapper = styled.div`
     margin-bottom: 20px;
   }
 `;
+const SousPartie1 = styled.div`
+display: flex;
+align-items: flex-start;
+gap: 16px;
+align-self: stretch;
+`;
+const PartieView = styled.div`
+display: flex;
+align-items: flex-end;
+gap: 2px;
+`;
+const IconeRose = styled.img`
+width: 16px;
+height: 16px;
+`;
+const IconArrow = styled.img`
+width: 66px;
+height: 38px;
+`;
+const PetitText = styled.p`
+color: #000;
 
+/* Coachs - Petits icones */
+font-family: Montserrat;
+font-size: 12px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`;
+const PartieLike = styled.div`
+display: flex;
+align-items: center;
+gap: 6px;
+`;
 const BioWrapper = styled.div`
   display: flex;
   justify-content : center
@@ -165,7 +292,7 @@ const AttachmentLink = styled.a`
   margin-bottom: 15px;
 `;
 const CoachPicture = styled(ProfilePicture)`
-  width: ${CoachPictureSize}px;
+ /* width: ${CoachPictureSize}px;
   max-width: ${CoachPictureSize}px;
   height: ${CoachPictureSize}px;
   flex: 1;
@@ -173,7 +300,11 @@ const CoachPicture = styled(ProfilePicture)`
   @media screen and (max-width: 920px) {
     margin: 0 auto 10px auto;
     flex: unset;
-  }
+  }*/
+  width: 200px;
+height: 200px;
+border-radius: 14px;
+background: url(<path-to-image>), lightgray 0px -26px / 100% 169.5% no-repeat;
 `;
 const ProfilePictureOverlay = styled.div`
   display: flex;
@@ -268,44 +399,51 @@ const CourseInfo: FC<CourseInfoProps> = ({
   // The userLoggedIn will check if the user is connected and if he has access at some informations
   return (
     <Wrapper>
-      <RowToMobileColumn style={{ alignItems: 'center' }}>
-        <CourseWrapper>
-          <ProfilWrapper>
+      <Partie1>
+        <PartieTextCoach>
+          <TextCoach> COACH</TextCoach>
+          <PartieCoach>
             <CoachPicture
               src={course?.coach?.profilePhotoUrl && `${BASE_URL}${course?.coach?.profilePhotoUrl}`}
               overlay={<ProfilePictureOverlay onClick={goToCoach} />}
             />
-
-            <Title
-              style={{ fontSize: '1em', fontWeight: 600, textAlign: 'center', marginTop: '8px' }}
-            >
-              {fullName(course?.coach)}
-            </Title>
-            {/* <Title style={{ fontSize: 20, fontWeight: 400, textAlign: 'center' }}>
-              {course.name}
-            </Title> */}
-          </ProfilWrapper>
-          <RightWrapper>
-            <Title
-              style={{
-                fontSize: '1em',
-                fontWeight: 400,
-                textAlign: 'center',
-                marginBottom: '10px',
-              }}
-            >
-              Biographie
-              {/* <p
-                style={{
-                  fontSize: '1em',
-                  fontWeight: 600,
-                  color: colors.lilac,
-                  marginLeft: '5px',
-                }}
+            <SousPartie1>
+              <PartieView>
+                <IconeRose src={ViewRose} />
+                <PetitText>1 305 vues</PetitText>
+              </PartieView>
+              <PartieLike>
+                <IconeRose src={HeartRose} />
+                <PetitText> {course.likesCnt || 0} likes</PetitText>
+              </PartieLike>
+            </SousPartie1>
+            <LikeWrapper>
+              <IconWrapper
+                clickable={asAccessToLike()}
+                onClick={() => canLike && toggleLike(!liked)}
               >
+                <Icon
+                  checked={liked}
+                  accent={colors.mainGreen}
+                  src={liked ? HeartFilledImg : HeartEmptyImg}
+                />
+              </IconWrapper>
+              <LikeCounter>{course.likesCnt || 0} likes</LikeCounter>
+            </LikeWrapper>
+          </PartieCoach>
+        </PartieTextCoach>
+        <PartieDesc>
+          <GrandRow>
+            <SousRow>
+              <Title>
                 {fullName(course?.coach)}
-              </p> */}
-            </Title>
+              </Title>
+              <IconArrow src={Arrow} onClick={goToCoach} />
+            </SousRow>
+
+            <BiographieTitle>
+              Biographie
+            </BiographieTitle>
             {userLoggedIn == true ? (
               <BioWrapper>
                 <Title style={{ fontSize: 20, fontWeight: 300, textAlign: 'justify' }}>
@@ -335,11 +473,12 @@ const CourseInfo: FC<CourseInfoProps> = ({
                 </Links>
               </ButtonWrapper>
             )}
-            <Title
-              style={{ fontSize: 18, fontWeight: 400, textAlign: 'center', color: colors.lilac }}
-            >
+            <BiographieTitle>
               {showEmailCoach()}
-            </Title>
+            </BiographieTitle>
+
+
+
 
             {userLoggedIn == true ? (
               <ButtonSupport>
@@ -364,23 +503,15 @@ const CourseInfo: FC<CourseInfoProps> = ({
                 )}
               </ButtonSupport>
             ) : null}
-            <LikeWrapper>
-              <IconWrapper
-                clickable={asAccessToLike()}
-                onClick={() => canLike && toggleLike(!liked)}
-              >
-                <Icon
-                  checked={liked}
-                  accent={colors.mainGreen}
-                  src={liked ? HeartFilledImg : HeartEmptyImg}
-                />
-              </IconWrapper>
-              <LikeCounter>{course.likesCnt || 0} likes</LikeCounter>
-            </LikeWrapper>
-            <InfoCoach onClick={goToCoach}>En savoir plus sur le coach</InfoCoach>
-          </RightWrapper>
-        </CourseWrapper>
-      </RowToMobileColumn>
+
+
+          </GrandRow>
+
+        </PartieDesc>
+
+
+      </Partie1>
+
       <Modal
         withHeader
         backButtonHidden

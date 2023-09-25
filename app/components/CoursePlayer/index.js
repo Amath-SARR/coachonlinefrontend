@@ -91,7 +91,7 @@ const VideoIcon = styled.img`
   margin: 7px;
   &:hover {
     cursor: pointer;
-    background-color: #E5137D;
+    background-color: #e5137d;
     border-radius: 100%;
   }
   @media screen and (max-width: 920px) {
@@ -99,8 +99,8 @@ const VideoIcon = styled.img`
   }
 `;
 const NoSubscriptionMessage = styled.p`
-  color: ${colors.white};
-  font-size: 16px;
+  color: ${colors.dark};
+  font-size: 20px;
   font-weight: 500;
   word-break: break-word;
 `;

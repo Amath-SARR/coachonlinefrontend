@@ -12,6 +12,8 @@ import { colors } from '../../utils/colors';
 import facebookIco from '../../images/icons/facebook.svg';
 import instagramIco from '../../images/icons/instagram.svg';
 import linkedinIco from '../../images/icons/linkedin.svg';
+import YoutubeIco from '../../images/icons/Youtube.svg';
+import TiktokIco from '../../images/icons/Tiktok.svg';
 import ScreenLoader from '../ScreenLoader';
 import { Link } from 'react-router-dom';
 import { ContractsTypes } from '../../store/contracts/contracts.types';
@@ -320,7 +322,14 @@ function PageContainer({
             <IconLink href="https://www.linkedin.com/company/coachs-online" target="_blank">
               <Icon src={linkedinIco} />
             </IconLink>
+            <IconLink href="https://www.tiktok.com/@coachsonlineofficiel" target="_blank">
+              <Icon src={TiktokIco} />
+            </IconLink>
+            <IconLink href="https://www.youtube.com/@coachsonlineofficiel" target="_blank">
+              <Icon src={YoutubeIco} />
+            </IconLink>
           </IconsWrapper>
+
         </Section>
       </Footer>
     </Wrapper>

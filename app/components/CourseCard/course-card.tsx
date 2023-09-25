@@ -129,7 +129,7 @@ const Index = styled(Title)`
 
 function CourseCard(props: CourseCardProps) {
   const { course, onLikeToggle, canLike, liked: isLiked, onItemClick, auth, index, isTodays } = props || {};
-  const [liked, setLiked ] = useState(false);
+  const [liked, setLiked] = useState(false);
   const userLoggedIn = !!auth?.authToken;
 
   useEffect(() => {
@@ -168,16 +168,17 @@ function CourseCard(props: CourseCardProps) {
   return (
     <>
       <Container>
-        <CoverImage style={{ maxWidth: '100%' }} src={`${BASE_URL}${getCoursePhotoUrl()}`}/>
-          <span style={{position: 'absolute', right: 16,
-            top: 18, borderRadius: 10,border: '1px solid var(--white, #FFF)',
-            background: 'rgba(255, 255, 255, 0.05)',
-            backdropFilter: 'blur(2px)', display: 'flex',
-            padding: '8px 16px', alignItems: 'flex-start',
-            gap: '8px', color: 'var(--white, #FFF)',textAlign: 'right',
-            fontFamily: 'Montserrat',fontSize: 16,
-            fontStyle: 'normal',fontWeight: 300,lineHeight: '94.023%'
-             }}>{getCategorieName()}</span>
+        <CoverImage style={{ maxWidth: '100%' }} src={`${BASE_URL}${getCoursePhotoUrl()}`} />
+        <span style={{
+          position: 'absolute', right: 16,
+          top: 18, borderRadius: 10, border: '1px solid var(--white, #FFF)',
+          background: 'rgba(255, 255, 255, 0.05)',
+          backdropFilter: 'blur(2px)', display: 'flex',
+          padding: '8px 16px', alignItems: 'flex-start',
+          gap: '8px', color: 'var(--white, #FFF)', textAlign: 'right',
+          fontFamily: 'Montserrat', fontSize: 16,
+          fontStyle: 'normal', fontWeight: 300, lineHeight: '94.023%'
+        }}>{getCategorieName()}</span>
 
         {/*
           <CategoryContainer>
@@ -187,17 +188,17 @@ function CourseCard(props: CourseCardProps) {
           </CategoryContainer> */}
 
         <InfoWrapper onClick={onItemClick}>
-          {isTodays=="Top Cours aujourd\'hui" && (
+          {isTodays == "Top Cours aujourd\'hui" && (
             <Index>#{getIndex() + 1}</Index>
           )}
-          <div style={{display:'flex', marginLeft:'8px', marginTop:'8px'}}>
+          <div style={{ display: 'flex', marginLeft: '8px', marginTop: '8px' }}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
               <path d="M13 8L4 13L4 3L13 8Z" fill="#E21680" ></path>
             </svg>
-            <span style={{color:'#000'}}>1 305 vues</span>
+            <span style={{ color: '#000' }}>1 305 vues</span>
             &nbsp;
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path d="M5.59935 3.5C3.74544 3.5 2.16602 4.8862 2.16602 6.68653C2.16602 7.9285 2.74758 8.97412 3.51834 9.84028C4.28646 10.7035 5.27745 11.428 6.17333 12.0344L7.71907 13.0807C7.88836 13.1953 8.11034 13.1953 8.27962 13.0807L9.82537 12.0344C10.7213 11.428 11.7122 10.7035 12.4804 9.84028C13.2511 8.97412 13.8327 7.9285 13.8327 6.68653C13.8327 4.8862 12.2533 3.5 10.3993 3.5C9.4437 3.5 8.60279 3.94809 7.99935 4.52789C7.39591 3.94809 6.555 3.5 5.59935 3.5Z" fill="#E21680"/>
+              <path d="M5.59935 3.5C3.74544 3.5 2.16602 4.8862 2.16602 6.68653C2.16602 7.9285 2.74758 8.97412 3.51834 9.84028C4.28646 10.7035 5.27745 11.428 6.17333 12.0344L7.71907 13.0807C7.88836 13.1953 8.11034 13.1953 8.27962 13.0807L9.82537 12.0344C10.7213 11.428 11.7122 10.7035 12.4804 9.84028C13.2511 8.97412 13.8327 7.9285 13.8327 6.68653C13.8327 4.8862 12.2533 3.5 10.3993 3.5C9.4437 3.5 8.60279 3.94809 7.99935 4.52789C7.39591 3.94809 6.555 3.5 5.59935 3.5Z" fill="#E21680" />
             </svg>
             {/* <Icon
               style={{ filter: 'none' }}
@@ -205,7 +206,7 @@ function CourseCard(props: CourseCardProps) {
               accent={colors.mainGreen}
               src={HeartFilledImg}
             /> */}
-            <LikeCounter style={{ color:'#000' }}>{course?.likesCnt || 0} <span>j’aime</span> </LikeCounter>
+            <LikeCounter style={{ color: '#000' }}>{course?.likesCnt || 0} <span>j’aime</span> </LikeCounter>
           </div>
           <Title>{getCourseName()}</Title>
           <LikeWrapper>
@@ -220,6 +221,7 @@ function CourseCard(props: CourseCardProps) {
         </InfoWrapper>
       </Container>
     </>
+
   );
 }
 // const mapStateToProps = createStructuredSelector({
