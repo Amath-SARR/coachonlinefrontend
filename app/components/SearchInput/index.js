@@ -12,7 +12,6 @@ import { colors } from '../../utils/colors';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
 import Image from '../Image';
-import { useAutocomplete } from '@mui/base/useAutocomplete';
 import makeSelectHomePage from '../../containers/HomePage/selectors';
 import makeSelectDashboard from '../../containers/Dashboard/selectors';
 import { createStructuredSelector } from 'reselect';
@@ -110,20 +109,20 @@ function SearchInput({ onChange, onSearch, style, dashboard, getCategories }) {
 
   return (
     <div>
-    <datalist id="suggestions">
-      {listeSousCategories(dashboard).map((category) =>
-       category.map((category)=><option>{category.name}</option>))}
-    </datalist>
-    <input
-      autoComplete="on" list="suggestions"
-      ref={inputRef}
-      value={inputValue}
-      onChange={onInputChange}
-      onKeyPress={onKeyPress}
-      placeholder="Rechercher..."
-      style={{ minWidth: 200, height: 40 }}
-    />
-  </div>
+      <datalist id="suggestions">
+        {listeSousCategories(dashboard).map((category) =>
+          category.map((category) => <option>{category.name}</option>))}
+      </datalist>
+      <input
+        autoComplete="on" list="suggestions"
+        ref={inputRef}
+        value={inputValue}
+        onChange={onInputChange}
+        onKeyPress={onKeyPress}
+        placeholder="Rechercher..."
+        style={{ minWidth: 200, height: 40 }}
+      />
+    </div>
   );
 }
 

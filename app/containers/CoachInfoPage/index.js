@@ -84,9 +84,29 @@ const Categories = styled.div`
   }
 `;
 const CoachBio = styled.p`
-  font-size: 18px;
-  color: ${colors.white};
-  margin-bottom: 15px;
+align-self: stretch;
+color: var(--black-grey, #191919);
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`;
+const CoachEmail = styled.p`
+align-self: stretch;
+color: #E21680;
+
+/* Texte général */
+font-family: Montserrat;
+font-size: 20px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+`;
+const TextBio = styled.div`
+  @media screen and (max-width: 920px) {
+    font-size: 14px;
+  }
 `;
 const Title = styled.p`
   align-self: stretch;
@@ -231,6 +251,37 @@ const CoachDroite1 = styled.div`
   gap: 12px;
   align-self: stretch;
 `;
+const CoachContact = styled.div`
+display: flex;
+flex-direction: column;
+align-items: flex-start;
+gap: 12px;
+align-self: stretch;
+`;
+const BioWrapper = styled.div`
+  display: flex;
+  justify-content : center
+  min-width: 700px;
+  max-height: 200px;
+  min-height : 200px;
+  overflow: hidden;
+  border-radius : 15px;
+  -webkit-mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  mask-image: linear-gradient(to bottom, black 50%, transparent 100%);
+  transition: max-height 0.5s ease-in-out;
+  &:hover {
+    height: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+    overflow: auto;
+  }
+  @media screen and (max-width: 920px) {
+    justify-content : center;
+
+    margin-bottom: 20px;
+    }
+`;
+
 const TextCoach = styled.p`
 transform: rotate(-90deg);
 color: var(--black-grey, #191919);
@@ -470,7 +521,22 @@ export function CoachInfoPage({
                       </Category>
                     ))}
                   </Categories>
+
                 </CoachDroite1>
+                <BioWrapper>
+                  <CoachBio
+                    dangerouslySetInnerHTML={{
+                      __html: homePage?.selectedCoach?.bio,
+                    }}
+                  />
+                </BioWrapper>
+                <CoachContact>
+                  <CoachEmail
+                    dangerouslySetInnerHTML={{
+                      __html: homePage?.selectedCoach?.email,
+                    }}
+                  />
+                </CoachContact>
               </CoachDroite>
             </SectionCoach1>
           </SectionCoach>
@@ -530,11 +596,12 @@ export function CoachInfoPage({
           /> */}
             <HorizontalSectionList
               items={homePage?.selectedCoach?.courses}
-              title={'Cours'}
+              title={'autres formations de ce coach'}
               keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
               onItemClick={(course) => goToCourse(course)}
             />
           </FlexCenteredColumn>
+
           {/* <Return>
             <ButtonReturn>
               <img src={BackArrow} width="20px" /> Revenir sur le cours

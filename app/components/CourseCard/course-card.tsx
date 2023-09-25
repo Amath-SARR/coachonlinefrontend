@@ -221,6 +221,7 @@ function CourseCard(props: CourseCardProps) {
         </InfoWrapper>
       </Container>
     </>
+
   );
 }
 // const mapStateToProps = createStructuredSelector({
