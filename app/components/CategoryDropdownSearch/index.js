@@ -25,9 +25,12 @@ import { getCategoriesAction } from '../../containers/Dashboard/actions';
 import { FlexRow } from '../../global-styles';
 import Button from '../Button';
 const ChevronDown = require('../../images/icons/chevron-down--white.png');
+const ChevronLeftIcon = require('../../images/icons/arrowLeft.svg');
+
 
 
 // import makeSelectAuth from '../../containers/Auth/selectors';
+// import { Category } from './../CategorySelector/index';
 
 const Wrapper = styled.div`
   display: flex;
@@ -35,12 +38,12 @@ const Wrapper = styled.div`
   justify-content: space-between;
   border: 1px solid ${colors.lilac};
   // border-right: none;
-  // border-top-left-radius: 8px;
+  border-radius: 0px 8px 8px 0px ;
   // border-bottom-left-radius: 8px;
   min-width: 100px;
   padding: 0 10px;
-  background: rgb(8, 8, 120);
-  height: 40px;
+  background: #E21680;
+  height: 30px;
   @media screen and (max-width: 400px) {
     width: 130px;
   }
@@ -52,16 +55,7 @@ const Chevron = styled.img`
   transition: all 0.5s ease-in-out;
   //color: whit;
 `;
-const IconWrapper = styled.div`
-  width: 16px;
-  height: 20px;
-`;
-const Icon = styled(Image)`
-  width: 100% !important;
-  height: auto !important;
-  object-fit: contain !important;
-  padding: 0 !important;
-`;
+
 const Text = styled.p`
   color: #fff;
   font-size: 0.8em;
@@ -71,17 +65,65 @@ const Text = styled.p`
 `;
 const Categories = styled(FlexRow)`
   flex-wrap: wrap;
+  width: 100%;
+  margin-left: 200px;
 `;
 const CategoryItem = styled(Category)`
   font-size: 20px;
-  font-weight: 600;
+  font-weight: 300;
   margin: 0 10px 10px 0;
-  color: ${(props) => (props.isSelected ? 'white' : `${colors.lilac}`)};
+  color: ${(props) => (props.isSelected ? 'white' : `${('#191919')}`)};
   background: ${(props) =>
     props.isSelected
       ? `linear-gradient(90deg, ${colors.lilac} 30%, ${colors.mainPink} 100%)`
       : 'transparent'};
 `;
+
+const Title = styled.div`
+  width: 1442px;
+  font-size: 30px;
+  font-weight: 100;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  margin-block-end: 6px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+
+const SubTitle = styled.div`
+  width: 1442px;
+  color: var(--rose, #E21680); //#000;
+  /* Coachs - Sous-titre */
+  font-family: Montserrat;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+  margin-block-end: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
+  }
+`;
+
+const WrapperButton = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-self: stretch;
+  margin-left: 200px;
+  margin-top: 50px;
+`;
+
+const ComeBack = styled.span`
+  color: #000;
+  /* Texte général */
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+`
 
 export const modalStyles = (width) => ({
   overlay: {
@@ -109,19 +151,19 @@ const modalStylesCategories = (width) => ({
     zIndex: 5,
   },
   content: {
-    // inset: width < 693 ? '50% auto auto 40%' : '50% auto auto 50%',
-    // transform: width < 693 ? 'translate(-40%, -50%)' : 'translate(-50%, -50%)',
+    inset: width < 693 ? '50% auto auto 40%' : '50% auto auto 50%',
+    transform: width < 693 ? 'translate(-40%, -50%)' : 'translate(-50%, -50%)',
     //background: 'white',
     border: `1px solid ${colors.lilac}`,
-    borderRadius: 24,
+    //borderRadius: 24,
     display: 'flex',
     width: 1400,
     padding: '28px 66px 60px 66px',
     flexDirection: 'column',
     alignItems: 'flexEnd',
     gap: 8,
-    background: 'var(--carte, #F4F4F6)',
-    maxWidth: '80%',
+    backgroundColor: '#F4F4F6',
+    maxWidth: '85%',
   },
   headerTitle: {
     // fontSize: '43px',
@@ -177,78 +219,95 @@ function CategoryDropdownSearch({
     return onSelectProp(category);
   };
 
-  const toggleModal = (visible) => setModalVisible(visible);
+  const toggleModal = (visible) => { setModalVisible(visible) };
 
   const hasChildren = !!category?.children?.length;
 
-  return (
-    <Wrapper onClick={() => toggleModal(true)}>
-      {/* <IconWrapper>
+  const returnBack = (hasChildren) => {
+    return hasChildren=0;
+  }
+
+return (
+  <Wrapper onClick={() => toggleModal(true)} >
+    {/* <IconWrapper>
         <Icon src={CategoriesIcon} />
       </IconWrapper> */}
-      <Text>{category?.name || <FormattedMessage {...messages.categories} />}</Text>
-      <Chevron src={ChevronDown}
-        style={{
-          transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
-        }}
-      />
+    <Text>{category?.name || <FormattedMessage {...messages.categories} />}</Text>
+    <Chevron src={ChevronDown}
+      style={{
+        transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
+      }}
+    />
+    <div id='myModal'>
       <Modal
         withHeader
         backButtonHidden
         overlayClassName="transition-position"
         style={modalStylesCategories(width)}
         onClose={() => toggleModal(false)}
+        onBackPress={() => null}
         isOpened={modalVisible}
-        headerTitle={<FormattedMessage {...messages.categories} />}
+      // headerTitle={<FormattedMessage {...messages.categories} />}
       >
-        <Categories
-          style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10, marginLeft:200 } : {}}
-        >
-          {dashboard?.categories?.map((cat) => (
-            <CategoryItem
-              key={cat.id}
-              isSelected={cat.id === category?.id}
-              onClick={() => onSelect(cat)}
-            >
-              {cat.name}
-            </CategoryItem>
-          ))}
-          <Button
-            color="pink"
-            style={{ width: 'fit-content', margin: 'auto', marginTop:20 }}
-            onClick={initiateSearch}
+        {!hasChildren && (
+          <Categories
+            style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
           >
-            Appliquer
-          </Button>
-        </Categories>
-        {/* {hasChildren && (
+            <Title>catégories</Title>
+            <SubTitle>Etape 1 : pour commencer, sélectionnez la catégorie de votre choix</SubTitle>
+            {dashboard?.categories?.map((cat) => (
+              <CategoryItem
+                key={cat.id}
+                isSelected={cat.id === category?.id}
+                onClick={() => onSelect(cat)}
+              >
+                {cat.name}
+              </CategoryItem>
+            ))}
+          </Categories>)}
+        {hasChildren && (
           <Text style={{ fontSize: '24px', padding: '20px 0' }}>
             <FormattedMessage {...messages.subCategory} />
           </Text>
         )}
-        <Categories>
-          {category?.children?.map((cat) => (
-            <CategoryItem
-              key={cat.id}
-              isSelected={childCategories?.findIndex((category) => category.id === cat.id) >= 0}
-              onClick={() => toggleChildCategory(cat)}
-            >
-              {cat.name}
-            </CategoryItem>
-          ))}
-        </Categories>
+
         {!!category && (
-          <Button
-            color="pink"
-            style={{ width: 'fit-content', margin: 'auto' }}
-            onClick={initiateSearch}
-          >
-            Appliquer
-          </Button>
-        )} */}
+          <>
+            <div style={{ marginLeft: 200, marginTop: -50 }}>
+              <Title>sous-catégories</Title>
+              <SubTitle>Etape 2:  Maintenant sélectionnez la sous-catégorie pour affiner votre recherche, sinon cliquez sur “Appliquer”</SubTitle>
+              <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
+                {category.name} x
+              </CategoryItem>
+            </div>
+            <Categories>
+              {category?.children?.map((cat) => (
+                <CategoryItem
+                  key={cat.id}
+                  isSelected={childCategories?.findIndex((category) => category.id === cat.id) >= 0}
+                  onClick={() => toggleChildCategory(cat)}
+                >
+                  {cat.name}
+                </CategoryItem>
+              ))}
+            </Categories>
+            <WrapperButton>
+              <span><img src={ChevronLeftIcon} onClick={() => returnBack(hasChildren)} /> <ComeBack>Revenir en arrière</ComeBack> </span>
+              <Button
+                color="pink"
+                style={{ width: 'fit-content', marginLeft: 30 }}
+                onClick={initiateSearch}
+              >
+                Appliquer
+              </Button>
+            </WrapperButton>
+          </>
+        )}
       </Modal>
-    </Wrapper>
-  );
+    </div>
+
+  </Wrapper>
+);
 }
 
 function mapDispatchToProps(dispatch) {

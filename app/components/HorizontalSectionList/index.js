@@ -12,16 +12,13 @@ import CourseListItem from '../CourseListItem';
 import CourseCard from '../CourseCard/course-card';
 import useWindowSize from '../../hooks/useWindowSize';
 import {
-  ArrowLeft,
   ArrowLeftWrapper,
-  ArrowRight,
   ArrowRightWrapper,
   Icon,
 } from '../HomepageCarousel';
 import './style.css';
 
 const ChevronRightIcon = require('../../images/icons/arrowRight.svg');
-const ChevronLeftIcon = require('../../images/icons/arrowLeft.svg');
 const ChevronDownIcon = require('../../images/icons/chevron-down.svg');
 const SINGLE_ITEM_WIDTH = 354;
 
@@ -36,16 +33,14 @@ export const SectionWrapper = styled.div`
   }
 `;
 export const SectionTitle = styled.p`
-  display: flex;
-  flex-direction: row;
-  width: 100%;
+  margin-top: 50px;
+  color: var(--rose, #e21680);
   font-size: 30px;
-  font-weight: bolder;
-  font-family: Canaro;
+  font-weight: 100;
   text-transform: uppercase;
-  color: ${colors.lilac};
-  @media screen and (max-width: 600px) {
-    font-size: 18px;
+  margin-bottom: 20px;
+  @media screen and (max-width: 500px) {
+    font-size: 20px;
   }
 `;
 export const ShowMore = styled.p`

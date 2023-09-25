@@ -26,11 +26,11 @@ import Button from '../../components/Button';
 const Wrapper = styled.div`
   width: 100%;
   padding: 25px 20px;
-  background: var(--blue, #7474fc); //linear-gradient(90deg, #7474fc 30%, ${colors.mainPink} 100%);
+  background: linear-gradient(90deg, #7474fc 30%, ${colors.mainPink} 100%);
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  border-radius: 25px;
+  border-radius: 12px;
   margin-bottom: 40px;
   flex-wrap: wrap;
   position: relative;
@@ -59,7 +59,7 @@ const LabelWrapper = styled.div`
   justify-content: center;
 `;
 const Icon = styled(Image)`
-  width: 40px;
+  width: 20px;
   height: auto;
   margin-right: 5px;
   @media screen and (max-width: 1150px) {
@@ -70,7 +70,7 @@ const Icon = styled(Image)`
   }
 `;
 const Label = styled(DataText)`
-  font-size: 20px;
+  font-size: 21px;
   text-transform: lowercase;
   @media screen and (max-width: 1150px) {
     font-size: 25px;
@@ -133,7 +133,7 @@ function PlatformStatistics({ homePage, getPlatformStatistics, auth }) {
         <DataWrapper>
           <DataText>{categoriesNumber}</DataText>
           <LabelWrapper>
-            {/* <Icon src={CategoriesIcon} /> */}
+            <Icon src={CategoriesIcon} />
             <Label>
               <FormattedMessage {...messages.categories} />
             </Label>
@@ -142,7 +142,7 @@ function PlatformStatistics({ homePage, getPlatformStatistics, auth }) {
         <DataWrapper>
           <DataText>{coachesNumber}</DataText>
           <LabelWrapper>
-            {/* <Icon src={CoachesIcon} /> */}
+            <Icon src={CoachesIcon} />
             <Label>
               <FormattedMessage {...messages.coaches} />
             </Label>
@@ -151,14 +151,17 @@ function PlatformStatistics({ homePage, getPlatformStatistics, auth }) {
         <DataWrapper>
           <DataText>{coursesNumber}</DataText>
           <LabelWrapper>
-            {/* <Icon src={VideoMaterialIcon} /> */}
+            <Icon src={VideoMaterialIcon} />
             <Label>formations</Label>
           </LabelWrapper>
         </DataWrapper>
         <DataWrapper>
-          <DataText>{Math.round(watchableSecondsNumber / 60 / 60)}+</DataText>
+          <DataText>
+            {Math.round(watchableSecondsNumber / 60 / 60)}
+            H+
+          </DataText>
           <LabelWrapper>
-            {/* <Icon style={{ filter: 'invert(1)', opacity: 0.9 }} src={BooksIcon} /> */}
+            <Icon style={{ filter: 'invert(1)', opacity: 0.9 }} src={BooksIcon} />
             <Label>
               <FormattedMessage {...messages.videoMaterial} />
             </Label>

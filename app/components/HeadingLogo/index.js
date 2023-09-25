@@ -43,6 +43,7 @@ import { fullName } from '../../utils/formatters';
 import makeSelectB2B from '../../containers/B2B/selectors';
 import makeSelectLibraries from '../../containers/Libraries/selectors';
 import useQuery from '../../hooks/useQuery';
+import './style.css';
 
 const MOBILE_WIDTH = 920;
 const Wrapper = styled.div`
@@ -421,7 +422,7 @@ function HeadingLogo({
     }
     return (
       <ButtonsWrapper>
-        <LogInButton
+        {/* <LogInButton
           outline
           color={'green'}
           onClick={() => {
@@ -448,7 +449,38 @@ function HeadingLogo({
         </LogInButton>
         <LogInButton color={colors.mainPink} onClick={() => onRegisterButtonClick()}>
           <ButtonLabel style={{ color: colors.white }}>S'abonner</ButtonLabel>
-        </LogInButton>
+        </LogInButton> */}
+        <ul>
+          <li
+          outline
+          color={'green'}
+          onClick={() => {
+            history.replace('/auth/login', {
+              background: location,
+            });
+            console.log(location);
+            setModalVisible(false);
+          }}
+        >
+          Connexion
+        </li>
+        <li
+          color={colors.lilac}
+          onClick={() => {
+            history.replace('/subscription/subscriptionChoiceFree', {
+              background: location,
+            });
+            //console.log(location);
+            setModalVisible(falses);
+          }}
+        >
+          Essai Gratuit
+        </li>
+        <li color={colors.mainPink} onClick={() => onRegisterButtonClick()}>
+          S'abonner
+        </li>
+        </ul>
+
       </ButtonsWrapper>
     );
   };
@@ -547,7 +579,7 @@ function HeadingLogo({
                 background: '#fff',
               }}
               onSearch={(val) => onSearchChange(val)}
-              //onClear={() => onSearchChange('')}
+            //onClear={() => onSearchChange('')}
             />
             <CategoryDropdownSearch
               initCategory={selectedCategorySearch}

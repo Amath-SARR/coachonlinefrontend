@@ -41,17 +41,22 @@ export const Category = styled.div`
   font-weight: 400;
   width: fit-content;
   color: ${colors.lilac};
-  border: 1px solid ${colors.lilac};
   background-color: ${colors.white};
-  padding: 8px;
-  border-radius: 5px;
-  margin: 0 5px 5px 0;
-  cursor: pointer;
-  //${(props) => props.style};
-  &:hover {
-    background-color: ${colors.lilac};
-    color: ${colors.white};
-  }
+  //padding: 8px;
+  //border-radius: 5px;
+  display: flex;
+  padding: 8px 16px;
+  align-items: center;
+  gap: 16px;
+  border-radius: 10px;
+  border: 1px solid var(--dark-grey, #8C8C94);
+    margin: 0 5px 5px 0;
+    cursor: pointer;
+    //${(props) => props.style};
+    &:hover {
+      background-color: ${colors.lilac};
+      color: ${colors.white};
+    }
 `;
 //${(props) => (props.isSelected ? colors.mainGold : colors.inputBlue)};
 function CategorySelector({ categories, labelTx, onChange = (category) => null, selected }) {

@@ -211,7 +211,7 @@ function HomePage({
     const top10 = homePage?.suggestedCourses?.slice(0, 10);
     return (
       <HorizontalSectionList
-        title={<Title1>Top Cours aujourd'hui</Title1>}
+        title={'Top Cours aujourd\'hui'}
         // withIndexes
         items={top10}
         keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
@@ -222,7 +222,7 @@ function HomePage({
 
   const TrendingCourses = () => (
     <HorizontalSectionList
-      title={<Title1> Cours tendance </Title1>}
+      title={'Cours tendance' }
       items={homePage?.trendingCourses}
       keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
       onItemClick={(course) => goToCourse(course)}
@@ -232,7 +232,7 @@ function HomePage({
 
   const LastAddedCourses = () => (
     <HorizontalSectionList
-      title={<Title1> Nouveautés </Title1>}
+      title={'Nouveautés'}
       items={homePage.lastAddedCourses}
       keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
       onItemClick={(course) => goToCourse(course)}
