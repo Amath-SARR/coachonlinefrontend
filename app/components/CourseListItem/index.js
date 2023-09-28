@@ -18,6 +18,8 @@ import { IconWrapper, LikeCounter, LikeWrapper, Icon } from '../CourseInfo/cours
 import { FlexRow } from '../../global-styles';
 import ViewRose from '../../images/icons/View.svg';
 import HeartRose from '../../images/icons/Heart.png';
+import iconDroite from '../../images/icons/iconDroite.png';
+import iconGauche from '../../images/icons/iconGauche.png';
 const ITEM_WIDTH = 354;
 
 const PlayButton = styled.div`

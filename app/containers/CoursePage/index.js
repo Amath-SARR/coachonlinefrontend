@@ -678,13 +678,17 @@ export function CoursePage({
                 </Cadre2>
                 <Cadre2>
                   <CourseSubtitle>Public cible</CourseSubtitle>
-                  <p> {homePage.selectedCourse?.publicTargets} </p>
+                  <CourseDescription
+                    dangerouslySetInnerHTML={{
+                      __html: homePage.selectedCourse?.publicTargets,
+                    }}
+                  />
                 </Cadre2>
               </Cadre1>
               <Cadre1>
                 <Cadre2>
                   <CourseSubtitle>Les objectifs de formation</CourseSubtitle>
-                  <p
+                  <CourseDescription
                     dangerouslySetInnerHTML={{
                       __html: homePage.selectedCourse?.objectives,
                     }}
@@ -692,7 +696,11 @@ export function CoursePage({
                 </Cadre2>
                 <Cadre2>
                   <CourseSubtitle>Prérequis nécessaires</CourseSubtitle>
-                  <p> {homePage.selectedCourse?.prerequisite}</p>
+                  <CourseDescription
+                    dangerouslySetInnerHTML={{
+                      __html: homePage.selectedCourse?.prerequisite,
+                    }}
+                  />
                 </Cadre2>
               </Cadre1>
             </Cadre>

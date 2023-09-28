@@ -43,6 +43,8 @@ import axios from 'axios';
 import { defaultHeaders } from '../../utils/requestWrapper';
 import ViewRose from '../../images/icons/View.svg';
 import HeartRose from '../../images/icons/Heart.png';
+import IconLeft from '../../images/icons/iconGauche.png';
+import IconRight from '../../images/icons/iconDroite.png';
 
 const PictureWrapper = styled(AspectRatioContainer)`
   position: relative;
@@ -78,7 +80,9 @@ const ProfilePictureOverlay = styled.div`
 const Categories = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
   gap: 16px;
+  overflow: hidden;
   @media screen and (max-width: 600px) {
     margin: 10px 0;
   }
@@ -373,6 +377,16 @@ const ReturnsImg = styled.img`
     width: 700px;
   }
 `;
+const IconSlide = styled.img`
+width: 40px;
+height: 40px;
+bottom: 128px;
+background: #FFF;
+margin : 0 5px;
+cursor: pointer;
+Z-index:1;
+box-shadow: 0 0 10px #999;
+`;
 
 export function CoachInfoPage({
   history,
@@ -515,11 +529,14 @@ export function CoachInfoPage({
               <CoachDroite>
                 <CoachDroite1>
                   <Categories>
+                    <IconSlide src={IconLeft} />
                     {homePage?.selectedCoach?.userCategories?.map((category) => (
                       <Category style={{ background: 'transparent' }} key={category.id}>
                         {category.name}
                       </Category>
                     ))}
+                    <IconSlide src={IconRight} />
+
                   </Categories>
 
                 </CoachDroite1>
