@@ -51,14 +51,19 @@ const TitleFaq = styled.div`
 `;
 
 const Container = styled.div`
- /* position: relative; // position: absolute;
+  position: relative; // position: absolute;
   //top: 30%;
   box-shadow: 2px 10px 35px 1px rgba(153, 153, 153, 0.3);
-  width: 1000px;
+  width: 100%;
+  padding: 24px 16px 48px 16px;
+
+  border-radius: 8px;
+border: 1px solid var(--dark-grey-50, #C5C5C9);
+background: var(--white, #FFF);
   @media screen and (max-width: 1014px) {
     max-width: 600px;
-  }*/
-display: flex;
+  }
+/*display: flex;
 width: 1450px;
 padding: 24px 16px 48px 16px;
 flex-direction: column;
@@ -69,7 +74,7 @@ border: 1px solid var(--dark-grey-50, #C5C5C9);
 background: var(--white, #FFF);
   @media screen and (max-width: 500px) {
     max-width: 300px;
-  }
+  }*/
 `;
 
 const Wrap = styled.div`
@@ -123,11 +128,31 @@ const Name = styled.p`
   text-align: start;
   margin: 20px;
   font-size: 22px;*/
-
- /* Coachs H5 */
-  color: #000;
+ color: #000; 
+border-radius: 8px;
+border: 1px solid var(--rose, #E21680);
+background: var(--rose, #FFF);
+  
 font-family: Montserrat;
-font-size: 22px;
+font-size: 25px;
+font-style: normal;
+font-weight: 400;
+line-height: normal;
+
+  @media screen and (max-width: 920px) {
+    font-size: 18px;
+  }
+`;
+
+const CategoryName = styled.p`
+
+ color: #FFF; 
+border-radius: 8px;
+border: 1px solid var(--rose, #E21680);
+background: var(--rose, #E21680);
+  margin: 20px;
+font-family: Montserrat;
+font-size: 30px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
@@ -135,7 +160,6 @@ line-height: normal;
     font-size: 18px;
   }
 `;
-
 const DropdownTopic = styled.div`
   display: flex;
   flex-direction: column;
@@ -262,44 +286,40 @@ function FaqAccordion(props: FaqAccordionProps) {
       </TitleFaq>
       <Container>
 
-        {faq?.categories.map((item) => (
+        {faq?.categories.map((item, index) => (
           <>
+            <div>
+              <Wrap onClick={() => toggle(index, item.categoryId)} key={index}>
 
-            {item.topics?.map((topic, index) => (
-              <>
-
-                <Wrap onClick={() => toggle(index, topic.topicId)} key={index}>
-                  <Name>{topic.topicName}</Name>
-                  <span>
-                    {clicked === index ? (
-                      <Chevron src={ChevronDown} />
-                    ) : (
-                      <Chevron src={ChevronUp} />
-                    )}
-                  </span>
-                </Wrap>
-
-                {clicked === index ? (
-                  <Dropdown>
-                    <div>
-                      {item.topics?.map((index) => (
-                        <>
-                          <DropdownTopic key={index}>
-                            <TopicBody
-                              dangerouslySetInnerHTML={{
-                                __html: currentTopics[index]?.topicBody?.toString(),
-                              }}
-                            />
-
-                          </DropdownTopic>
-                        </>
-                      ))}
-                    </div>
-                  </Dropdown>
-
-                ) : null}
-              </>
-            ))}
+                <CategoryName>{item.categoryName}</CategoryName>
+                <span>
+                  {clicked === index ? (
+                    <Chevron src={ChevronDown} />
+                  ) : (
+                    <Chevron src={ChevronUp} />
+                  )}
+                </span>
+              </Wrap>
+            </div>
+            {clicked === index ? (
+              <Dropdown>
+                <div>
+                  {item.topics?.map((topic, index) => (
+                    <>
+                      <DropdownTopic key={index}>
+                        <Name>{topic.topicName}</Name>
+                        <br />
+                        <TopicBody
+                          dangerouslySetInnerHTML={{
+                            __html: currentTopics[index]?.topicBody?.toString(),
+                          }}
+                        />
+                      </DropdownTopic>
+                    </>
+                  ))}
+                </div>
+              </Dropdown>
+            ) : null}
           </>
         ))}
       </Container>

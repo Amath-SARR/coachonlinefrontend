@@ -34,27 +34,32 @@ import CancelImg from '../../images/icons/cancel.svg';
 import useOuterClick from '../../hooks/useOuterClick';
 import messages from '../messages';
 import ReactTooltip from 'react-tooltip';
+import { margin } from 'polished';
 
 const Wrapper = styled.div`
   width: 100%;
 `;
+
 const CommentWrapper = styled.div`
- /* flex-direction: column;
+  flex-direction: column;
   display: flex;
   width: 100%;
   align-items: center;
-  margin-bottom: 20px;*/
-  display: flex;
-width: 100%;
+  margin-bottom: 20px;
+
+`;
+const CommentParent = styled.div`
+display: flex;
+width: 1420px;
 padding: 32px;
 flex-direction: column;
 align-items: center;
-gap: 26px;
+gap: 16px;
 border-radius: 14px;
 border: 1px solid var(--dark-grey-50, #C5C5C9);
 background: var(--carte, #F4F4F6);
-`;
 
+`;
 const CommentWrapper1 = styled.div`
 display: flex;
 align-items: center;
@@ -65,10 +70,20 @@ const CommentWrapper2 = styled.div`
 align-self: stretch;
 color: #000;
 font-family: Montserrat;
-font-size: 16px;
+font-size: 18px;
 font-style: normal;
 font-weight: 400;
 line-height: normal;
+`;
+const CommentChild = styled.div`
+display: flex;
+width: 1250px;
+margin-left: 150px;
+`;
+const InputChild = styled.div`
+ display flex;
+ width : 1400px;
+ margin-left: 50px;
 `;
 const ButtonReponse = styled.div`
 display: flex;
@@ -124,6 +139,8 @@ const Column = styled(FlexColumn)`
   flex: 1;
 `;
 const Row = styled(FlexRow)`
+
+gap: 16px;
   transition: height 0.5s ease-in-out;
 `;
 const BaseText = styled(Text)`
@@ -196,11 +213,14 @@ const CommentInput: FC<CommentInputProps> = ({
           style={{
             width: '100%',
             height: '70px',
-            border: '1px solid var(--dark-grey-50, #C5C5C9)',
+
+          }}
+          textareaStyle={{
+            verticalAlign: 'top', whiteSpace: 'pre-wrap',
+            padding: 7, color: 'black', border: '1px solid var(--dark-grey-50, #C5C5C9)',
             BorderRadius: '14px',
             background: 'var(--carte, #F4F4F6)'
           }}
-          textareaStyle={{ verticalAlign: 'top', whiteSpace: 'pre-wrap', padding: 7, color: 'black' }}
         />
         <Row style={{ width: '100%', justifyContent: 'space-between', alignItems: 'center' }}>
           <IconWrapper onClick={toggleEmoji}>
@@ -219,7 +239,7 @@ const CommentInput: FC<CommentInputProps> = ({
             >
               Annuler
             </Button>
-            <Button color={'pink'} style={{ width: 'fit-content', padding: '10px 32px' }} onClick={onSave}>
+            <Button color={'pink'} style={{ display: 'flex', width: 'fit-content', padding: '10px 32px', gap: '16px' }} onClick={onSave}>
               Commenter
             </Button>
           </Row>
@@ -297,80 +317,83 @@ const Comment: FC<CommentProps> = ({
   return !editing ? (
 
     <CommentWrapper>
-      <CommentWrapper1>
-        <ProfilePicture
-          dark
-          style={{
-            margin: '0 10px 0 0', width: '54px', height: '53px'
-          }}
-          src={`${BASE_URL}images/${comment.coachPhotoUrl}`}
-        />
-
-        <BaseText
-          style={{ fontSize: 16, fontWeight: 600, marginBottom: 10, color: 'black' }}
-        >
-          {comment.fullName}
-        </BaseText>
-
-        {!!comment.children?.length && (
-          <Button
-            color={'transparent'}
-            style={{ fontSize: 12, width: 'fit-content', padding: 0, color: 'black' }}
-            onClick={toggleChildren}
-          >
-            {childrenShown ? 'Hide comments' : `Voir ${comment.children.length} commentaires`}
-          </Button>
-        )}
-        {canReply && (
-          <Button
-            color={'transparent'}
+      <CommentParent>
+        <CommentWrapper1>
+          <ProfilePicture
+            dark
             style={{
-              fontSize: 12,
-              width: 'fit-content',
-              // padding: 0,
-              color: 'black',
-              textTransform: 'uppercase',
-              display: 'flex',
-              padding: '10px 16px',
-              gap: '16px',
-              border: '1px solid var(--dark-grey-50, #C5C5C9)',
-
+              margin: '0 10px 0 0', width: '54px', height: '53px'
             }}
-            onClick={() => onReplyPress(comment)}
+            src={`${BASE_URL}images/${comment.coachPhotoUrl}`}
+          />
+
+          <BaseText
+            style={{ fontSize: 21, fontWeight: 500, marginBottom: 10, color: 'black' }}
           >
-            Répondre
-          </Button>
-        )}
+            {comment.fullName}
+          </BaseText>
 
-      </CommentWrapper1>
-      <CommentWrapper2>
-        {comment.commentText}
-
-        {comment.isMyComment && (
-          <IconsWrapper>
-            <IconWrapper clickable style={{ width: 15, opacity: 0.4 }} onClick={onEditPress}>
-              <Icon src={PencilImg} style={{ filter: 'invert(1)' }} />
-            </IconWrapper>
-            <IconWrapper
-              clickable
-              style={{ width: 15, opacity: 0.4 }}
-              onClick={onDeleteClick}
-              data-for="deleteWarning"
-              data-tip="WARNING! <br> You are about to delete this comment. <br> Click again to confirm"
-              data-event="click"
-              data-iscapture
-              data-type="warning"
-              data-clickable
+          {!!comment.children?.length && (
+            <Button
+              color={'transparent'}
+              style={{ fontSize: 16, width: 'fit-content', padding: 0, color: 'black' }}
+              onClick={toggleChildren}
             >
-              <Icon src={CancelImg} style={{ filter: 'invert(1)' }} />
-            </IconWrapper>
-            <ReactTooltip id="deleteWarning" place="bottom" multiline />
-          </IconsWrapper>
-        )}
+              {childrenShown ? 'Hide comments' : `Voir ${comment.children.length} commentaires`}
+            </Button>
+          )}
+          {canReply && (
+            <Button
+              color={'pink'}
+              style={{
+                fontSize: 16,
+                width: 'fit-content',
+                // padding: 0,
+                color: '#FFF',
+                display: 'flex',
+                padding: '10px 16px',
+                gap: '16px',
+                border: '1px solid var(--rose, #E21680)',
 
-        {childrenShown && (
-          <Column style={{ width: '100%', marginTop: 10 }}>
-            {comment.children?.map((commentChild) => (
+              }}
+              onClick={() => onReplyPress(comment)}
+            >
+              Répondre
+            </Button>
+          )}
+
+        </CommentWrapper1>
+        <CommentWrapper2>
+          {comment.commentText}
+        </CommentWrapper2>
+      </CommentParent>
+
+      {comment.isMyComment && (
+        <IconsWrapper>
+          <IconWrapper clickable style={{ width: 15, opacity: 0.4 }} onClick={onEditPress}>
+            <Icon src={PencilImg} style={{ filter: 'invert(1)' }} />
+          </IconWrapper>
+          <IconWrapper
+            clickable
+            style={{ width: 15, opacity: 0.4 }}
+            onClick={onDeleteClick}
+            data-for="deleteWarning"
+            data-tip="WARNING! <br> You are about to delete this comment. <br> Click again to confirm"
+            data-event="click"
+            data-iscapture
+            data-type="warning"
+            data-clickable
+          >
+            <Icon src={CancelImg} style={{ filter: 'invert(1)' }} />
+          </IconWrapper>
+          <ReactTooltip id="deleteWarning" place="bottom" multiline />
+        </IconsWrapper>
+      )}
+
+      {childrenShown && (
+        <Column style={{ width: '100%', marginTop: 10 }}>
+          {comment.children?.map((commentChild) => (
+            <CommentChild>
               <Comment
                 userData={userData}
                 comment={commentChild}
@@ -379,119 +402,24 @@ const Comment: FC<CommentProps> = ({
                 onDelete={onDelete}
                 isChild
               />
-            ))}
-          </Column>
-        )}
-        {!!replyCommentId && canReply && (
+            </CommentChild>
+          ))}
+        </Column>
+      )}
+      {!!replyCommentId && canReply && (
+        <InputChild>
           <CommentInput
             isChild
             userData={userData}
             onCommentCreate={onReplySend}
             onCancel={onReplyCancel}
           />
-        )}
-      </CommentWrapper2>
+        </InputChild>
+      )}
+
 
     </CommentWrapper>
-    /* <CommentWrapper>
-       <Row style={{ alignItems: 'flex-start', width: '100%' }}>
-         <ProfilePicture
-           dark
-           style={{
-             margin: '0 10px 0 0', width: '54px', height: '53px'
-           }}
-           src={`${BASE_URL}images/${comment.coachPhotoUrl}`}
-         />
-         <Column style={{ width: '100%' }}>
-           <Row style={{ position: 'relative', justifyContent: 'space-between' }}>
-             <BaseText
-               style={{ fontSize: 16, fontWeight: 600, marginBottom: 10, color: 'black' }}
-             >
-               {comment.fullName}
-             </BaseText>
-             {!!comment.children?.length && (
-               <Button
-                 color={'transparent'}
-                 style={{ fontSize: 12, width: 'fit-content', padding: 0, color: 'black' }}
-                 onClick={toggleChildren}
-               >
-                 {childrenShown ? 'Hide comments' : `Voir ${comment.children.length} commentaires`}
-               </Button>
-             )}
-             {canReply && (
-               <Button
-                 color={'transparent'}
-                 style={{
-                   fontSize: 12,
-                   width: 'fit-content',
-                   // padding: 0,
-                   color: 'black',
-                   textTransform: 'uppercase',
-                   display: 'flex',
-                   padding: '10px 16px',
-                   gap: '16px',
-                   border: '1px solid var(--dark-grey-50, #C5C5C9)',
- 
-                 }}
-                 onClick={() => onReplyPress(comment)}
-               >
-                 Répondre
-               </Button>
-             )}
-             {comment.isMyComment && (
-               <IconsWrapper>
-                 <IconWrapper clickable style={{ width: 15, opacity: 0.4 }} onClick={onEditPress}>
-                   <Icon src={PencilImg} style={{ filter: 'invert(1)' }} />
-                 </IconWrapper>
-                 <IconWrapper
-                   clickable
-                   style={{ width: 15, opacity: 0.4 }}
-                   onClick={onDeleteClick}
-                   data-for="deleteWarning"
-                   data-tip="WARNING! <br> You are about to delete this comment. <br> Click again to confirm"
-                   data-event="click"
-                   data-iscapture
-                   data-type="warning"
-                   data-clickable
-                 >
-                   <Icon src={CancelImg} style={{ filter: 'invert(1)' }} />
-                 </IconWrapper>
-                 <ReactTooltip id="deleteWarning" place="bottom" multiline />
-               </IconsWrapper>
-             )}
-           </Row>
- 
-           <Column style={{ width: '100%', marginTop: 5 }}>
-             <Row>
-               <BaseText style={{ fontSize: 15 }}>{comment.commentText}</BaseText>
-             </Row>
- 
-             {childrenShown && (
-               <Column style={{ width: '100%', marginTop: 10 }}>
-                 {comment.children?.map((commentChild) => (
-                   <Comment
-                     userData={userData}
-                     comment={commentChild}
-                     onReplySubmit={onReplySubmit}
-                     onEdit={onEdit}
-                     onDelete={onDelete}
-                     isChild
-                   />
-                 ))}
-               </Column>
-             )}
-             {!!replyCommentId && canReply && (
-               <CommentInput
-                 isChild
-                 userData={userData}
-                 onCommentCreate={onReplySend}
-                 onCancel={onReplyCancel}
-               />
-             )}
-           </Column>
-         </Column>
-       </Row>
-     </CommentWrapper>*/
+
   ) : (
     <CommentInput
       userData={userData}

@@ -114,8 +114,8 @@ const RedesignedInput = ({
               const data = editor.getData();
               onChange && onChange(data);
             }}
-            onBlur={(event, editor) => {}}
-            onFocus={(event, editor) => {}}
+            onBlur={(event, editor) => { }}
+            onFocus={(event, editor) => { }}
           />
         </div>
       ) : (

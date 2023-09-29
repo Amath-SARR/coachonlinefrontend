@@ -43,6 +43,8 @@ import axios from 'axios';
 import { defaultHeaders } from '../../utils/requestWrapper';
 import ViewRose from '../../images/icons/View.svg';
 import HeartRose from '../../images/icons/Heart.png';
+import IconLeft from '../../images/icons/iconGauche.png';
+import IconRight from '../../images/icons/iconDroite.png';
 
 const PictureWrapper = styled(AspectRatioContainer)`
   position: relative;
@@ -78,6 +80,8 @@ const ProfilePictureOverlay = styled.div`
 const Categories = styled.div`
   display: flex;
   align-items: flex-start;
+  justify-content: space-between;
+  overflow:scroll;
   gap: 16px;
   @media screen and (max-width: 600px) {
     margin: 10px 0;
@@ -250,6 +254,7 @@ const CoachDroite1 = styled.div`
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
+
 `;
 const CoachContact = styled.div`
 display: flex;
@@ -372,6 +377,16 @@ const ReturnsImg = styled.img`
   &:hover {
     width: 700px;
   }
+`;
+const IconSlide = styled.img`
+width: 40px;
+height: 40px;
+bottom: 128px;
+background: #FFF;
+margin : 0 5px;
+cursor: pointer;
+Z-index:1;
+box-shadow: 0 0 10px #999;
 `;
 
 export function CoachInfoPage({
@@ -503,7 +518,7 @@ export function CoachInfoPage({
                     </PartieView>
                     <PartieLike>
                       <IconeRose src={HeartRose} />
-                      <PetitText> 0 likes</PetitText>
+                      <PetitText> {homePage?.selectedCoach?.likesCnt || 0} likes</PetitText>
                     </PartieLike>
                   </SousPartie1>
                   <SousPartie1>
@@ -515,11 +530,14 @@ export function CoachInfoPage({
               <CoachDroite>
                 <CoachDroite1>
                   <Categories>
+
                     {homePage?.selectedCoach?.userCategories?.map((category) => (
                       <Category style={{ background: 'transparent' }} key={category.id}>
                         {category.name}
                       </Category>
                     ))}
+
+
                   </Categories>
 
                 </CoachDroite1>
@@ -600,6 +618,7 @@ export function CoachInfoPage({
               keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
               onItemClick={(course) => goToCourse(course)}
             />
+
           </FlexCenteredColumn>
 
           {/* <Return>

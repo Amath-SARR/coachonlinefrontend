@@ -27,6 +27,7 @@ import subscriptionMessages from '../../containers/Subscription/messages';
 import { fullName } from '../../utils/formatters';
 import makeSelectCourse from '../../store/course/course.selectors';
 const VideoPlayer = require('../../images/icons/play-button.png');
+import VideoPlayerNew from '../../images/icons/PlayIcon.svg';
 import useWindowSize from '../../hooks/useWindowSize';
 
 const Wrapper = styled.div`
@@ -102,6 +103,7 @@ const NoSubscriptionMessage = styled.p`
   color: ${colors.dark};
   font-size: 20px;
   font-weight: 500;
+  width:1000px;
   word-break: break-word;
 `;
 
@@ -291,7 +293,7 @@ function CoursePlayer({
     if (!fetchError) {
       return (
         <VideoIcon
-          src={VideoPlayer}
+          src={VideoPlayerNew}
           onClick={onPlay}
           disabled={!episodeCanPlay}
           isLoading={loading}
