@@ -81,8 +81,8 @@ const Categories = styled.div`
   display: flex;
   align-items: flex-start;
   justify-content: space-between;
+  overflow:scroll;
   gap: 16px;
-  overflow: hidden;
   @media screen and (max-width: 600px) {
     margin: 10px 0;
   }
@@ -254,6 +254,7 @@ const CoachDroite1 = styled.div`
   align-items: flex-start;
   gap: 12px;
   align-self: stretch;
+
 `;
 const CoachContact = styled.div`
 display: flex;
@@ -517,7 +518,7 @@ export function CoachInfoPage({
                     </PartieView>
                     <PartieLike>
                       <IconeRose src={HeartRose} />
-                      <PetitText> 0 likes</PetitText>
+                      <PetitText> {homePage?.selectedCoach?.likesCnt || 0} likes</PetitText>
                     </PartieLike>
                   </SousPartie1>
                   <SousPartie1>
@@ -529,13 +530,13 @@ export function CoachInfoPage({
               <CoachDroite>
                 <CoachDroite1>
                   <Categories>
-                    <IconSlide src={IconLeft} />
+
                     {homePage?.selectedCoach?.userCategories?.map((category) => (
                       <Category style={{ background: 'transparent' }} key={category.id}>
                         {category.name}
                       </Category>
                     ))}
-                    <IconSlide src={IconRight} />
+
 
                   </Categories>
 
@@ -617,6 +618,7 @@ export function CoachInfoPage({
               keys={{ name: 'name', id: 'id', image: 'photoUrl' }}
               onItemClick={(course) => goToCourse(course)}
             />
+
           </FlexCenteredColumn>
 
           {/* <Return>

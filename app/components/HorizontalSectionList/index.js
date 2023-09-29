@@ -32,11 +32,13 @@ export const SectionTitle = styled.p`
   display: flex;
   flex-direction: row;
   width: 100%;
-  font-size: 30px;
+  font-size: 40px;
+  font-weight:400px
   font-weight: bolder;
-  font-family: Canaro;
+  font-family: Montserrat;
   text-transform: uppercase;
-  color: ${colors.lilac};
+  color: ${colors.pink};
+
   @media screen and (max-width: 600px) {
     font-size: 18px;
   }

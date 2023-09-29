@@ -39,7 +39,6 @@ const Collapsable = styled.div`
 export const Category = styled.div`
   /* font-size: 14px;
   font-weight: 400;
-  width: fit-content;
   color: ${colors.lilac};
   background-color: ${colors.white};
   //padding: 8px;

@@ -17,6 +17,7 @@ export const colors = {
   mainOrange: '#FC9A56',
   mainBlue: '#3CB6E3',
   lilac: '#3b3b8e',
+  pink: '#E21680',
   backgroundDarkBlue: '#FFFFFF', //#080D1F
   backgroundBlue: '#FFFFFF', //#1B2134
   backgroundBlackBlue: '#FFFFFF', //#030817

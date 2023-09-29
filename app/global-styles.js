@@ -103,6 +103,8 @@ export const FlexColumn = styled.div`
 `;
 export const FlexCenteredColumn = styled(FlexColumn)`
   align-items: center;
+  width:1400px;
+  overflow:hidden;
 `;
 
 export const Text = styled.p`
@@ -131,7 +133,7 @@ export const TableRow = styled.div`
   @media screen and (max-width: 1024px) {
     padding: 0;
   }
-`; 
+`;
 
 export const TableItem = styled.div`
   min-width: 100px;

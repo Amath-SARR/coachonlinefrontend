@@ -63,7 +63,10 @@ const Wrapper = styled(FlexColumn)`
   border: 1px solid var(--opacity, rgba(140, 140, 148, 0.5));
   background: var(--white, #fff);
 `;
-const Column = styled(FlexColumn)``;
+const Column = styled(FlexColumn)`
+  border-radius: 14px;
+  border: 1px solid var(--opacity, rgba(140, 140, 148, 0.5))
+`;
 const Row = styled(FlexRow)`
   width: 100%;
 `;
@@ -110,6 +113,8 @@ const PlayerRow = styled.div`
   display: flex;
   flex-direction: row;
   width: 100%;
+  height: 570px;
+  gap : 20px;
   margin-bottom: 30px;
   @media screen and (max-width: 920px) {
     flex-direction: column;
@@ -134,7 +139,7 @@ const PlayerWrapper = styled.div`
 `;
 const EpisodesColumn = styled.div`
   width: 100%;
-  height: 100%;
+  height: 600px;
   overflow-y: auto;
   overflow-x: auto;
   ::-webkit-scrollbar {
@@ -153,6 +158,8 @@ const EpisodesColumn = styled.div`
 
 const AutreFormation = styled.div`
   display: flex;
+  width:1450px;
+  overflow:scroll;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
@@ -169,6 +176,7 @@ border-bottom: 1px solid rgba(140, 140, 148, 0.50);
 
 `;
 const Row2 = styled.div`
+  overflow:hidden;
   display: flex;
   align-items: flex-start;
   gap: 20px;
@@ -717,13 +725,11 @@ export function CoursePage({
             canLike={!!auth.authToken}
             auth={auth}
           />
-
+          <Row1>
+            <Title1>AUTRES FORMATIONS DE CE COACH</Title1>
+            <SousTitle>Découvrez notre sélection de cours</SousTitle>
+          </Row1>
           <AutreFormation>
-            <Row1>
-              <Title1>AUTRES FORMATIONS DE CE COACH</Title1>
-              <SousTitle>Découvrez notre sélection de cours</SousTitle>
-            </Row1>
-
             <Row2>
               {homePage.selectedCourse?.coach?.courses?.map((item, i) => (
                 <CourseListItem
