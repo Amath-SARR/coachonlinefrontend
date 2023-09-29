@@ -15,7 +15,7 @@ li {
 }
 
 /* Change the link color on hover */
-li:hover {
-  background-color: #555;
+.NavButtom:hover {
+  background-color: #C2D469;
   color: white;
 }

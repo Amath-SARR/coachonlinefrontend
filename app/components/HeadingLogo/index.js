@@ -458,9 +458,10 @@ function HeadingLogo({
               history.replace('/auth/login', {
                 background: location,
               });
-              console.log(location);
+              //console.log(location);
               setModalVisible(false);
             }}
+            className='NavButtom'
           >
             Connexion
           </li>
@@ -473,10 +474,11 @@ function HeadingLogo({
               //console.log(location);
               setModalVisible(falses);
             }}
+            className='NavButtom'
           >
             Essai Gratuit
           </li>
-          <li color={colors.mainPink} onClick={() => onRegisterButtonClick()}>
+          <li color={colors.mainPink} onClick={() => onRegisterButtonClick()} className='NavButtom'>
             S'abonner
           </li>
         </ul>

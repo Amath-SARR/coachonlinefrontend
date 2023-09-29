@@ -32,11 +32,15 @@ export const SectionTitle = styled.p`
   display: flex;
   flex-direction: row;
   width: 100%;
+  //font-size: 30px;
+  // font-weight: bolder;
+  // font-family: Canaro;
+  margin-top: 50px;
+  color: var(--rose, #e21680);
   font-size: 30px;
-  font-weight: bolder;
-  font-family: Canaro;
+  font-weight: 100;
   text-transform: uppercase;
-  color: ${colors.lilac};
+  color: ${colors.mainRose};
   @media screen and (max-width: 600px) {
     font-size: 18px;
   }
@@ -123,13 +127,18 @@ const Wrapper = styled.div`
 `;
 
 const Subtitle = styled.p`
-width: 1350px;
-color: #000;
-font-family: Montserrat;
-font-size: 18px;
-font-style: normal;
-font-weight: 400;
-line-height: 94.023%; /* 15.044px */
+  width: auto;
+  color: #000;
+  font-family: Montserrat;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  margin-left: 20px;
+  line-height: 94.023%; /* 15.044px */
+  @media screen and (max-width: 900px) {
+    width: auto;
+    //margin-right: 20px;
+  }
 `;
 const Mobile = styled.div`
   // @media screen and (max-width: 900px) {
@@ -240,20 +249,6 @@ function HorizontalSectionList({
             selectedItem={currentIndex}
             centerMode={true}
             centerSlidePercentage={calcSingleItemMinWidth()}
-          // renderArrowPrev={(clickHandler, hasPrev) =>
-          //   hasPrev &&
-          //
-          // }
-          // renderArrowNext={(clickHandler, hasNext) =>
-          //   hasNext &&
-          //   shouldShowNextArrow() && (
-          //     <ArrowRightWrapper>
-          //       <ArrowRight onClick={() => setCurrentIndex(currentIndex + 2)}>
-          //         <Icon src={ChevronRightIcon} />
-          //       </ArrowRight>
-          //     </ArrowRightWrapper>
-          //   )
-          // }
           >
             {renderItems(items)}
           </Carousel>

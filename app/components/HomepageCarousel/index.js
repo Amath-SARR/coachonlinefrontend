@@ -133,6 +133,19 @@ const CardRight = styled.div`
   border-radius: 0px 14px 14px 0px;
   `;
 
+  const CoverImage = styled.img`
+  // width: 100%;
+  // height: 100%;
+  // max-width: 204px;
+  // max-height: 200px;
+  width: 700px;
+  height: 500px;
+  margin-left: -350px;
+  background-image: url();
+  border-radius: 0px 14px 14px 0px;
+  bottom: 32, 2%;
+`;
+
   const Button = styled.button`
     display: flex;
     padding: 10px 32px;
@@ -145,21 +158,26 @@ const CardRight = styled.div`
 `;
 
 const FullWrapper = styled.div`
-  mmax-width: 95%;
-  height: 500px;
-  display: flex;
-  position: relative;
-  margin: auto;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 10px;
-  border-radius: 14px;
-  border: 1px solid var(--dark-grey-50, #C5C5C9);
-  background: var(--white, #FFF);
-  //margin-left: 100px;
-  margin-top: 30px;
-  border-radius: 14px 14px 14px 14px;
+  // max-width: 95%;
+  // height: 500px;
+  // display: flex;
+  // position: relative;
+  // margin: auto;
+  // justify-content: center;
+  // align-items: flex-start;
+  // gap: 10px;
+  // border-radius: 14px;
+  // border: 1px solid var(--dark-grey-50, #C5C5C9);
+  // background: var(--white, #FFF);
+  // //margin-left: 100px;
+  // margin-top: 30px;
+  // border-radius: 14px 14px 14px 14px;
 
+  width: 95%;
+  margin-left: 80px;
+  display: flex;
+  border-radius: 14px 14px 14px 14px;
+  margin: auto;
   @media screen and (max-width: 95%) {
     box-shadow: 0px 0px 0px 0px;
 
@@ -187,7 +205,8 @@ function HomepageCarousel({ courses, onCourseClick }) {
             </div>
           </div> */}
         </div>
-        <CardRight img={BASE_URL + course.photoUrl}/>
+        {/* <CardRight img={BASE_URL + course.photoUrl}/> */}
+        <CoverImage style={{ maxWidth: '60%' }} src={`${BASE_URL}${course.photoUrl}`} />
       </FullWrapper>
     </div>
   );

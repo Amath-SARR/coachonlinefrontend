@@ -31,8 +31,8 @@ export const subscriptionModalStyles = (width) => ({
     transform: width < 693 ? 'translate(-40%, -50%)' : 'translate(-50%, -50%)',
     background: 'white',
     border: `1px solid ${colors.borderDark}`,
-    borderRadius: 24,
-    width: '100%',
+    // borderRadius: 24,
+    width: '85%',
     maxWidth: 1460,
   },
   headerTitle: {
@@ -48,12 +48,12 @@ export function Subscription() {
 
   useEffect(() => {
     setOpened(true);
-    console.log('Subscription modal opened ', location);
+    //console.log('Subscription modal opened ', location);
   }, []);
 
   const closeModal = () => {
     setOpened(false);
-    console.log('Subscription location ', location);
+    //console.log('Subscription location ', location);
     setTimeout(
       () =>
         history.push(location?.state?.background?.pathname || { pathname: '/' }, {

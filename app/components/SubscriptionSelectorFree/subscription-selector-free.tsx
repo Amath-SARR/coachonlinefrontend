@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
   position: relative;
+  left: 150px;
 `;
 
 const Text = styled.p`
@@ -42,17 +43,17 @@ const Text = styled.p`
 const Subtext = styled.p`
   font-size: 18px;
   text-align: start;
-  color: ${colors.lilac};
+  color: var(--rose, #E21680);
   @media screen and (max-width: 920px) {
     font-size: 13px;
   }
 `;
 const Button = styled.button`
   width: 120px;
-  background-color: ${colors.mainGreen};
+  background-color: var(--rose, #E21680);
   color: white;
   padding: 10px;
-  border: none; 
+  border: none;
   border-radius: 10px;
 `;
 
@@ -114,7 +115,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     );
   };
   return (
-    <>
+    <Wrapper>
       <Text>
         Félicitation, vous allez vous abonner GRATUITEMENT pour visionner pendant 7 jours les
         premières vidéos de chacune de nos formations.
@@ -127,7 +128,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
       </Text>
       <Button onClick={() => handleClick()}>Confirmer</Button>
       {/* <Subscriptions /> */}
-    </>
+    </Wrapper>
   );
 }
 

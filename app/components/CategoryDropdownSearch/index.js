@@ -20,7 +20,7 @@ import messages from '../messages';
 import Modal from '../Modal';
 import useWindowSize from '../../hooks/useWindowSize';
 import makeSelectDashboard from '../../containers/Dashboard/selectors';
-import { Category } from '../CategorySelector';
+//import { Category } from '../CategorySelector';
 import { getCategoriesAction } from '../../containers/Dashboard/actions';
 import { FlexRow } from '../../global-styles';
 import Button from '../Button';
@@ -28,7 +28,7 @@ const ChevronDown = require('../../images/icons/chevron-down--white.png');
 const ChevronLeftIcon = require('../../images/icons/arrowLeft.svg');
 
 // import makeSelectAuth from '../../containers/Auth/selectors';
-// import { Category } from './../CategorySelector/index';
+import { Category } from './../CategorySelector/index';
 
 const Wrapper = styled.div`
   display: flex;
@@ -46,6 +46,7 @@ const Wrapper = styled.div`
     width: 130px;
   }
 `;
+
 const Chevron = styled.img`
   width: 10px;
   height: 10px;
@@ -84,6 +85,7 @@ const Title = styled.div`
   text-transform: uppercase;
   margin-bottom: 20px;
   margin-block-end: 6px;
+  margin-top: 10px;
   @media screen and (max-width: 500px) {
     font-size: 20px;
   }
@@ -223,8 +225,6 @@ function CategoryDropdownSearch({
 
   const hasChildren = !!category?.children?.length;
 
-  const returnBack = (hasChildren) => (hasChildren = 0);
-
   return (
     <Wrapper onClick={() => toggleModal(true)}>
       {/* <IconWrapper>
@@ -237,84 +237,72 @@ function CategoryDropdownSearch({
           transform: modalVisible ? 'rotate(180deg)' : 'rotate(0deg)',
         }}
       />
-      <div id="myModal">
-        <Modal
-          withHeader
-          backButtonHidden
-          overlayClassName="transition-position"
-          style={modalStylesCategories(width)}
-          onClose={() => toggleModal(false)}
-          onBackPress={() => null}
-          isOpened={modalVisible}
-          // headerTitle={<FormattedMessage {...messages.categories} />}
+
+      <Modal
+        withHeader
+        backButtonHidden
+        overlayClassName="transition-position"
+        style={modalStylesCategories(width)}
+        onClose={() => toggleModal(false)}
+        onBackPress={() => null}
+        isOpened={modalVisible}
+      //headerTitle={<FormattedMessage {...messages.categories} />}
+      >
+        <Categories
+          style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
         >
-          {!hasChildren && (
-            <Categories
-              style={hasChildren ? { borderBottom: '1px solid white', marginBottom: 10 } : {}}
+          <Title>catégories</Title>
+          <SubTitle>
+            Etape 1 : pour commencer, sélectionnez la catégorie de votre choix
+          </SubTitle>
+          {dashboard?.categories?.map((cat) => (
+            <CategoryItem
+              key={cat.id}
+              isSelected={cat.id === category?.id}
+              onClick={() => onSelect(cat)}
             >
-              <Title>catégories</Title>
+              {cat.name}
+            </CategoryItem>
+          ))}
+        </Categories>
+
+        {!!category && (
+          <>
+            <Categories>
+              <Title>sous-catégories</Title>
               <SubTitle>
-                Etape 1 : pour commencer, sélectionnez la catégorie de votre choix
+                Etape 2: Maintenant sélectionnez la sous-catégorie pour affiner votre recherche,
+                sinon cliquez sur “Appliquer”
               </SubTitle>
-              {dashboard?.categories?.map((cat) => (
+              {/* <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
+                {category.name} x
+              </CategoryItem> */}
+            </Categories>
+            <Categories>
+              {category?.children?.map((cat) => (
                 <CategoryItem
                   key={cat.id}
-                  isSelected={cat.id === category?.id}
-                  onClick={() => onSelect(cat)}
+                  isSelected={
+                    childCategories?.findIndex((category) => category.id === cat.id) >= 0
+                  }
+                  onClick={() => toggleChildCategory(cat)}
                 >
                   {cat.name}
                 </CategoryItem>
               ))}
             </Categories>
-          )}
-          {hasChildren && (
-            <Text style={{ fontSize: '24px', padding: '20px 0' }}>
-              <FormattedMessage {...messages.subCategory} />
-            </Text>
-          )}
-
-          {!!category && (
-            <>
-              <div style={{ marginLeft: 200, marginTop: -50 }}>
-                <Title>sous-catégories</Title>
-                <SubTitle>
-                  Etape 2: Maintenant sélectionnez la sous-catégorie pour affiner votre recherche,
-                  sinon cliquez sur “Appliquer”
-                </SubTitle>
-                <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
-                  {category.name} x
-                </CategoryItem>
-              </div>
-              <Categories>
-                {category?.children?.map((cat) => (
-                  <CategoryItem
-                    key={cat.id}
-                    isSelected={
-                      childCategories?.findIndex((category) => category.id === cat.id) >= 0
-                    }
-                    onClick={() => toggleChildCategory(cat)}
-                  >
-                    {cat.name}
-                  </CategoryItem>
-                ))}
-              </Categories>
-              <WrapperButton>
-                <span>
-                  <img src={ChevronLeftIcon} onClick={() => returnBack(hasChildren)} />{' '}
-                  <ComeBack>Revenir en arrière</ComeBack>{' '}
-                </span>
-                <Button
-                  color="pink"
-                  style={{ width: 'fit-content', marginLeft: 30 }}
-                  onClick={initiateSearch}
-                >
-                  Appliquer
-                </Button>
-              </WrapperButton>
-            </>
-          )}
-        </Modal>
-      </div>
+            <WrapperButton>
+              <Button
+                color="pink"
+                style={{ width: 'fit-content', float: 'right' }}
+                onClick={initiateSearch}
+              >
+                Appliquer
+              </Button>
+            </WrapperButton>
+          </>
+        )}
+      </Modal>
     </Wrapper>
   );
 }

@@ -13,46 +13,59 @@ const langue = require('../../images/images/langue.png');
 
 const HorizontalDisplay = styled.div`
   margin-left: 20px;
-  margin-block-end: 50px;
-  margin-block-start: -20px;
+  // margin-block-end: 20px;
+  // margin-block-start: -20px;
+`;
+
+const Container = styled.span`
+  position: relative;
+  text-align: center;
+  text-transform: uppercase;
+  color: white;
+  //margin-block-end: 50px;
+  margin-left: 10px;
+  flex-direction: row;
+  @media screen and (max-width: 920px) {
+    margin-top: 50px;
+  }
 `;
 
 function HomePageCatecory() {
   return (
     <>
       <HorizontalDisplay>
-        <span className="container">
+        <Container>
           <img src={sante} alt="Snow" className='image' />
           <div className="centered">Sante</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container className="container">
           <img src={bienEtre} alt="Snow" className='image' />
           <div className="centered">Bien-Etre</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={sport} alt="Snow" className='image' />
           <div className="centered">Sport&Fitness</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={animaux} alt="Snow" className='image' />
           <div className="centered">Animaux</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={bureatique} alt="Snow" className='image' />
           <div className="centered">Bureatique</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={design} alt="Snow" className='image' />
           <div className="centered">Design</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={esthetique} alt="Snow" className='image' />
           <div className="centered">esthetique</div>
-        </span>
-        <span className="container">
+        </Container>
+        <Container>
           <img src={langue} alt="Snow" className='image' />
           <div className="centered">langue</div>
-        </span>
+        </Container>
       </HorizontalDisplay>
 
     </>
