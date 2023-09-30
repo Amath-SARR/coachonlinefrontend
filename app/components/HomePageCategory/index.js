@@ -13,8 +13,8 @@ const langue = require('../../images/images/langue.png');
 
 const HorizontalDisplay = styled.div`
   margin-left: 20px;
-  // margin-block-end: 20px;
-  // margin-block-start: -20px;
+  margin-block-end: 20px;
+  margin-block-start: -20px;
 `;
 
 const Container = styled.span`
@@ -25,7 +25,7 @@ const Container = styled.span`
   //margin-block-end: 50px;
   margin-left: 10px;
   flex-direction: row;
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 900px) {
     margin-top: 50px;
   }
 `;

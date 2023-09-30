@@ -33,7 +33,8 @@ const Wrapper = styled.div`
   }
   @media screen and (max-width: 920px) {
     margin-top: 130px;
-    width: 90%;
+    width: 100%;
+    flex-direction: column;
   }
 `;
 
@@ -48,8 +49,9 @@ export const ArrowRightWrapper = styled.div`
   right: -10px;
   top: 0;
   z-index: 1;
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 900px) {
     width: 30px;
+    flex-direction: column;
     display: none;
   }
 `;
@@ -60,7 +62,6 @@ export const ArrowLeftWrapper = styled(ArrowRightWrapper)`
 `;
 export const ArrowRight = styled.div`
   cursor: pointer;
-
   //border: 1px solid ${colors.lilac};
   border-radius: 60px;
   background-color: ${colors.lilac};
@@ -87,21 +88,9 @@ const PlayIcon = styled(Image)`
   height: auto;
 `;
 
-// const CourseName = styled.div`
-//   color: var(--black-grey, #191919);
-//   font-size: 30px;
-//   font-weight: 100;
-//   margin-left: -40px;
-//   text-transform: uppercase;
-//   margin-bottom: 20px;
-//   @media screen and (max-width: 500px) {
-//     font-size: 20px;
-//   }
-// `;
-
 const CourseName = styled(Text)`
   height: 100px;
-  letter-spacing: 2px;
+  //letter-spacing: 2px;
   font-size: 30px;
   font-weight: 100;
   text-transform: uppercase;
@@ -119,31 +108,20 @@ const CoachName = styled.div`
   line-height: 94.023%;
 `;
 
-const CardRight = styled.div`
-  width: 700px;
+  const CoverImage = styled.img`
+  width: auto;
   height: 500px;
-  margin-left: -350px;
-  background: url(${(props) => props.img});
+  margin-left: -100px;
+  background-image: url();
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  background-position-x: center;
-  background-position-y: center;
-  background-position: bottom, right;
-  border-radius: 0px 14px 14px 0px;
-  `;
-
-  const CoverImage = styled.img`
-  // width: 100%;
-  // height: 100%;
-  // max-width: 204px;
-  // max-height: 200px;
-  width: 700px;
-  height: 500px;
-  margin-left: -350px;
-  background-image: url();
   border-radius: 0px 14px 14px 0px;
   bottom: 32, 2%;
+  @media screen and (max-width: 900px) {
+    width: 100%;
+    margin-left: 0;
+  }
 `;
 
   const Button = styled.button`
@@ -155,31 +133,36 @@ const CardRight = styled.div`
     border: 1px solid var(--rose, #E21680);
     background: var(--rose, #E21680);
     margin-top: 130px;
+    color: #fff;
+    @media screen and (max-width: 900px) {
+      margin-top: 0;
+    }
 `;
 
 const FullWrapper = styled.div`
-  // max-width: 95%;
-  // height: 500px;
-  // display: flex;
-  // position: relative;
-  // margin: auto;
-  // justify-content: center;
-  // align-items: flex-start;
-  // gap: 10px;
-  // border-radius: 14px;
-  // border: 1px solid var(--dark-grey-50, #C5C5C9);
-  // background: var(--white, #FFF);
-  // //margin-left: 100px;
-  // margin-top: 30px;
-  // border-radius: 14px 14px 14px 14px;
-
   width: 95%;
   margin-left: 80px;
   display: flex;
   border-radius: 14px 14px 14px 14px;
   margin: auto;
-  @media screen and (max-width: 95%) {
-    box-shadow: 0px 0px 0px 0px;
+  @media screen and (max-width: 900px) {
+    margin-top: 30px;
+    flex-direction: column;
+  }
+`;
+
+const Decription = styled.div`
+  display: flex;
+  width: 330px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex: 1 0 0;
+  align-self: stretch;
+  margin-top:50px
+  @media screen and (max-width: 900px) {
+    //margin-top: 30px;
+    display: flex;
 
   }
 `;
@@ -193,20 +176,13 @@ function HomepageCarousel({ courses, onCourseClick }) {
             <span>{[index+1]+'/'+[courses?.length]}</span>
             <span className='category'>{course.category?.name}</span>
           </div>
-          <div className='decription'>
+          <Decription>
             <CoachName>{fullName(course.coach)}</CoachName>
-            <CourseName>{course.name}</CourseName>
+            <CourseName> {course.name}</CourseName>
             <Button onClick={() => onCourseClick(course)}>En savoir plus</Button>
-          </div>
-          {/* <div className='foot'>
-            <div className="pagination">
-              {courses?.map((course,index) =>
-              <span className='a' onClick={() => onCourseClick(course)}>{index+1}</span>)}
-            </div>
-          </div> */}
+          </Decription>
         </div>
-        {/* <CardRight img={BASE_URL + course.photoUrl}/> */}
-        <CoverImage style={{ maxWidth: '60%' }} src={`${BASE_URL}${course.photoUrl}`} />
+        <CoverImage src={`${BASE_URL}${course.photoUrl}`} />
       </FullWrapper>
     </div>
   );

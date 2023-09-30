@@ -74,14 +74,6 @@ const InfoWrapper = styled.div`
   padding-bottom: 10px;
 `;
 
-// const IconWrapper = styled.div`
-//   display: flex;
-//   align-items: center;
-//   width: 25px;
-//   height: 25px;
-//   //cursor: ${(props) => (props.clickable ? 'pointer' : 'not-allowed')};
-//   margin-right: 10px;
-// `;
 const LikeWrapper = styled(FlexRow)`
   position: sticky;
   align-items: end;
@@ -89,6 +81,7 @@ const LikeWrapper = styled(FlexRow)`
   margin-bottom: 8px;
   //flex-direction: column;
 `;
+
 const LikeCounter = styled(Text)`
   font-size: 16px;
   font-weight: 700;
@@ -96,21 +89,6 @@ const LikeCounter = styled(Text)`
   margin-right: 20px;
   margin-left: 5px;
 `;
-// const Icon = styled.img`
-//   width: 20px;
-//   height: 20px;
-//   color:#E21680;
-// `;
-// const CategoryContainer = styled.div`
-//   display: flex;
-//   width: 100%;
-//   height: 100%;
-//   align-items: end;
-//   margin-left: 10px;
-//   margin-bottom: 10px;
-//   margin-top: -45px;
-//   //z-index: 1;
-// `;
 
 const Index = styled(Title)`
   text-transform: uppercase;
