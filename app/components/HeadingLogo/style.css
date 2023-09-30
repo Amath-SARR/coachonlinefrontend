@@ -18,4 +18,5 @@ li {
 .NavButtom:hover {
   background-color: #C2D469;
   color: white;
+  cursor: pointer;
 }

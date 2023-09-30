@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from 'react';
-import SubscriptionsSelectorProps from './subscriptions-selector.props';
+// import SubscriptionsSelectorProps from './subscriptions-selector.props';
 import styled from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -14,8 +14,8 @@ import SubscriptionCard from '../SubscriptionCard';
 import { Subscription } from '../../containers/Subscription/reducer.types';
 import useQuery from '../../hooks/useQuery';
 import { emptySubscription } from '../../containers/Subscription/SubscriptionChoicePage/emptySubscription';
-import { colors } from '../../utils/colors';
-import history, { navigateWithBackground, replaceWithBackground } from '../../utils/history';
+import history from '../../utils/history';
+import SubscriptionsSelectorFreeProps from './subscription-selector-free.props';
 
 const Wrapper = styled.div`
   display: flex;
@@ -66,7 +66,6 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     setSubscription,
     showFreePlan = true,
     item,
-
     selectedCard,
   } = props;
 
@@ -90,10 +89,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     const sortedByPrice = JSON.parse(JSON.stringify(subscription.availableSubscriptions))?.sort(
       (a, b) => b.amountPerMonth - a.amountPerMonth,
     );
-    // const withTrialDays = sortedByPrice?.filter((sub: Subscription) => sub.price.trialDays > 0);
-    // const noTrialDays = sortedByPrice?.filter(
-    //   (sub: Subscription) => !sub.price.trialDays || sub.price.trialDays === 0,
-    // );
+
     return (
       <>
         {showFreePlan && (

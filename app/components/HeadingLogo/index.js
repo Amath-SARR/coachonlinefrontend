@@ -407,7 +407,7 @@ function HeadingLogo({
 
     if (isLoggedIn) {
       return (
-        <FlexCenteredColumn style={{ marginRight: '10px' }}>
+        <FlexCenteredColumn style={{ marginLeft: -80 }}>
           <FlexRow
             onClick={() => history.push(profileRoute(auth.userInfo?.userRole))}
             style={{ alignItems: 'center', cursor: 'pointer' }}

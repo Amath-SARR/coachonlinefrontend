@@ -61,6 +61,7 @@ const Text = styled.p`
   word-break: keep-all;
   font-weight: 600;
   margin: 2px 3px;
+  cursor: 'pointer';
 `;
 const Categories = styled(FlexRow)`
   flex-wrap: wrap;
@@ -274,9 +275,6 @@ function CategoryDropdownSearch({
                 Etape 2: Maintenant sélectionnez la sous-catégorie pour affiner votre recherche,
                 sinon cliquez sur “Appliquer”
               </SubTitle>
-              {/* <CategoryItem style={{ background: 'black', color: '#fff', marginBlockEnd: 10 }}>
-                {category.name} x
-              </CategoryItem> */}
             </Categories>
             <Categories>
               {category?.children?.map((cat) => (
