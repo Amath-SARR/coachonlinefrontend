@@ -59,13 +59,20 @@ const Wrapper = styled(FlexColumn)`
   flex-direction: column;
   align-items: flex-start;
   gap: 70px;
+  width:100%;
   border-radius: 14px;
   border: 1px solid var(--opacity, rgba(140, 140, 148, 0.5));
   background: var(--white, #fff);
+   @media screen and (max-width: 920px) {
+    margin-top: 130px;
+    padding: 8px;}
 `;
 const Column = styled(FlexColumn)`
-  border-radius: 14px;
-  border: 1px solid var(--opacity, rgba(140, 140, 148, 0.5))
+width: 100%;
+  @media screen and (max-width: 920px) {
+    flex-direction: column;
+    width:80%;
+  }
 `;
 const Row = styled(FlexRow)`
   width: 100%;
@@ -118,6 +125,9 @@ const PlayerRow = styled.div`
   margin-bottom: 30px;
   @media screen and (max-width: 920px) {
     flex-direction: column;
+    gap:0px;
+    height:100%;
+    margin : 0px;
   }
 `;
 
@@ -151,35 +161,43 @@ const EpisodesColumn = styled.div`
     flex: unset;
     margin: auto;
     ::-webkit-scrollbar {
-      width: 2px;
+      width: 100%;
     }
   }
 `;
 
 const AutreFormation = styled.div`
   display: flex;
-  width:1450px;
   overflow:scroll;
   flex-direction: column;
   align-items: flex-start;
   gap: 32px;
+  width:100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const Row1 = styled.div`
-Frame 29
 display: flex;
 flex-direction: column;
 align-items: flex-start;
 gap: 12px;
 flex: 1 0 0;
-width: 1468px;
 border-bottom: 1px solid rgba(140, 140, 148, 0.50);
+  width:100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 
 `;
 const Row2 = styled.div`
-  overflow:hidden;
+  overflow:auto;
   display: flex;
   align-items: flex-start;
   gap: 20px;
+   @media screen and (max-width: 920px) {
+     height:700px;
+  }
 `;
 
 const OverFlow = styled.div`
@@ -189,8 +207,9 @@ const OverFlow = styled.div`
   align-items: flex-start;
   gap: 16px;
 
-  @media screen and (max-width: 900px) {
-    margin-left: 0px;
+  @media screen and (max-width: 920px) {
+     flex-direction: column;
+     width: 120%;
   }
 `;
 const CoursesColumn = styled(EpisodesColumn)`
@@ -206,7 +225,12 @@ const TextWhite = styled.p`
   }
 `;
 const CourseInfoWrapper = styled(RowToMobileColumn)`
+  display:flex;
   flex: 1;
+  width: 100%;
+  @media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const Title = styled(TextWhite)`
   align-self: stretch;
@@ -221,7 +245,7 @@ const Title = styled(TextWhite)`
   text-transform: uppercase;
   @media screen and (max-width: 920px) {
     margin-top: 15px;
-    font-size: 18px;
+    font-size: 40px;
   }
 `;
 const Title1 = styled(Title)`
@@ -279,12 +303,17 @@ const BioWrapper = styled.div`
     margin-bottom: 20px;
     }
 `;
-
+const CoursInfomation = styled.div`
+display : flex;
+width:100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
+`;
 const CourseDescription = styled(TextWhite)`
   flex: 1 0 0;
+  display : flex;
   color: var(--black-grey, #191919);
-  min-width: 400px;
-  max-width: 500px;
   max-height: 120px;
   min-height: 120px;
   overflow: hidden;
@@ -324,6 +353,10 @@ const TabBody = styled.div`
 const CommentWrapper = styled.div`
   width: 100%;
   margin-right: 40px;
+    width:100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const CourseDetails = styled.div`
   /*display: flex;
@@ -335,8 +368,10 @@ const CourseDetails = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width:100%;
+  justify-content: space-around;
   gap: 20px;
-  @media screen and (max-width: 900px) {
+  @media screen and (max-width: 920px) {
     flex-direction: column;
   }
 `;
@@ -450,17 +485,18 @@ const Container = styled.div`
 const Cadre = styled.div`
   display: flex;
   align-items: flex-start;
+  width:100%;
   gap: 20px;
 `;
 const Cadre1 = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  width:100%;
   gap: 20px;
 `;
 const Cadre2 = styled.div`
   display: flex;
-  width: 700px;
   height: 150px;
   padding: 16px;
   justify-content: center;
@@ -717,19 +753,25 @@ export function CoursePage({
             </CertificationButton>
           </CourseDetails>
 
-          <CourseInfo
-            course={homePage.selectedCourse}
-            onLikeToggle={onLikeToggle}
-            liked={homePage.selectedCourse.isLikedByMe}
-            episodeData={episodeData}
-            canLike={!!auth.authToken}
-            auth={auth}
-          />
+
+          <CoursInfomation>
+            <CourseInfo
+              course={homePage.selectedCourse}
+              onLikeToggle={onLikeToggle}
+              liked={homePage.selectedCourse.isLikedByMe}
+              episodeData={episodeData}
+              canLike={!!auth.authToken}
+              auth={auth}
+            />
+          </CoursInfomation>
+
+
           <Row1>
             <Title1>AUTRES FORMATIONS DE CE COACH</Title1>
             <SousTitle>Découvrez notre sélection de cours</SousTitle>
           </Row1>
           <AutreFormation>
+
             <Row2>
               {homePage.selectedCourse?.coach?.courses?.map((item, i) => (
                 <CourseListItem
@@ -755,13 +797,14 @@ export function CoursePage({
           </AutreFormation>
 
           <CourseInfoWrapper>
-            <Column style={{ flex: 3, width: width > 920 ? 'unset' : '100%' }}>
+            <Column style={{ flex: 3 }}>
               {/* <CourseInfo
                 course={homePage.selectedCourse}
                 onLikeToggle={onLikeToggle}
                 liked={homePage.selectedCourse.isLikedByMe}
                 episodeData={episodeData}
                 canLike={!!auth.authToken}
+                style={{ flex: 3, width: width > 920 ? 'unset' : '100%' }}
               /> */}
               <CommentWrapper>
                 <CommentTextParent>
@@ -804,6 +847,7 @@ export function CoursePage({
               </CommentWrapper>
             </Column>
           </CourseInfoWrapper>
+
         </Wrapper>
       </PageContainer>
     </div>

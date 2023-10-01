@@ -105,6 +105,7 @@ const Text = styled.p`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+  display:flex;
   @media screen and (max-width: 1024px) {
     font-size: 18px;
     margin-bottom: 20px;
@@ -119,8 +120,8 @@ const SousText = styled.p`
   font-style: normal;
   font-weight: 400;
   line-height: normal;
-  @media screen and (max-width: 1024px) {
-    font-size: 18px;
+  @media screen and (max-width: 920px) {
+    font-size: 10px;
     margin-bottom: 20px;
   }
 `;
@@ -135,6 +136,9 @@ const Footer = styled.div`
   justify-content: space-around;
   padding-top: 20px;
   padding-left: ${(props) => (props.withPannel ? '50px' : 'unset')};
+       @media screen and (max-width: 920px) {
+        gap:10px;
+  }
 `;
 const Section = styled.div`
   display: flex;
@@ -184,7 +188,8 @@ const ContactLink = styled.a`
   }
 `;
 
-const SectionTitle = styled.p`
+const SectionTitle = styled.div`
+  
   font-size: 16px;
   font-weight: bold;
   text-transform: uppercase;
@@ -196,9 +201,9 @@ const SectionTitle = styled.p`
 const IconsWrapper = styled.div`
   display: flex;
   width: 352px;
-  align-items: flex-end;
+  align-items: flex-start;
   gap: 24px;
-  @media screen and (max-width: 920px) {
+  @media screen and (max-width: 500px) {
     flex-direction: column;
   }
 `;
@@ -231,6 +236,10 @@ const Icon = styled.img`
   justify-content: center;
   align-items: center;
   flex-shrink: 0;
+     @media screen and (max-width: 920px) { 
+    width: 30px;
+    height: 30px;
+  }
 `;
 export const PageLoader = styled(ScreenLoader)`
   position: fixed;

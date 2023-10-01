@@ -20,6 +20,10 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+    width:100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 
 const TabsHeader = styled.div`

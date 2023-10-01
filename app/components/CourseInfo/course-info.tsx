@@ -29,7 +29,7 @@ const CoachPictureSize = 200;
 // width: 100%;
 const Wrapper = styled.div`
 display: flex;
-width: 1468px;
+width:100%;
 padding: 24px 24px 24px 16px;
 flex-direction: column;
 align-items: flex-end;
@@ -46,6 +46,9 @@ const Partie1 = styled.div`
 align-items: flex-start;
 gap: 56px;
 align-self: stretch;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const PartieTextCoach = styled.div`
 display: flex;

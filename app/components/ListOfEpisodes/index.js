@@ -99,6 +99,9 @@ const EpisodeItem = styled.div`
   gap: 16px;
   border-radius: 14px;
   background: var(--carte, #f4f4f6);
+    @media screen and (max-width: 920px) {
+    width:450px;
+  }
 `;
 const Title = styled(TextWhite)`
   /* font-weight: 600;
@@ -129,6 +132,9 @@ const Title = styled(TextWhite)`
   font-style: normal;
   font-weight: 500;
   line-height: normal;
+   @media screen and (max-width: 920px) {
+    font-size:14px;
+  }
 `;
 const Description = styled(TextWhite)`
   color: var(--black-grey, #191919);
@@ -170,7 +176,11 @@ const VideoIcon = styled.img`
   flex-shrink: 0;
   border-radius: 14px;
   background: url(<path-to-image>), lightgray 50% / cover no-repeat, #d9d9d9;
-`;
+   @media screen and (max-width: 920px) {
+    width:60px;
+    height: 50px;
+  }
+  `;
 const VideoDesc = styled.div`
   display: flex;
   padding-right: 0px;

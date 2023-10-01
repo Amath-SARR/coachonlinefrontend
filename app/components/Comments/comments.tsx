@@ -46,11 +46,13 @@ const CommentWrapper = styled.div`
   width: 100%;
   align-items: center;
   margin-bottom: 20px;
-
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const CommentParent = styled.div`
 display: flex;
-width: 1420px;
+width: 100%;
 padding: 32px;
 flex-direction: column;
 align-items: center;
@@ -58,7 +60,9 @@ gap: 16px;
 border-radius: 14px;
 border: 1px solid var(--dark-grey-50, #C5C5C9);
 background: var(--carte, #F4F4F6);
-
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const CommentWrapper1 = styled.div`
 display: flex;
@@ -77,13 +81,21 @@ line-height: normal;
 `;
 const CommentChild = styled.div`
 display: flex;
-width: 1250px;
-margin-left: 150px;
+width: 90%;
+margin-left: 100px;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+    width:70%;
+  }
 `;
 const InputChild = styled.div`
- display flex;
- width : 1400px;
- margin-left: 50px;
+ display : flex;
+ width : 85%;
+ margin-left: 100px;
+ @media screen and (max-width: 920px) {
+    flex-direction: column;
+    70%
+  }
 `;
 const ButtonReponse = styled.div`
 display: flex;
@@ -137,6 +149,10 @@ const EmojiWrapper = styled.div`
 `;
 const Column = styled(FlexColumn)`
   flex: 1;
+  width: 100%;
+@media screen and (max-width: 920px) {
+    flex-direction: column;
+  }
 `;
 const Row = styled(FlexRow)`
 
