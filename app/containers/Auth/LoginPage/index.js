@@ -14,25 +14,20 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { createStructuredSelector } from 'reselect';
 import { toast } from 'react-toastify';
-// import { FormattedMessage } from 'react-intl';
 import makeSelectAuth from '../selectors';
 import { loginGoogleAction, logIntoAccountAction } from '../actions';
 import { Ia, Obama } from '../../../components/messages';
 import { ModalHeaderDescription, ModalHeaderTitle } from '../../../components/Modal';
 import useWindowSize from '../../../hooks/useWindowSize';
 import history, { replaceFromBackground } from '../../../utils/history';
-// import Label from '../../../components/Label';
 import { authModalStyles, InnerWrapper } from '../index';
 import { yupValidators } from '../../../utils/validate';
 import LoginForm from '../../../components/LoginForm/login-form';
-// import { FlexRow } from '../../../global-styles';
-// import { Display } from 'styled-icons/bootstrap';
 import styled from 'styled-components';
 import { Carousel } from 'react-responsive-carousel';
 
 const LogoForm = require('../../../../app/images/images/logo1.png');
 const Yoga = require('../../../../app/images/images/yoga.png');
-const Union = require('../../../../app/images/images/union.png');
 
 const Container = styled.div`
   position: relative;
@@ -158,25 +153,6 @@ export function LoginPage({ logIntoAccount, loginGoogle, auth }) {
           <Container>
             <img src={Yoga} alt="" style={{ width: 500, height: 500 }} />
             <Centered>Yoga Iyengar de tous les jours</Centered>
-            <Button1>
-              <p>Découvir</p>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                className="bi bi-arrow-up-right"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  fillRule="evenodd"
-                  d="M14 2.5a.5.5 0 0 0-.5-.5h-6a.5.5 0 0 0 0 1h4.793L2.146 13.146a.5.5 0 0 0 .708.708L13 3.707V8.5a.5.5 0 0 0 1 0v-6z"
-                />
-              </svg>
-            </Button1>
-          </Container>
-          <Container>
-            <img src={Union} alt="" style={{ width: 500, height: 500 }} />
             <Button1>
               <p>Découvir</p>
               <svg

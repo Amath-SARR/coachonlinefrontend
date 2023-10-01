@@ -4,16 +4,6 @@
   flex-shrink: 0;
 }
 
-/* Container holding the image and the text */
-.container {
-  position: relative;
-  text-align: center;
-  text-transform: uppercase;
-  color: white;
-  margin-block-end: 50px;
-  margin-left: 10px;
-}
-
 /* Centered text */
 .centered {
   position: absolute;

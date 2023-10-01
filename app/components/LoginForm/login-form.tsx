@@ -12,7 +12,7 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 import { compose } from '@reduxjs/toolkit';
 import Input from '../Input';
-import messages, { Yoga } from '../messages';
+import messages from '../messages';
 import Label from '../Label';
 import { ActionButton } from '../../containers/Auth';
 import history from '../../utils/history';

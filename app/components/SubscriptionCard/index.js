@@ -140,7 +140,7 @@ function SubscriptionCard({ item, onSubscriptionSelect, selectedCard }) {
 
   const selectSubscription = (item) => {
     !!onSubscriptionSelect && onSubscriptionSelect(item);
-    console.log(item);
+    //console.log(item);
   };
 
   ///

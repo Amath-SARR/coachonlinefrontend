@@ -24,16 +24,30 @@ import { readFromStorage } from '../../utils/storage';
 import useQuery from '../../hooks/useQuery';
 import { UserRole } from '../../containers/Auth/reducer.types';
 import Video from '../../images/video/CoachOnline-Presentation.mp4';
-import CardsHomePage from '../CardsHomePage/cards-home-page';
 import './style.css';
 const ImgAceuil = require('../../images/images/imgAcueil.png');
-const Union = require('../../images/images/union.png');
 
 const Wrapper = styled.div`
   width: 85%;
-  margin-left: 80px;
+  margin-left: 60px;
   margin: auto;
   margin-top: 30px;
+  @media screen and (max-width: 900px) {
+    margin: auto
+  }
+`;
+
+const CardWrapper = styled.div`
+margin-left: 50px;
+margin-top: 50px;
+border-radius: 8px;
+border: 1px solid var(--dark-grey-50, #C5C5C9);
+background: var(--white, #FFF);
+display: flex;
+@media screen and (max-width: 900px) {
+  margin-top: 90px;
+  flex-direction: column;
+}
 `;
 
 const Videoplayer = styled.video`
@@ -47,10 +61,10 @@ const Videoplayer = styled.video`
 const VideoWrapper = styled.div`
   margin-left: 100px;
   margin-top: 50px;
-  @media screen and (max-width: 520px) {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 50px;
+  width: 90%;
+  @media screen and (max-width: 900px) {
     margin-bottom: 50px;
+    width: 100%;
   }
 `;
 
@@ -62,7 +76,6 @@ const Title = styled(Text)`
   @media screen and (max-width: 500px) {
     font-size: 20px;
   }
-
 `;
 
 const Title2 = styled(Text)`
@@ -106,11 +119,9 @@ const ImageAccueil = styled.div`
   height: 450px;
   margin-left:30px;
   border-radius: 0px 14px 14px 0px;
-  @media screen and (max-width: 700px) {
-    width: 200px;
-    border-left: none;
-    justify-content: center;
-    border-bottom: 1px solid white;
+  @media screen and (max-width: 900px) {
+    margin: auto;
+    width: 100%;
   }`;
 
   const InfoWelcome = styled.div`
@@ -122,21 +133,12 @@ const ImageAccueil = styled.div`
     gap: 57px;
     flex-shrink: 0;
     border-radius: 8px 0px 0px 8px;
-    backdrop-filter: blur(2px);`
-
-  const CardWrapper = styled.div`
-  margin-left: 50px;
-  margin-top: 50px;
-  border-radius: 8px;
-  border: 1px solid var(--dark-grey-50, #C5C5C9);
-  background: var(--white, #FFF);
-  display: flex;
-  @media screen and (max-width: 95%;) {
-    box-shadow: 8px 8px 8px 8px;
-    margin-bottom: 50px;
-  }
-`;
-
+    backdrop-filter: blur(2px);
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+      margin-top: 80px;
+    }
+    `;
 const Links = styled.a`
   text-decoration: none;
 `;

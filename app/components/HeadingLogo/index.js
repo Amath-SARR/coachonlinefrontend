@@ -407,7 +407,7 @@ function HeadingLogo({
 
     if (isLoggedIn) {
       return (
-        <FlexCenteredColumn style={{ marginRight: '10px' }}>
+        <FlexCenteredColumn style={{ marginLeft: -80 }}>
           <FlexRow
             onClick={() => history.push(profileRoute(auth.userInfo?.userRole))}
             style={{ alignItems: 'center', cursor: 'pointer' }}
@@ -458,9 +458,10 @@ function HeadingLogo({
               history.replace('/auth/login', {
                 background: location,
               });
-              console.log(location);
+              //console.log(location);
               setModalVisible(false);
             }}
+            className='NavButtom'
           >
             Connexion
           </li>
@@ -473,10 +474,11 @@ function HeadingLogo({
               //console.log(location);
               setModalVisible(falses);
             }}
+            className='NavButtom'
           >
             Essai Gratuit
           </li>
-          <li color={colors.mainPink} onClick={() => onRegisterButtonClick()}>
+          <li color={colors.mainPink} onClick={() => onRegisterButtonClick()} className='NavButtom'>
             S'abonner
           </li>
         </ul>

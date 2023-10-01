@@ -1,5 +1,5 @@
 import React, { memo, useEffect } from 'react';
-import SubscriptionsSelectorProps from './subscriptions-selector.props';
+// import SubscriptionsSelectorProps from './subscriptions-selector.props';
 import styled from 'styled-components';
 import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
@@ -14,8 +14,8 @@ import SubscriptionCard from '../SubscriptionCard';
 import { Subscription } from '../../containers/Subscription/reducer.types';
 import useQuery from '../../hooks/useQuery';
 import { emptySubscription } from '../../containers/Subscription/SubscriptionChoicePage/emptySubscription';
-import { colors } from '../../utils/colors';
-import history, { navigateWithBackground, replaceWithBackground } from '../../utils/history';
+import history from '../../utils/history';
+import SubscriptionsSelectorFreeProps from './subscription-selector-free.props';
 
 const Wrapper = styled.div`
   display: flex;
@@ -25,6 +25,7 @@ const Wrapper = styled.div`
   width: 100%;
   flex-wrap: wrap;
   position: relative;
+  left: 150px;
 `;
 
 const Text = styled.p`
@@ -42,17 +43,17 @@ const Text = styled.p`
 const Subtext = styled.p`
   font-size: 18px;
   text-align: start;
-  color: ${colors.lilac};
+  color: var(--rose, #E21680);
   @media screen and (max-width: 920px) {
     font-size: 13px;
   }
 `;
 const Button = styled.button`
   width: 120px;
-  background-color: ${colors.mainGreen};
+  background-color: var(--rose, #E21680);
   color: white;
   padding: 10px;
-  border: none; 
+  border: none;
   border-radius: 10px;
 `;
 
@@ -65,7 +66,6 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     setSubscription,
     showFreePlan = true,
     item,
-
     selectedCard,
   } = props;
 
@@ -89,10 +89,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     const sortedByPrice = JSON.parse(JSON.stringify(subscription.availableSubscriptions))?.sort(
       (a, b) => b.amountPerMonth - a.amountPerMonth,
     );
-    // const withTrialDays = sortedByPrice?.filter((sub: Subscription) => sub.price.trialDays > 0);
-    // const noTrialDays = sortedByPrice?.filter(
-    //   (sub: Subscription) => !sub.price.trialDays || sub.price.trialDays === 0,
-    // );
+
     return (
       <>
         {showFreePlan && (
@@ -114,7 +111,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
     );
   };
   return (
-    <>
+    <Wrapper>
       <Text>
         Félicitation, vous allez vous abonner GRATUITEMENT pour visionner pendant 7 jours les
         premières vidéos de chacune de nos formations.
@@ -127,7 +124,7 @@ function SubscriptionsSelectorFree(props: SubscriptionsSelectorFreeProps) {
       </Text>
       <Button onClick={() => handleClick()}>Confirmer</Button>
       {/* <Subscriptions /> */}
-    </>
+    </Wrapper>
   );
 }
 

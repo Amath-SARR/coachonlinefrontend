@@ -13,6 +13,7 @@ export const colors = {
   mainPink: '#E5137D',
   secondaryPink: '#FF70A6',
   mainGreen: '#C2D469',
+  mainRose: '#E21680',
   mainGold: '#FBC95F',
   mainOrange: '#FC9A56',
   mainBlue: '#3CB6E3',

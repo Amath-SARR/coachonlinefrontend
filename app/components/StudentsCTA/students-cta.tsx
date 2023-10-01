@@ -12,15 +12,15 @@ import Video from '../../images/video/Coachs-Online-Promo06.mp4';
 import Button from '../Button';
 
 const Wrapper = styled.div`
-  width: 100%;
+  width: auto;
   display: flex;
   position:relative;
   //flex-direction: column;
   justify-content: center;
   background-color: #fff;
   margin-top: 60px;
-  @media screen and (max-width: 100%) {
-    height: 700px;
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
   }
 `;
 
@@ -29,32 +29,31 @@ const Title = styled.p`
   font-weight: 100;
   text-transform: uppercase;
   margin-bottom: 20px;
-  @media screen and (max-width: 500px) {
+  width: 320px;
+  @media screen and (max-width: 900px) {
     font-size: 20px;
   }
 `;
 const Text = styled.p`
   font-size: 10px;
   font-weight: 20 ;
-  @media screen and (max-width: 500px) {
-    font-size: 15px;
+  //width: 320px;
+  @media screen and (max-width: 900px) {
+    font-size: 8px;
   }
 `;
 const Videoplayer = styled.video`
   width: 500px;
   border: 2px solid ${colors.lilac};
   border-radius: 10px;
-  @media screen and (max-width: 920px) {
-    width: 320px;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 10px;
+    width: 300px;
+    height: auto;
   }
 `;
 const VideoWrapper = styled.div`
   margin: auto;
-  @media screen and (max-width: 520px) {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 50px;
-    margin-bottom: 50px;
-  }
 `;
 const RegisterButton = styled(Button)`
   width: 200px;
@@ -78,15 +77,20 @@ const ButtonWrapper = styled.div`
 
 const CardLeft = styled.div`
   margin-left: 15px;
-  @media screen and (max-width: 520px) {
-    box-shadow: 0px 0px 0px 0px;
-    margin-top: 50px;
-    margin-bottom: 50px;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 10px;
+    width: 300px;
+    height: auto;
   }
 `;
 
 const CardRight = styled.div`
   margin-left: 100px;
+  @media screen and (max-width: 900px) {
+    margin-bottom: 10px;
+    width: 300px;
+    height: auto;
+  }
 `;
 
 function StudentsCta(props) {
